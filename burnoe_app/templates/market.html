@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %} Burnoe.kz - продать {% endblock title %}
+
+{% block mycss %}
+<style>
+
+</style>
+{% endblock mycss %}
+
+{% block content %}
+    <div class="text-center">
+        <div>Подать объявление бесплатно!</div>
+        <div>8-747-112-6303</div>
+    </div>
+
+    <div class="my-4 d-flex hide-scroll-bar">
+        <div class="p-1 ml-3 mr-md-3 rounded text-nowrap" style="background-color: #e6e6e6">Красота</div>
+        <div class="p-1 ml-3 mr-md-3 rounded text-nowrap" style="background-color: #e6e6e6">Для авто</div>
+        <div class="p-1 ml-3 mr-md-3 rounded text-nowrap" style="background-color: #e6e6e6">Ремонт</div>
+        <div class="p-1 ml-3 mr-md-3 rounded text-nowrap" style="background-color: #e6e6e6">Здоровье</div>
+    </div>
+
+    <div class="">
+        <div class="row">
+            {% for foo in '1234567891' %}
+                <div class="col-12 col-md-6 my-4 d-sm-flex" style="max-width: 680px">
+                    <div style="min-width: 130px;">
+                        <img src="https://via.placeholder.com/130x130" class="img-fluid" />
+                        <img src="https://via.placeholder.com/130x130" class="img-fluid d-sm-none" />
+                        <img src="https://via.placeholder.com/50x50?text=+3" class="img-fluid d-sm-none" />
+                    </div>
+                    <div class="px-2">
+                        <div class="">{% lorem 30 w random %}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <nav>
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#">
+                        <span>&laquo;</span>
+                    </a>
+                </li>
+                {% for num in '12345' %}
+                    <li class="page-item">
+                        <a href="#" class="page-link">{{ num }}</a>
+                    </li>
+                {% endfor %}
+                <li class="page-item">
+                    <a class="page-link" href="#">
+                        <span>&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+{% endblock content %}

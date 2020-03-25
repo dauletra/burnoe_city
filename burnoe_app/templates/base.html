@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+    {% block mycss %}{% endblock mycss %}
+    <style>
+        .hide-scroll-bar {
+            overflow-y: scroll;
+            overflow-x: scroll;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        }
+        .hide-scroll-bar::-webkit-scrollbar { /* WebKit */
+            width: 0;
+            height: 0;
+        }
+    </style>
+
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <div class="container-fluid p-0" style="max-width: 860px; font-family: Arial, Tahoma, 'Bitstream Vera Sans', sans-serif">
+        <!-- HEADER -->
+        <div class="navbar navbar-light" style="background-color: rgba(106,201,99,0.29);">
+            <a class="navbar-brand text-success font-weight-bolder" style="" href="/">Burnoe.kz</a>
+            <div class="d-flex align-self-center">
+                <span class="mr-2">
+                    <img src="{% static 'icons/001-instagram.svg' %}" width="20rem" />
+                </span>
+                <img class="mr-1" src="{% static 'icons/002-whatsapp.svg' %}" width="20rem" />
+                <span class=" text-success font-weight-bold">+7 747 112 6303</span>
+            </div>
+        </div>
+
+        <!-- CONTENT -->
+        {% block content %}{% endblock content %}
+    </div>
+
+    <!-- FOOTER -->
+    <div class="py-5 text-center small" style="height: 100px">
+        Бурное 2020 | vk.com/dauletra
+    </div>
+
+
+    <script src="{% static 'js/jquery-3.4.1.js' %}" ></script>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+
+    {% block myscript %}{% endblock myscript %}
+</body>
+</html>

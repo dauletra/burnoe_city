@@ -8,18 +8,18 @@
     <div class="my-4">
 {#        <div>Горячие контакты</div>#}
         <div class="position-relative">
-            <div id="hot-container" class="d-flex flex-md-wrap  hide-scroll-bar">
+            <div id="hot-container" class="d-flex hide-scroll-bar">
                 <div class="position-absolute d-md-none" style="top: 47%; left: .5rem;">
                     <button id="hot-slide-back" class="btn btn-primary btn-sm d-none">&lt;</button>
                 </div>
                 <div class="position-absolute d-md-none" style="top: 47%; right: .5rem;">
                     <button id="hot-slide" class="btn btn-primary btn-sm">&gt;</button>
                 </div>
-                {% for foo in '12345' %}
+                {% for contact in contacts %}
                     <div class="border border-success small mr-3 text-center" style="width: 130px; min-width: 130px">
-                        <div class="overflow-hidden" style="white-space: nowrap; color: darkgreen">Даулет такси</div>
-                        <div class="overflow-hidden" style="white-space: nowrap; color: darkgreen">300 тг</div>
-                        <div class="overflow-hidden" style="white-space: nowrap; color: green;">8747 112 63 03</div>
+                        <div class="overflow-hidden" style="white-space: nowrap; color: darkgreen">{{ contact.name }}</div>
+                        <div class="overflow-hidden" style="white-space: nowrap; color: darkgreen">{{ contact.price }}</div>
+                        <div class="overflow-hidden" style="white-space: nowrap; color: green;">{{ contact.phone }}</div>
                     </div>
                 {% endfor %}
             </div>

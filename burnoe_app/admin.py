@@ -6,7 +6,7 @@ from .models import (Contact,
 
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'price', 'phone', 'created_date', 'modified_date']
+    list_display = ['id', 'name', 'price', 'phone', 'created_date', 'last_date', 'is_active']
     list_display_links = ['id', 'name']
 
 

@@ -1,7 +1,13 @@
 from django.db import models
+from django.utils.timezone import now
 from cloudinary.models import CloudinaryField
 
+from datetime import timedelta
 # todo remove images from cloudinary when object deleted
+
+
+def after():
+    return now() + timedelta(days=7)
 
 
 class Contact(models.Model):
@@ -10,6 +16,12 @@ class Contact(models.Model):
     phone = models.CharField(max_length=17, verbose_name='Телефон')
     created_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     modified_date = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
+    last_date = models.DateTimeField(verbose_name="Дата удаления", default=after)
+
+    def is_active(self):
+        return self.last_date > now()
+
+    is_active.boolean = True
 
     def __str__(self):
         return self.name or self.id

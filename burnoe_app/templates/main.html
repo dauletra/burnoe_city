@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Burnoe.kz - рекламно-информационный портал Жуалынского района{% endblock title %}
+
+{% block content %}
+    <!-- HOT CONTACTS -->
+    <div class="my-4">
+{#        <div>Горячие контакты</div>#}
+        <div class="position-relative">
+            <div id="hot-container" class="d-flex flex-md-wrap  hide-scroll-bar">
+                <div class="position-absolute d-md-none" style="top: 47%; left: .5rem;">
+                    <button id="hot-slide-back" class="btn btn-primary btn-sm d-none">&lt;</button>
+                </div>
+                <div class="position-absolute d-md-none" style="top: 47%; right: .5rem;">
+                    <button id="hot-slide" class="btn btn-primary btn-sm">&gt;</button>
+                </div>
+                {% for foo in '12345' %}
+                    <div class="border border-success small mr-3 text-center" style="width: 130px; min-width: 130px">
+                        <div class="overflow-hidden" style="white-space: nowrap; color: darkgreen">Даулет такси</div>
+                        <div class="overflow-hidden" style="white-space: nowrap; color: darkgreen">300 тг</div>
+                        <div class="overflow-hidden" style="white-space: nowrap; color: green;">8747 112 63 03</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <div>Подать объявление бесплатно!</div>
+        <div>8-747-112-6303</div>
+    </div>
+
+    <!-- МАРКЕТ -->
+    <div class="my-4">
+        <div class="my-3 ml-2 text-uppercase">
+            Маркет <span class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap text-white text-center" style="background-color: rgb(54,54,54); width: 2rem;">☆</span>
+        </div>
+        <div class="mb-3 d-flex hide-scroll-bar d-md-none" style="font-size: 0.9rem;">
+            <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap text-white text-center" style="background-color: rgb(54,54,54); width: 2rem;">☆</div>
+            <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap" style="background-color: rgb(221,221,221)">Электроника</div>
+            <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap" style="background-color: rgb(221,221,221)">Автомобиль</div>
+            <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap" style="background-color: rgb(221,221,221)">Животные</div>
+            <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap" style="background-color: rgb(221,221,221)">Мебель</div>
+            <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap" style="background-color: rgb(221,221,221)">Инструмент</div>
+            <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap" style="background-color: rgb(221,221,221)">Еще</div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-12 col-md-9 order-2" style="">
+                {% for foo in '1234' %}
+                    <div class="mb-4 row no-gutters">
+                        <div class="col-10 order-2 pl-2 ">
+                            <div class="" style="font-size: 0.9rem;">
+                                {% lorem 20 w random %}
+                            </div>
+                            <div class="small text-muted">01.05.20 17.30</div>
+                        </div>
+                        <div class="col-2 order-1" style="">
+                            <div class="position-relative" >
+                                <img src="https://via.placeholder.com/100x100" class="img-fluid rounded" />
+                                <img src="{% static 'icons/zoom-in.svg' %}" width="20rem" class="position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%)" />
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="text-center text-muted">
+                    <u>тағы (57 хабарландыру)</u>
+                </div>
+            </div>
+            <div class="d-none d-md-block col-12 col-md-3 border order-1">
+                <p>Категории</p>
+                <div>Электроника</div>
+                <div>Автомобиль</div>
+                <div>Животные</div>
+                <div>Мебель</div>
+                <div>Инструмент</div>
+                <div>Овощи</div>
+                <div>Продукты</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="my-4">
+        <div class="my-3 ml-2 text-uppercase">
+            Қызмет көрсету <span class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap text-white text-center" style="background-color: rgb(54,54,54); width: 2rem;">☆</span>
+        </div>
+        <div class="mb-3 d-flex hide-scroll-bar d-md-none" style="font-size: 0.9rem;">
+            <div class="p-1 ml-2 mr-md-3 rounded text-nowrap text-white text-center" style="background-color: rgb(40, 150, 255); width: 2rem;">☆</div>
+            <div class="p-1 ml-2 mr-md-3 rounded text-nowrap" style="background-color: rgba(40,150,255,0.21)">Красота</div>
+            <div class="p-1 ml-2 mr-md-3 rounded text-nowrap" style="background-color: rgba(40,150,255,0.21)">Для авто</div>
+            <div class="p-1 ml-2 mr-md-3 rounded text-nowrap" style="background-color: rgba(40,150,255,0.21)">Ремонт</div>
+            <div class="p-1 ml-2 mr-md-3 rounded text-nowrap" style="background-color: rgba(40,150,255,0.21)">Здоровье</div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-12 col-md-9 order-2" style="">
+                {% for foo in '1234' %}
+                    <div class="mb-4 row no-gutters">
+                        <div class="col-10 order-2 pl-2 ">
+                            <div>
+                                {% lorem 4 w random %}
+                            </div>
+                            <div class="small text-muted">
+                                <span class="mr-2">8 747 112 63 03</span>
+                                <span>БМУ, Б.Сафинов көшесі</span>
+                            </div>
+                            <div class="" style="font-size: 0.9rem;">
+                                {% lorem 20 w random %}
+                            </div>
+                        </div>
+                        <div class="col-2 order-1" style="">
+                            <div class="position-relative" >
+                                <img src="https://via.placeholder.com/100x100" class="img-fluid rounded" />
+                                <img src="{% static 'icons/zoom-in.svg' %}" width="20rem" class="position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%)" />
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="text-center text-muted">
+                    <u>тағы (62 хабарландыру)</u>
+                </div>
+            </div>
+            <div class="d-none d-md-block col-md-3 order-1 border">
+                <p>Категории</p>
+                <div>Красота</div>
+                <div>Для авто</div>
+                <div>Ремонт</div>
+                <div>Прокат товаров</div>
+                <div>Еда</div>
+                <div>Здоровье</div>
+                <div>Мероприятии</div>
+                <div>Развлечение</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

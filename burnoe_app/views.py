@@ -7,5 +7,10 @@ import cloudinary.api
 
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'main.html')
 
+def market(request):
+    return render(request, 'market.html')
+
+def services(request):
+    return render(request, 'services.html')

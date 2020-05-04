@@ -10,6 +10,10 @@ def after():
     return now() + timedelta(days=7)
 
 
+def after_advert():
+    return now() + timedelta(days=21)
+
+
 class Contact(models.Model):
     name = models.CharField(max_length=17, verbose_name='Название')
     price = models.CharField(max_length=17, verbose_name='Цена')
@@ -58,12 +62,19 @@ class Advert(models.Model):
     content = models.TextField(verbose_name='Описание')
     created_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     modified_date = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
+    last_date = models.DateTimeField(verbose_name='Дата удаления', default=after_advert)
+
+    def is_active(self):
+        return self.last_date > now()
+
+    is_active.boolean = True
 
     def __str__(self):
         return self.title or self.id
 
     class Meta:
         abstract = True
+        ordering = ['-created_date']
 
 
 # ----
@@ -71,6 +82,9 @@ class Advert(models.Model):
 class Service(Advert):
     contact = models.CharField(max_length=100, verbose_name='Телефон и адрес')
     category = models.ForeignKey(to=ServiceCategory, on_delete=models.PROTECT, verbose_name='Категория')
+
+    class Meta(Advert.Meta):
+        pass
 
 
 class ServicePhoto(models.Model):
@@ -82,6 +96,9 @@ class ServicePhoto(models.Model):
 
 class Product(Advert):
     category = models.ForeignKey(to=ProductCategory, on_delete=models.PROTECT, verbose_name='Категория')
+
+    class Meta(Advert.Meta):
+        pass
 
 
 class ProductPhoto(models.Model):

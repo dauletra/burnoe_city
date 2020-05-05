@@ -5,5 +5,7 @@ register = template.Library()
 
 @register.filter
 def cloud_image(value):
-    return value.build_url(width=100, height=100, crop="thumb")
+    if value is None:
+        return "https://via.placeholder.com/100x100?text=Без фото"
+    return value.image.build_url(width=100, height=100, crop="thumb")
 

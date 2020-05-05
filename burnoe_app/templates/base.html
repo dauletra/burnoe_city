@@ -36,6 +36,19 @@
                 <span class=" text-success font-weight-bold">+7 747 112 6303</span>
             </div>
         </div>
+        <!-- MENU -->
+        <div class="mb-2">
+            <ul class="nav bg-light text-uppercase">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'products' %}">Маркет</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'services' %}">Услуги</a>
+                </li>
+            </ul>
+        </div>
+
+        {% block contacts %}{% endblock %}
 
         <!-- CONTENT -->
         {% block content %}{% endblock content %}

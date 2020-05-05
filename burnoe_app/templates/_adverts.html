@@ -1,0 +1,65 @@
+{% load static %}
+{% load cloud_image %}
+{% load get_first_photo %}
+
+<div class="my-4">
+    <div class="my-2 py-2 row no-gutters" style="background-color: inherit;">
+        <div class="pl-4 col-3">
+{#            <a href="{% url name|add:'s' %}" class="btn btn-link">{{ name_kaz }}</a>#}
+            <span>{{ name_kaz }}</span>
+        </div>
+        <div class="col-9 text-muted" style="font-size: .9rem">{{ advert_count }} объявлении</div>
+    </div>
+    <div class="mb-3 d-flex hide-scroll-bar d-md-none" style="font-size: 0.9rem;">
+        <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap text-white text-center" style="background-color: rgb(54,54,54); width: 2rem;">☆</div>
+        {% for category in categories %}
+            <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap" style="background-color: rgb(221,221,221)">{{ category.name }}</div>
+        {% endfor %}
+
+    </div>
+    <div class="row no-gutters">
+        <div class="d-none d-md-block col-12 pl-4 col-md-3 order-1">
+{#            <p>Категории</p>#}
+            {% for category in categories %}
+                <div class="mb-2 text-uppercase" style="font-size: 0.9rem;">
+                    <a href="{% url name|add:'s' %}?category={{ category.id }}">{{ category.name }}</a>
+                </div>
+            {% endfor %}
+
+        </div>
+        <div class="col-12 col-md-9 order-2" style="">
+            {% for advert in adverts %}
+                <!-- Modal -->
+                <!-- The Modal/Lightbox -->
+                <div class="mb-4 row no-gutters">
+                    <div class="col-2 order-1" style="">
+                        <div class="position-relative" >
+                            <img src="{{ advert|get_first_photo:name|cloud_image }}" width="100" height="100" class="img-fluid rounded open-js" />
+                            <img src="{% static 'icons/zoom-in.svg' %}" width="20rem" class="position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%)" />
+                        </div>
+                    </div>
+                    <div class="col-10 order-2 pl-2 ">
+                        {% if name == 'service' %}
+                            <div>{{ advert.title }}</div>
+                            <div class="small text-muted">
+                                <span class="mr-2">{{ advert.contact }}</span>
+                            </div>
+                        {% endif %}
+                        <div class="" style="font-size: 0.9rem;">
+                            {{ advert.content|slice:"0:100" }}
+                            <span class="d-none d-sm-inline">{{ advert.content|slice:"101:" }}</span>
+                            <span class="continue-js text-muted d-sm-none">...жалғасы</span>
+                        </div>
+                        <div class="small text-muted">{{ advert.created_date }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+            {% if main_page %}
+                <div class="text-center">
+                    <a href="{% url name|add:'s' %}"><u class=" text-muted">еще</u></a>
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+</div>

@@ -10,47 +10,9 @@
 {% endblock mycss %}
 
 {% block content %}
-    <div class="text-center">
-        <div>Подать объявление бесплатно!</div>
-        <div>8-747-112-6303</div>
-    </div>
+    {% include "_post_ad_banner.html" %}
 
-    <!-- МАРКЕТ -->
-    <div class="mt-3">
-        <div class="my-3 ml-2 text-uppercase">
-            Маркет
-        </div>
-        <div class="mb-3 d-flex hide-scroll-bar" style="font-size: 0.9rem;">
-            <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap text-white text-center" style="background-color: rgb(54,54,54); width: 2rem;">☆</div>
-            <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap" style="background-color: rgb(221,221,221)">Электроника</div>
-            <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap" style="background-color: rgb(221,221,221)">Автомобиль</div>
-            <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap" style="background-color: rgb(221,221,221)">Животные</div>
-            <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap" style="background-color: rgb(221,221,221)">Мебель</div>
-            <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap" style="background-color: rgb(221,221,221)">Инструмент</div>
-            <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap" style="background-color: rgb(221,221,221)">Еще</div>
-        </div>
-        <div class="row no-gutters">
-            <div class="col-12 col-md-9 order-2 order-md-1" style="">
-                {% for foo in '12345' %}
-                    <div class="mb-4 row no-gutters">
-                        <div class="col-10 order-2 pl-2 ">
-                            <div class="" style="font-size: 0.9rem;">
-                                {% lorem 20 w random %}
-                            </div>
-                            <div class="small text-muted">01.05.20 17.30</div>
-                        </div>
-                        <div class="col-2 order-1" style="">
-                            <div class="position-relative" >
-                                <img src="https://via.placeholder.com/100x100" class="img-fluid rounded" />
-                                <img src="{% static 'icons/zoom-in.svg' %}" width="20rem" class="position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%)" />
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="col-12 col-md-3 order-1 order-md-2"></div>
-        </div>
-    </div>
+    {% include "_adverts.html" with name='product' name_kaz='Маркет' adverts=products categories=product_categories advert_count=product_count only %}
 
     <nav>
         <ul class="pagination justify-content-center">

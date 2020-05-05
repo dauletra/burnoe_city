@@ -10,52 +10,10 @@
 {% endblock mycss %}
 
 {% block content %}
-    <div class="text-center">
-        <div>Подать объявление бесплатно!</div>
-        <div>8-747-112-6303</div>
-    </div>
+    {% include "_post_ad_banner.html" %}
 
 
-    <!-- SERVICES -->
-    <div class="my-3 ">
-        <div class="my-3 ml-2 text-uppercase">
-            Қызмет көрсету
-        </div>
-        <div class="mb-3 d-flex hide-scroll-bar" style="font-size: 0.9rem;">
-            <div class="p-1 ml-2 mr-md-3 rounded text-nowrap text-white text-center" style="background-color: rgb(40, 150, 255); width: 2rem;">☆</div>
-            <div class="p-1 ml-2 mr-md-3 rounded text-nowrap" style="background-color: rgba(40,150,255,0.21)">Красота</div>
-            <div class="p-1 ml-2 mr-md-3 rounded text-nowrap" style="background-color: rgba(40,150,255,0.21)">Для авто</div>
-            <div class="p-1 ml-2 mr-md-3 rounded text-nowrap" style="background-color: rgba(40,150,255,0.21)">Ремонт</div>
-            <div class="p-1 ml-2 mr-md-3 rounded text-nowrap" style="background-color: rgba(40,150,255,0.21)">Здоровье</div>
-        </div>
-        <div class="row no-gutters">
-            <div class="col-12 col-md-9" style="">
-                {% for foo in '12345' %}
-                    <div class="mb-4 row no-gutters">
-                        <div class="col-10 order-2 pl-2 ">
-                            <div>
-                                {% lorem 4 w random %}
-                            </div>
-                            <div class="small text-muted">
-                                <span class="mr-2">8 747 112 63 03</span>
-                                <span>БМУ, Б.Сафинов көшесі</span>
-                            </div>
-                            <div class="" style="font-size: 0.9rem;">
-                                {% lorem 20 w random %}
-                            </div>
-                        </div>
-                        <div class="col-2 order-1" style="">
-                            <div class="position-relative" >
-                                <img src="https://via.placeholder.com/100x100" class="img-fluid rounded" />
-                                <img src="{% static 'icons/zoom-in.svg' %}" width="20rem" class="position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%)" />
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="d-none d-md-block col-md-3 text-center"></div>
-        </div>
-    </div>
+    {% include "_adverts.html" with name='service' name_kaz='Услуги' adverts=services categories=service_categories advert_count=service_count only %}
 
     <nav>
         <ul class="pagination justify-content-center">

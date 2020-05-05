@@ -1,0 +1,184 @@
+[
+{
+  "model": "burnoe_app.service",
+  "pk": 1,
+  "fields": {
+    "title": "\u0420\u0435\u043c\u043e\u043d\u0442 \u0442\u0435\u043b\u0435\u0444\u043e\u043d\u043e\u0432",
+    "content": "Integer ut enim pellentesque, tristique tortor a, ultricies felis. Vestibulum tincidunt venenatis mattis. Donec tincidunt ex at mollis elementum. Fusce.",
+    "created_date": "2020-05-03T14:19:49.286Z",
+    "modified_date": "2020-05-03T17:27:29.778Z",
+    "last_date": "2020-05-25T10:26:49.640Z",
+    "contact": "8 747 112 63 03, \u0411\u041c\u0423, \u0443\u043b. \u0418\u0433\u0438\u043b\u0438\u043a \u211614",
+    "category": 1
+  }
+},
+{
+  "model": "burnoe_app.service",
+  "pk": 2,
+  "fields": {
+    "title": "\u0413\u0430\u0437\u0435\u043b\u044c 2 \u0442\u043e\u043d\u043d\u044b",
+    "content": "Aliquam erat volutpat. Integer non ligula nibh. Vivamus porttitor ex augue, at cursus lorem sollicitudin a. Nunc nunc elit, mattis.",
+    "created_date": "2020-05-03T17:28:07.573Z",
+    "modified_date": "2020-05-03T17:28:07.574Z",
+    "last_date": "2020-05-25T10:26:49.640Z",
+    "contact": "8 747 112 63 03, \u0411\u041c\u0423, \u0443\u043b. \u0418\u0433\u0438\u043b\u0438\u043a \u211614",
+    "category": 2
+  }
+},
+{
+  "model": "burnoe_app.service",
+  "pk": 3,
+  "fields": {
+    "title": "\u041f\u0440\u043e\u043a\u0430\u0442 \u0441\u0442\u043e\u043b\u043e\u0432 \u0438 \u0441\u0442\u0443\u043b\u044c\u0435\u0432",
+    "content": "Ut placerat justo sed nisi tristique, ut laoreet ex aliquet. Pellentesque et sollicitudin velit. Aliquam cursus suscipit sodales. Morbi tempor velit vitae nisi suscipit, in mollis mi lobortis. Fusce id nisl aliquet, porta lacus eu, ultricies mauris. Nulla non felis est. Maecenas vitae mi erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+    "created_date": "2020-05-03T17:28:50.559Z",
+    "modified_date": "2020-05-03T17:28:50.559Z",
+    "last_date": "2020-05-25T10:26:49.640Z",
+    "contact": "8 747 112 63 03, \u0411\u041c\u0423, \u0443\u043b. \u0418\u0433\u0438\u043b\u0438\u043a \u211614",
+    "category": 3
+  }
+},
+{
+  "model": "burnoe_app.service",
+  "pk": 4,
+  "fields": {
+    "title": "\u041f\u0440\u043e\u043a\u0430\u0442 PS4",
+    "content": "Pellentesque euismod erat id nunc imperdiet, a egestas lacus sagittis. Praesent semper elementum dui nec consequat. Curabitur mollis ultrices malesuada. Curabitur dolor diam, hendrerit vel arcu quis, tincidunt aliquet ex. Nam tempus iaculis lorem in vestibulum.",
+    "created_date": "2020-05-03T17:29:31.938Z",
+    "modified_date": "2020-05-03T17:29:31.938Z",
+    "last_date": "2020-05-25T10:26:49.640Z",
+    "contact": "8 777 111 22 33, \u0411\u041c\u0423, \u0411\u043e\u043b\u044c\u043d\u0438\u0446\u0430 \u0436\u0430\u049b\u0442\u0430",
+    "category": 4
+  }
+},
+{
+  "model": "burnoe_app.service",
+  "pk": 5,
+  "fields": {
+    "title": "\u0428\u0430\u0448\u0442\u0430\u0440\u0430\u0437 \"\u0414\u0430\u0443\u043b\u0435\u0442\"",
+    "content": "Nulla facilisi. Cras placerat neque ut leo lacinia, eget sagittis magna porta. Mauris quis arcu eget libero aliquam dapibus varius a risus. Maecenas nisi enim, placerat at venenatis id, mollis in libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque dapibus diam varius rhoncus tincidunt. Nam at tincidunt quam. Fusce eget mauris ultrices, interdum quam ac, placerat enim.",
+    "created_date": "2020-05-03T17:30:11.097Z",
+    "modified_date": "2020-05-03T17:30:11.097Z",
+    "last_date": "2020-05-25T10:26:49.640Z",
+    "contact": "8 747 112 63 03, \u0411\u041c\u0423, \u0443\u043b. \u0418\u0433\u0438\u043b\u0438\u043a \u211614",
+    "category": 5
+  }
+},
+{
+  "model": "burnoe_app.service",
+  "pk": 6,
+  "fields": {
+    "title": "\u041c\u0430\u0441\u0441\u0430\u0436\u043d\u044b\u0439 \u0441\u0430\u043b\u043e\u043d",
+    "content": "Nulla facilisi. Cras placerat neque ut leo lacinia, eget sagittis magna porta. Mauris quis arcu eget libero aliquam dapibus varius a risus. Maecenas nisi enim, placerat at venenatis id, mollis in libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque dapibus diam varius rhoncus tincidunt. Nam at tincidunt quam. Fusce eget mauris ultrices, interdum quam ac, placerat enim.",
+    "created_date": "2020-05-03T17:30:44.815Z",
+    "modified_date": "2020-05-03T17:30:44.816Z",
+    "last_date": "2020-05-25T10:26:49.640Z",
+    "contact": "8747 112 6303, \u0443\u043b \u0411.\u0421\u0430\u0444\u0438\u043d\u043e\u0432",
+    "category": 6
+  }
+},
+{
+  "model": "burnoe_app.service",
+  "pk": 7,
+  "fields": {
+    "title": "\u041a\u0430\u0444\u0435 \u0414\u0430\u0443\u043b\u0435\u0442",
+    "content": "Quisque placerat metus eu suscipit pulvinar. Duis scelerisque purus id posuere commodo. Aliquam nec porttitor dui. Ut ac venenatis dui. Nullam facilisis nibh eget ex vehicula luctus. Nunc quis pulvinar lorem. Sed vel ante vel nisi tempus pharetra.",
+    "created_date": "2020-05-03T17:31:14.232Z",
+    "modified_date": "2020-05-03T17:31:14.232Z",
+    "last_date": "2020-05-25T10:26:49.640Z",
+    "contact": "8 777 111 22 33",
+    "category": 7
+  }
+},
+{
+  "model": "burnoe_app.service",
+  "pk": 8,
+  "fields": {
+    "title": "\u0420\u0430\u0441\u043f\u0435\u0447\u0430\u0442\u043a\u0430, \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0441\u043b\u0430\u0439\u0434\u043e\u0432",
+    "content": "Maecenas sapien enim, hendrerit at vulputate ut, posuere nec turpis. Mauris eu scelerisque urna. Aenean consequat odio non odio porttitor blandit. Donec eros ex, dapibus non ornare in, varius in ipsum. Suspendisse nec magna congue, aliquet justo eu, ornare felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer nec dapibus erat.",
+    "created_date": "2020-05-03T17:31:50.649Z",
+    "modified_date": "2020-05-03T17:31:50.649Z",
+    "last_date": "2020-05-25T10:26:49.640Z",
+    "contact": "8 777 111 22 33, \u0411\u041c\u0423, \u0410\u0431\u0430\u044f \u21163",
+    "category": 8
+  }
+},
+{
+  "model": "burnoe_app.service",
+  "pk": 9,
+  "fields": {
+    "title": "\u041d\u0430\u043b\u043e\u0433\u043e\u0432\u044b\u0435 \u043e\u0442\u0447\u0435\u0442\u044b",
+    "content": "Cras non fermentum ante, at commodo odio. Fusce iaculis auctor massa at pretium.",
+    "created_date": "2020-05-03T17:32:23.637Z",
+    "modified_date": "2020-05-03T17:32:23.638Z",
+    "last_date": "2020-05-25T10:26:49.640Z",
+    "contact": "8 777 111 22 33",
+    "category": 9
+  }
+},
+{
+  "model": "burnoe_app.service",
+  "pk": 10,
+  "fields": {
+    "title": "\u0420\u0435\u043c\u043e\u043d \u0447\u0430\u0441\u043e\u0432",
+    "content": "Cras non fermentum ante, at commodo odio. Fusce iaculis auctor massa at pretium. Etiam tempus, nisl nec feugiat iaculis, nisi dui laoreet tellus, sit amet sollicitudin ante urna a sapien.",
+    "created_date": "2020-05-03T17:32:45.183Z",
+    "modified_date": "2020-05-03T17:32:45.184Z",
+    "last_date": "2020-05-25T10:26:49.640Z",
+    "contact": "8 777 111 22 33, \u0411\u041c\u0423, \u0411\u043e\u043b\u044c\u043d\u0438\u0446\u0430 \u0436\u0430\u049b\u0442\u0430",
+    "category": 1
+  }
+},
+{
+  "model": "burnoe_app.service",
+  "pk": 11,
+  "fields": {
+    "title": "\u041a\u0430\u043c\u0430\u0437",
+    "content": "Etiam hendrerit elementum felis eu finibus. Fusce enim dolor, accumsan nec molestie sit amet, facilisis in ante. Nam nec leo lacus. Ut vel augue nec risus posuere scelerisque ut non ante. Donec quis laoreet metus, ac interdum tellus.",
+    "created_date": "2020-05-03T17:33:07.312Z",
+    "modified_date": "2020-05-03T17:33:07.312Z",
+    "last_date": "2020-05-25T10:26:49.640Z",
+    "contact": "8 777 111 22 33",
+    "category": 2
+  }
+},
+{
+  "model": "burnoe_app.service",
+  "pk": 12,
+  "fields": {
+    "title": "\u041f\u0440\u043e\u043a\u0430\u0442 \u043f\u043e\u0441\u0443\u0434\u044b",
+    "content": "Morbi imperdiet libero eu nibh tristique, eget tincidunt dolor tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis tempor hendrerit purus, nec lobortis lacus. In vestibulum nulla vitae mi finibus semper. Fusce sit amet ante pulvinar, fermentum diam vitae, efficitur neque.",
+    "created_date": "2020-05-03T17:33:53.541Z",
+    "modified_date": "2020-05-03T17:33:53.541Z",
+    "last_date": "2020-05-25T10:26:49.640Z",
+    "contact": "8777 111 22 33, \u0443\u043b. \u041a\u043e\u043d\u0430\u0435\u0432\u0430 \u211616",
+    "category": 3
+  }
+},
+{
+  "model": "burnoe_app.service",
+  "pk": 13,
+  "fields": {
+    "title": "\u0411\u0430\u0442\u0443\u0442",
+    "content": "Nullam elementum eros justo, eu sollicitudin urna porttitor in. Aenean tincidunt velit sit amet finibus maximus. In eget lorem placerat, fermentum nunc in, tincidunt lorem. Duis placerat, enim nec tempus tincidunt, mauris nibh dapibus magna",
+    "created_date": "2020-05-03T17:34:41.942Z",
+    "modified_date": "2020-05-03T17:34:41.942Z",
+    "last_date": "2020-05-25T10:26:49.640Z",
+    "contact": "8 777 111 22 33, \u0411\u041c\u0423, \u0411\u043e\u043b\u044c\u043d\u0438\u0446\u0430 \u0436\u0430\u049b\u0442\u0430",
+    "category": 4
+  }
+},
+{
+  "model": "burnoe_app.service",
+  "pk": 14,
+  "fields": {
+    "title": "\u0421\u0430\u043b\u043e\u043d \u043a\u0440\u0430\u0441\u043e\u0442\u044b \u0410\u0440\u0443",
+    "content": "Pellentesque euismod erat id nunc imperdiet, a egestas lacus sagittis. Praesent semper elementum dui nec consequat. Curabitur mollis ultrices malesuada. Curabitur dolor diam, hendrerit vel arcu quis, tincidunt aliquet ex. Nam tempus iaculis lorem in vestibulum.",
+    "created_date": "2020-05-03T17:35:10.969Z",
+    "modified_date": "2020-05-03T17:35:10.969Z",
+    "last_date": "2020-05-25T10:26:49.640Z",
+    "contact": "8 777 111 22 33, \u0411\u041c\u0423, \u0410\u0431\u0430\u044f \u21163",
+    "category": 5
+  }
+}
+]

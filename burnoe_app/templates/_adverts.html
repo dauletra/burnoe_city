@@ -3,6 +3,7 @@
 {% load get_first_photo %}
 
 <div class="my-4">
+    <!-- header -->
     <div class="my-2 py-2 row no-gutters" style="background-color: inherit;">
         <div class="pl-4 col-3">
 {#            <a href="{% url name|add:'s' %}" class="btn btn-link">{{ name_kaz }}</a>#}
@@ -10,6 +11,8 @@
         </div>
         <div class="col-9 text-muted" style="font-size: .9rem">{{ advert_count }} объявлении</div>
     </div>
+
+    <!-- mobile categories -->
     <div class="mb-3 d-flex hide-scroll-bar d-md-none" style="font-size: 0.9rem;">
         <div class="p-1 ml-2 mr-md-2 rounded text-lowercase text-nowrap text-white text-center" style="background-color: rgb(54,54,54); width: 2rem;">☆</div>
         {% for category in categories %}
@@ -17,26 +20,27 @@
         {% endfor %}
 
     </div>
+
+    <!-- desktop categories and adverts -->
     <div class="row no-gutters">
+        <!-- desktop categories -->
         <div class="d-none d-md-block col-12 pl-4 col-md-3 order-1">
-{#            <p>Категории</p>#}
             {% for category in categories %}
                 <div class="mb-2 text-uppercase" style="font-size: 0.9rem;">
-                    <a href="{% url name|add:'s' %}?category={{ category.id }}">{{ category.name }}</a>
+                    <a href="{% url name|add:'_list' %}?category={{ category.id }}">{{ category.name }}</a>
                 </div>
             {% endfor %}
-
         </div>
+
+        <!-- adverts -->
         <div class="col-12 col-md-9 order-2" style="">
             {% for advert in adverts %}
-                <!-- Modal -->
                 <!-- The Modal/Lightbox -->
                 <div class="mb-4 row no-gutters">
                     <div class="col-2 order-1" style="">
-                        <div class="position-relative" >
+                        <a href="{% url name|add:'_detail' pk=advert.id %}" class="">
                             <img src="{{ advert|get_first_photo:name|cloud_image }}" width="100" height="100" class="img-fluid rounded open-js" />
-                            <img src="{% static 'icons/zoom-in.svg' %}" width="20rem" class="position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%)" />
-                        </div>
+                        </a>
                     </div>
                     <div class="col-10 order-2 pl-2 ">
                         {% if name == 'service' %}
@@ -56,11 +60,12 @@
             {% endfor %}
             {% if main_page %}
                 <div class="text-center">
-                    <a href="{% url name|add:'s' %}"><u class=" text-muted">еще</u></a>
+                    <a href="{% url name|add:'_list' %}"><u class=" text-muted">еще</u></a>
                 </div>
             {% endif %}
         </div>
     </div>
+
     {% if is_paginated %}
         <nav>
             <ul class="pagination justify-content-center">

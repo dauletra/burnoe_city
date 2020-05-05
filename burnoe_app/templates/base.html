@@ -26,7 +26,7 @@
 <body>
     <div class="container-fluid p-0" style="max-width: 860px; font-family: Arial, Tahoma, 'Bitstream Vera Sans', sans-serif">
         <!-- HEADER -->
-        <div class="navbar navbar-light" style="background-color: rgb(0,201,185);">
+        <div class="navbar navbar-light" style="background-color: rgb(0,182,166);">
             <a class="navbar-brand text-white font-weight-bolder" style="" href="/">Burnoe.kz</a>
             <div class="d-flex align-self-center">
                 <span class="mr-2">
@@ -40,10 +40,10 @@
         <div class="mb-2">
             <ul class="nav bg-light text-uppercase">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'products' %}">Маркет</a>
+                    <a class="nav-link" href="{% url 'product_list' %}">Маркет</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'services' %}">Услуги</a>
+                    <a class="nav-link" href="{% url 'service_list' %}">Услуги</a>
                 </li>
             </ul>
         </div>
@@ -62,7 +62,12 @@
 
     <script src="{% static 'js/jquery-3.4.1.js' %}" ></script>
     <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
-
+    <script>
+        $('.continue-js').click(function() {
+            $(this).addClass('d-none');
+            $(this).siblings('span').removeClass('d-none')
+        });
+    </script>
     {% block myscript %}{% endblock myscript %}
 </body>
 </html>

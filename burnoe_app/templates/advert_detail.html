@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Burnoe.kz - {{ advert.title }}{% endblock %}
+
+{% block content %}
+    {% include '_post_ad_banner.html' %}
+
+    <div class="row no-gutters">
+        <div class="col-12 col-md-9 border">
+            <p class="pl-2">
+                <a href="{% url name|add:'_list' %}?category={{ advert.category.id }}">{{ advert.category.name }}</a>
+            </p>
+            {% if photos.count > 0 %}
+                <div id="carouselAdvert" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        {% for photo in photos %}
+                            <li data-target="#carouselAdvert" data-slide-to="{{ forloop.counter0 }}"
+                                {% if forloop.first %}
+                                    class="active"
+                                {% endif %}
+                            ></li>
+                        {% endfor %}
+                    </ol>
+                    <div class="carousel-inner">
+                        {% for photo in photos %}
+                            <div
+                                    {% if forloop.first %}
+                                        class="carousel-item active"
+                                    {% else %}
+                                        class="carousel-item"
+                                    {% endif %}
+                            >
+                                <img src="{{ photo.image.url }}" class="d-block w-100" alt="...">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselAdvert" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselAdvert" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+            {% else %}
+                <div class="text-center">
+                    <img src="https://static.detmir.st/_ui/desktop/common/images/no_photo.jpg" class="img-fluid">
+                </div>
+            {% endif %}
+            <div class="pl-2 pt-2">
+                <h5>{{ advert.title }}</h5>
+                <p>{{ advert.content }}</p>
+                <div class="text-muted" style="font-size: 0.9rem;">Опубликовано: {{ advert.created_date }}</div>
+                <div class="text-muted" style="font-size: 0.9rem;">Будет удален: {{ advert.last_date }}</div>
+                <div class="text-muted" style="font-size: 0.9rem;">Номер объявления: #{{ advert.id }}</div>
+            </div>
+        </div>
+        <div class="d-none d-md-block col-md-3 border">
+            др. объявлен. автора
+        </div>
+    </div>
+
+    <div class="row no-gutters">
+        <div class="col-12 col-md-9 border">
+            <p>Другие объявления</p>
+
+            {% for other_advert in other_adverts %}
+                <div>
+                    {{ other_advert.title }}
+                </div>
+            {% endfor %}
+
+        </div>
+        <div class="d-none d-md-block col-md-3 border">
+            Доп. инфо
+        </div>
+    </div>
+{% endblock %}

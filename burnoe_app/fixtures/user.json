@@ -1,0 +1,40 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$bfhjH3aEY6IF$fWTtfQPRTrlCTaQwWABn0XLjnxrp/y999QwtQpE5dSY=",
+    "last_login": "2020-05-04T10:43:03.885Z",
+    "is_superuser": true,
+    "username": "daulet",
+    "first_name": "",
+    "last_name": "",
+    "email": "daulet.rakhmankul@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-03-24T15:22:26.908Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$xDjrjJFFXZo8$TXUKFND22MDKRcuJHfgWaDtWlZekm5y2vpbiCjSzJHc=",
+    "last_login": "2020-03-25T11:03:40.474Z",
+    "is_superuser": false,
+    "username": "nektar",
+    "first_name": "",
+    "last_name": "",
+    "email": "daulet.rakhmankul@hotmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-03-25T11:01:02Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+}
+]

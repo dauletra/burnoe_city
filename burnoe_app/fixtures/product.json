@@ -1,0 +1,182 @@
+[
+{
+  "model": "burnoe_app.product",
+  "pk": 1,
+  "fields": {
+    "title": "\u0414\u0438\u0432\u0430\u043d",
+    "content": "Integer ut enim pellentesque, tristique tortor a, ultricies felis. Vestibulum tincidunt venenatis mattis. Donec tincidunt ex at mollis elementum. Fusce.",
+    "created_date": "2020-05-03T14:19:20.707Z",
+    "modified_date": "2020-05-03T17:15:30.278Z",
+    "last_date": "2020-05-25T10:26:49.625Z",
+    "category": 5
+  }
+},
+{
+  "model": "burnoe_app.product",
+  "pk": 2,
+  "fields": {
+    "title": "\u0410\u0443\u0434\u0438 100",
+    "content": "Aliquam erat volutpat. Integer non ligula nibh. Vivamus porttitor ex augue, at cursus lorem sollicitudin a. Nunc nunc elit, mattis.",
+    "created_date": "2020-05-03T17:16:10.741Z",
+    "modified_date": "2020-05-03T17:16:10.741Z",
+    "last_date": "2020-05-25T10:26:49.625Z",
+    "category": 1
+  }
+},
+{
+  "model": "burnoe_app.product",
+  "pk": 3,
+  "fields": {
+    "title": "\u041d\u043e\u0443\u0442\u0431\u0443\u043a HP",
+    "content": "Ut placerat justo sed nisi tristique, ut laoreet ex aliquet. Pellentesque et sollicitudin velit. Aliquam cursus suscipit sodales. Morbi tempor velit vitae nisi suscipit, in mollis mi lobortis. Fusce id nisl aliquet, porta lacus eu, ultricies mauris. Nulla non felis est. Maecenas vitae mi erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+    "created_date": "2020-05-03T17:16:51.399Z",
+    "modified_date": "2020-05-03T17:16:51.399Z",
+    "last_date": "2020-05-25T10:26:49.625Z",
+    "category": 2
+  }
+},
+{
+  "model": "burnoe_app.product",
+  "pk": 4,
+  "fields": {
+    "title": "Samsung Galaxy S4",
+    "content": "Nullam volutpat accumsan leo et bibendum. Nunc tempus odio dolor, at tempus augue ultrices interdum. Nulla facilisis pellentesque nibh, id varius magna tristique eu. Pellentesque vulputate congue tellus, sed tristique neque maximus quis. Phasellus id enim vitae nisi semper convallis sit amet ut sapien. Aliquam mi urna, facilisis ac imperdiet id, vehicula id lorem. Vivamus elementum dui sed tempor ultrices. In augue nulla, euismod sit amet massa non, euismod euismod ex. Vestibulum vel bibendum orci, ut imperdiet risus. Nullam auctor, massa a venenatis aliquet, purus leo varius massa, vitae posuere enim ipsum a massa.",
+    "created_date": "2020-05-03T17:17:21.108Z",
+    "modified_date": "2020-05-03T17:17:21.108Z",
+    "last_date": "2020-05-25T10:26:49.625Z",
+    "category": 3
+  }
+},
+{
+  "model": "burnoe_app.product",
+  "pk": 5,
+  "fields": {
+    "title": "\u0416\u044b\u043b\u049b\u044b",
+    "content": "Ut maximus urna feugiat, molestie elit vitae, gravida neque. In dictum, ligula sit amet tincidunt eleifend, ligula elit tempus diam, id convallis velit ex non dui. Quisque sollicitudin quam nec tincidunt ultrices. Nunc at dictum nibh, ac ultrices justo. Fusce ac semper eros, ut aliquet mi. Sed vitae diam sapien. Fusce vel nunc ut elit gravida eleifend. In felis dolor, consequat eget nisl iaculis, convallis dictum diam. Etiam scelerisque massa ac lectus blandit, non dignissim justo vehicula. Cras vel laoreet odio. Maecenas fermentum tortor et malesuada finibus.",
+    "created_date": "2020-05-03T17:17:54.831Z",
+    "modified_date": "2020-05-03T17:17:54.832Z",
+    "last_date": "2020-05-25T10:26:49.625Z",
+    "category": 4
+  }
+},
+{
+  "model": "burnoe_app.product",
+  "pk": 6,
+  "fields": {
+    "title": "\u041c\u0438\u043a\u0440\u043e\u0432\u043e\u043b\u043d\u043e\u0432\u0430\u044f \u043f\u0435\u0447\u044c",
+    "content": "Ut at cursus metus, in fringilla arcu. Sed sit amet vulputate elit.",
+    "created_date": "2020-05-03T17:18:26.064Z",
+    "modified_date": "2020-05-03T17:18:26.064Z",
+    "last_date": "2020-05-25T10:26:49.625Z",
+    "category": 5
+  }
+},
+{
+  "model": "burnoe_app.product",
+  "pk": 7,
+  "fields": {
+    "title": "\u0414\u0443\u0445\u0438 \u0438 \u043e\u0434\u0435\u043a\u0430\u043b\u043e\u043d\u044b",
+    "content": "Pellentesque euismod erat id nunc imperdiet, a egestas lacus sagittis. Praesent semper elementum dui nec consequat. Curabitur mollis ultrices malesuada. Curabitur dolor diam, hendrerit vel arcu quis, tincidunt aliquet ex. Nam tempus iaculis lorem in vestibulum.",
+    "created_date": "2020-05-03T17:18:55.732Z",
+    "modified_date": "2020-05-03T17:18:55.733Z",
+    "last_date": "2020-05-25T10:26:49.625Z",
+    "category": 7
+  }
+},
+{
+  "model": "burnoe_app.product",
+  "pk": 8,
+  "fields": {
+    "title": "\u0411\u0440\u0435\u043b\u043e\u043a",
+    "content": "Nulla facilisi. Cras placerat neque ut leo lacinia, eget sagittis magna porta. Mauris quis arcu eget libero aliquam dapibus varius a risus. Maecenas nisi enim, placerat at venenatis id, mollis in libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque dapibus diam varius rhoncus tincidunt. Nam at tincidunt quam. Fusce eget mauris ultrices, interdum quam ac, placerat enim.",
+    "created_date": "2020-05-03T17:19:41.633Z",
+    "modified_date": "2020-05-03T17:19:41.633Z",
+    "last_date": "2020-05-25T10:26:49.625Z",
+    "category": 8
+  }
+},
+{
+  "model": "burnoe_app.product",
+  "pk": 9,
+  "fields": {
+    "title": "\u0421\u043a\u0443\u0442\u0435\u0440",
+    "content": "Nulla nec consequat nisl. Integer nibh diam, ornare sit amet porta vitae, cursus efficitur ante. Vestibulum aliquet aliquam metus id convallis. Quisque eu vulputate mauris. Morbi aliquam auctor quam vel suscipit.",
+    "created_date": "2020-05-03T17:20:35.146Z",
+    "modified_date": "2020-05-03T17:20:35.147Z",
+    "last_date": "2020-05-25T10:26:49.625Z",
+    "category": 1
+  }
+},
+{
+  "model": "burnoe_app.product",
+  "pk": 10,
+  "fields": {
+    "title": "\u041c\u043e\u043d\u0438\u0442\u043e\u0440",
+    "content": "Quisque placerat metus eu suscipit pulvinar. Duis scelerisque purus id posuere commodo. Aliquam nec porttitor dui. Ut ac venenatis dui. Nullam facilisis nibh eget ex vehicula luctus. Nunc quis pulvinar lorem. Sed vel ante vel nisi tempus pharetra.",
+    "created_date": "2020-05-03T17:21:02.340Z",
+    "modified_date": "2020-05-03T17:21:02.341Z",
+    "last_date": "2020-05-25T10:26:49.625Z",
+    "category": 2
+  }
+},
+{
+  "model": "burnoe_app.product",
+  "pk": 11,
+  "fields": {
+    "title": "Xiaomi Redmi 8",
+    "content": "Maecenas sapien enim, hendrerit at vulputate ut, posuere nec turpis. Mauris eu scelerisque urna. Aenean consequat odio non odio porttitor blandit. Donec eros ex, dapibus non ornare in, varius in ipsum. Suspendisse nec magna congue, aliquet justo eu, ornare felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer nec dapibus erat.",
+    "created_date": "2020-05-03T17:21:36.318Z",
+    "modified_date": "2020-05-03T17:21:36.318Z",
+    "last_date": "2020-05-25T10:26:49.625Z",
+    "category": 3
+  }
+},
+{
+  "model": "burnoe_app.product",
+  "pk": 12,
+  "fields": {
+    "title": "\u041a\u0440\u043e\u043b\u0438\u043a\u0438",
+    "content": "Cras non fermentum ante, at commodo odio. Fusce iaculis auctor massa at pretium. Etiam tempus, nisl nec feugiat iaculis, nisi dui laoreet tellus, sit amet sollicitudin ante urna a sapien.",
+    "created_date": "2020-05-03T17:22:05.675Z",
+    "modified_date": "2020-05-03T17:22:05.676Z",
+    "last_date": "2020-05-25T10:26:49.625Z",
+    "category": 4
+  }
+},
+{
+  "model": "burnoe_app.product",
+  "pk": 13,
+  "fields": {
+    "title": "\u041a\u0443\u0445. \u0433\u0440\u0430\u043d\u0438\u0442\u0443\u0440",
+    "content": "Etiam hendrerit elementum felis eu finibus. Fusce enim dolor, accumsan nec molestie sit amet, facilisis in ante. Nam nec leo lacus. Ut vel augue nec risus posuere scelerisque ut non ante. Donec quis laoreet metus, ac interdum tellus.",
+    "created_date": "2020-05-03T17:22:49.888Z",
+    "modified_date": "2020-05-03T17:22:49.888Z",
+    "last_date": "2020-05-25T10:26:49.625Z",
+    "category": 5
+  }
+},
+{
+  "model": "burnoe_app.product",
+  "pk": 14,
+  "fields": {
+    "title": "\u041e\u0444\u0438\u0441\u043d\u044b\u0435 \u0441\u0442\u0443\u043b\u044c\u044f",
+    "content": "Morbi imperdiet libero eu nibh tristique, eget tincidunt dolor tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis tempor hendrerit purus, nec lobortis lacus. In vestibulum nulla vitae mi finibus semper. Fusce sit amet ante pulvinar, fermentum diam vitae, efficitur neque.",
+    "created_date": "2020-05-03T17:23:30.481Z",
+    "modified_date": "2020-05-03T17:23:30.482Z",
+    "last_date": "2020-05-25T10:26:49.625Z",
+    "category": 6
+  }
+},
+{
+  "model": "burnoe_app.product",
+  "pk": 15,
+  "fields": {
+    "title": "\u041a\u0440\u0435\u043c \u0434\u043b\u044f \u0440\u0443\u043a",
+    "content": "Nullam elementum eros justo, eu sollicitudin urna porttitor in. Aenean tincidunt velit sit amet finibus maximus. In eget lorem placerat, fermentum nunc in, tincidunt lorem. Duis placerat, enim nec tempus tincidunt, mauris nibh dapibus magna",
+    "created_date": "2020-05-03T17:24:06.944Z",
+    "modified_date": "2020-05-03T17:24:06.944Z",
+    "last_date": "2020-05-25T10:26:49.625Z",
+    "category": 7
+  }
+}
+]

@@ -6,7 +6,7 @@
     {% include '_post_ad_banner.html' %}
 
     <div class="row no-gutters">
-        <div class="col-12 col-md-9 border">
+        <div class="col-12 col-md-9">
             <p class="pl-2">
                 <a href="{% url name|add:'_list' %}?category={{ advert.category.id }}">{{ advert.category.name }}</a>
             </p>
@@ -54,24 +54,16 @@
                 <div class="text-muted" style="font-size: 0.9rem;">Номер объявления: #{{ advert.id }}</div>
             </div>
         </div>
-        <div class="d-none d-md-block col-md-3 border">
-            др. объявлен. автора
-        </div>
+{#        <div class="d-none d-md-block col-md-3 border">др. объявлен. автора</div>#}
     </div>
 
-    <div class="row no-gutters">
-        <div class="col-12 col-md-9 border">
-            <p>Другие объявления</p>
-
+    <div class="row no-gutters mt-4">
+        <div class="col-12 col-md-9">
+            <p class="h5 pl-2 py-3 bg-light">Похожие объявления</p>
             {% for other_advert in other_adverts %}
-                <div>
-                    {{ other_advert.title }}
-                </div>
+                {% include "_adv.html" with name=name advert=other_advert %}
             {% endfor %}
-
         </div>
-        <div class="d-none d-md-block col-md-3 border">
-            Доп. инфо
-        </div>
+{#        <div class="d-none d-md-block col-md-3 border">Доп. инфо</div>#}
     </div>
 {% endblock %}

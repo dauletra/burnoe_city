@@ -57,12 +57,19 @@ class ProductCategory(Category):
 
 # ---- ----
 
+class AdvertManager(models.Manager):
+    def active(self):
+        return self.get_queryset().filter(last_date__gt=now())
+
+
 class Advert(models.Model):
     title = models.CharField(max_length=100, verbose_name='Заголовок')
     content = models.TextField(verbose_name='Описание')
     created_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     modified_date = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
     last_date = models.DateTimeField(verbose_name='Дата удаления', default=after_advert)
+
+    objects = AdvertManager()
 
     def is_active(self):
         return self.last_date > now()

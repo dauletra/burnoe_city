@@ -13,7 +13,7 @@
 
 {% block contacts %}
     <!-- HOT CONTACTS -->
-    <div class="mb-4">
+    <div class="mb-2 my-3">
 {#        <div>Горячие контакты</div>#}
         <div class="position-relative">
             <div id="hot-container" class="d-flex hide-scroll-bar">
@@ -36,21 +36,22 @@
 {% endblock %}
 
 {% block news %}
-    <div class="row no-gutters">
-        <div class="col-12 col-md-8 order-2 order-md-1 m-0 ml-sm-4 ml-md-0" style="font-size: 0.9rem;">
-            {% for n_new in news %}
-                <div class="my-2 my-sm-1 pl-1">
-                    <span class="text-muted">{{ n_new.created_date|date:'d.m' }}</span>
-                    <img src="{% static 'icons/001-instagram.svg' %}" class="img-fluid" style="width: .9rem" />
-                    <a href="{{ n_new.link }}" class="text-black" target="_blank">
-                        {{ n_new.title }}
-                    </a>
-                </div>
-            {% endfor %}
-
+    <div class="row no-gutters my-md-3">
+        <div class="col-12 col-md-8 order-2 order-md-1 py-2 py-md-0 m-0" style="font-size: 0.9rem;">
+            <div class="m-auto" style="max-width: 650px">
+                {% for n_new in news %}
+                    <div class="my-2 my-sm-1 pl-1">
+                        <span class="text-muted">{{ n_new.created_date|date:'d.m' }}</span>
+                        <img src="{% static 'icons/001-instagram.svg' %}" class="img-fluid" style="width: .9rem" />
+                        <a href="{{ n_new.link }}" class="text-black" target="_blank">
+                            {{ n_new.title }}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-        <div class="col-12 col-md-4 order-1 order-md-2">
-            <div class="m-auto text-center border rounded py-2" style="max-width: 350px; color: #1c9300;">
+        <div class="col-12 col-md-4 order-1 border-top border-bottom order-md-2">
+            <div class="m-auto text-center rounded py-2" style="max-width: 350px; color: #1c9300;">
                 <div>Подать объявление <span class="font-weight-bold" style="color: #9e0039;">бесплатно</span></div>
                 <div>через Whatsapp</div>
                 <div>
@@ -62,9 +63,28 @@
     </div>
 {% endblock %}
 
+{% block best_adverts %}
+    <div class="pt-2"  style="">
+        <div style="color:#9e0039;" class="pl-2 font-weight-bold">Рекомендуем</div>
+        <div class="my-2 d-flex hide-scroll-bar" style="font-size: 0.9rem; height: 210px">
+            {% for service in services %}
+            <div class="rounded-top overflow-hidden pl-2" style="width: 180px; min-width: 180px;">
+                <div style="min-height: 100px">
+                    <img src="https://via.placeholder.com/180x120" class="img-fluid" />
+                </div>
+                <div class=" border" style="height: 4.9rem;">
+                    <a href="#" style="white-space: nowrap;">{{ service.title }}</a>
+                    <span class="text-muted" style="">{{ service.contact }}</span>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
     <!-- МАРКЕТ -->
-    {% include "_adverts.html" with name='product' name_kaz='Маркет' main_page=True adverts=products categories=product_categories advert_count=product_count only %}
+{#    {% include "_adverts.html" with name='product' name_kaz='Маркет' main_page=True adverts=products categories=product_categories advert_count=product_count only %}#}
 
     <!-- SERVICES -->
     {% include "_adverts.html" with name='service' name_kaz='Услуги' main_page=True  adverts=services categories=service_categories advert_count=service_count only %}

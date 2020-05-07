@@ -65,10 +65,9 @@
                         <div class="" style="font-size: 0.9rem;">
                             {{ advert.content|slice:"0:100" }}
                             <span class="d-none d-sm-inline">{{ advert.content|slice:"101:" }}</span>
-                            <span class="continue-js text-muted d-sm-none">...жалғасы</span>
+                            <span class="continue-js text-muted d-sm-none">...дальше</span>
                         </div>
                         {% if main_page %}<div class="small text-muted">{{ advert.category.name }}</div>{% endif %}
-                        <div class="small text-muted">{{ advert.created_date }}</div>
                     </div>
                 </div>
             {% endfor %}

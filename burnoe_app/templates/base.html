@@ -55,6 +55,14 @@
             <ul class="nav nav-tabs bg-light text-uppercase">
                 <li class="nav-item">
                     <a
+                            {% if request.path == "/" or request.path|startswith:"/services" %}
+                                class="nav-link active"
+                            {% else %}
+                                class="nav-link"
+                            {% endif %} href="{% url 'service_list' %}">Услуги</a>
+                </li>
+                <li class="nav-item">
+                    <a
                             {% if request.path|startswith:"/market" %}
                                 class="nav-link active"
                             {% else %}
@@ -62,15 +70,13 @@
                             {% endif %}
                             href="{% url 'product_list' %}">Маркет</a>
                 </li>
-                <li class="nav-item">
-                    <a
-                            {% if request.path|startswith:"/service" %}
-                                class="nav-link active"
-                            {% else %}
-                                class="nav-link"
-                            {% endif %} href="{% url 'service_list' %}">Услуги</a>
-                </li>
             </ul>
+        </div>
+        <div class="hide-scroll-bar d-flex">
+            {% for category in service_categories %}
+                <span class="pl-3 text-muted" style="font-size: 0.9rem; white-space: nowrap">{{ category }}</span>
+            {% endfor %}
+
         </div>
 
         <!-- CONTACTS -->
@@ -78,6 +84,9 @@
 
         <!-- НОВОСТИ -->
         {% block news %}{% endblock %}
+
+        <!-- Избранные -->
+        {% block best_adverts %}{% endblock %}
 
         <!-- CONTENT -->
         {% block content %}{% endblock content %}

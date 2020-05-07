@@ -1,4 +1,5 @@
 {% load static %}
+{% load startswith %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -45,14 +46,26 @@
                 <span class=" text-white font-weight-bold">+7 747 112 6303</span>
             </div>
         </div>
+
         <!-- MENU -->
         <div class="mb-2">
-            <ul class="nav bg-light text-uppercase">
+            <ul class="nav nav-tabs bg-light text-uppercase">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'product_list' %}">Маркет</a>
+                    <a
+                            {% if request.path|startswith:"/market" %}
+                                class="nav-link active"
+                            {% else %}
+                                class="nav-link"
+                            {% endif %}
+                            href="{% url 'product_list' %}">Маркет</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'service_list' %}">Услуги</a>
+                    <a
+                            {% if request.path|startswith:"/service" %}
+                                class="nav-link active"
+                            {% else %}
+                                class="nav-link"
+                            {% endif %} href="{% url 'service_list' %}">Услуги</a>
                 </li>
             </ul>
         </div>

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import (Contact,
+from .models import (Contact, News,
                      Service, ServiceCategory, ServicePhoto,
                      Product, ProductCategory, ProductPhoto)
 
@@ -8,6 +8,11 @@ from .models import (Contact,
 class ContactAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'price', 'phone', 'created_date', 'last_date', 'is_active']
     list_display_links = ['id', 'name']
+
+
+class NewsAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title', 'link', 'created_date']
+    list_display_links = ['id', 'title']
 
 
 class ServiceCategoryAdmin(admin.ModelAdmin):
@@ -63,6 +68,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Contact, ContactAdmin)
+admin.site.register(News, NewsAdmin)
 admin.site.register(ProductCategory, ProductCategoryAdmin)
 admin.site.register(ServiceCategory, ServiceCategoryAdmin)
 admin.site.register(Product, ProductAdmin)

@@ -35,10 +35,34 @@
     </div>
 {% endblock %}
 
+{% block news %}
+    <div class="row no-gutters">
+        <div class="col-12 col-md-8 order-2 order-md-1 m-0 ml-sm-4 ml-md-0" style="font-size: 0.9rem;">
+            {% for n_new in news %}
+                <div class="my-2 my-sm-1 pl-1">
+                    <span class="text-muted">{{ n_new.created_date|date:'d.m' }}</span>
+                    <img src="{% static 'icons/001-instagram.svg' %}" class="img-fluid" style="width: .9rem" />
+                    <a href="{{ n_new.link }}" class="text-black" target="_blank">
+                        {{ n_new.title }}
+                    </a>
+                </div>
+            {% endfor %}
+
+        </div>
+        <div class="col-12 col-md-4 order-1 order-md-2">
+            <div class="m-auto text-center border rounded py-2" style="max-width: 350px; color: #1c9300;">
+                <div>Подать объявление <span class="font-weight-bold" style="color: #9e0039;">бесплатно</span></div>
+                <div>через Whatsapp</div>
+                <div>
+                    <img src="{% static 'icons/002-whatsapp.svg' %}" class="img-fluid" style="width: 1.25rem;" />
+                    <span style="color: #1c9300" class="font-weight-bold">+7 747 112 6303</span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
-
-    {% include "_post_ad_banner.html" %}
-
     <!-- МАРКЕТ -->
     {% include "_adverts.html" with name='product' name_kaz='Маркет' main_page=True adverts=products categories=product_categories advert_count=product_count only %}
 

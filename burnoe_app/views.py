@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
 
-from .models import Contact, Product, ProductCategory, Service, ServiceCategory
+from .models import Contact, News, Product, ProductCategory, Service, ServiceCategory
 
 import cloudinary
 import cloudinary.uploader
@@ -12,6 +12,8 @@ import cloudinary.api
 
 def home(request):
     contacts = Contact.objects.filter(last_date__gt=now()).order_by('?')
+
+    news = News.objects.all()[:5]
 
     products = Product.objects.active()[:4]
     product_count = Product.objects.active().count()
@@ -25,6 +27,7 @@ def home(request):
     return render(request, 'main.html',
                   context={
                       "contacts": contacts,
+                      "news": news,
                       "products": products,
                       "product_count": product_count,
                       "product_categories": product_categories,

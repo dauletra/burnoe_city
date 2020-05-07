@@ -33,6 +33,20 @@ class Contact(models.Model):
 
 # ---- ----
 
+class News(models.Model):
+    title = models.CharField(max_length=70, verbose_name='Заголовок')
+    link = models.URLField()
+    created_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    modified_date = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'News'
+        ordering = ['-created_date']
+# ---- ----
+
 class Category(models.Model):
     name = models.CharField(max_length=20)
     order = models.IntegerField(verbose_name='Порядок', default=10)

@@ -7,7 +7,9 @@
     <div class="my-3 py-2 row no-gutters sec-bg">
         <div class="pl-4 col-4 col-sm-3" >
 {#            <a href="{% url name|add:'s' %}" class="btn btn-link">{{ name_kaz }}</a>#}
-            <h5 class="pri-color">{{ name_kaz }}</h5>
+            <h5>
+                <a href="{% url name|add:'_list' %}" class="pri-color" style="text-decoration: none;">{{ name_kaz }}</a>
+            </h5>
         </div>
         <div class="col-8 col-sm-9 text-muted d-flex align-self-center" style="font-size: .9rem">
             {% if current_category %}

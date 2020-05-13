@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import (Contact, News,
+from .models import (Contact, News, Event,
                      Service, ServiceCategory, ServicePhoto,
                      Product, ProductCategory, ProductPhoto)
 
@@ -15,12 +15,23 @@ class NewsAdmin(admin.ModelAdmin):
     list_display_links = ['id', 'title']
 
 
+class EventAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name1', 'name2', 'created_date', 'last_date', 'is_active']
+    list_display_links = ['id', 'name1']
+
+
 class ServiceCategoryAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'order']
+    list_display = ['id', 'name', 'order', 'count']
+
+    def count(self, obj):
+        return obj.service_set.count()
 
 
 class ProductCategoryAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'order']
+    list_display = ['id', 'name', 'order', 'count']
+
+    def count(self, obj):
+        return obj.product_set.count()
 
 
 class ServicePhotoInline(admin.StackedInline):
@@ -69,6 +80,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(News, NewsAdmin)
+admin.site.register(Event, EventAdmin)
 admin.site.register(ProductCategory, ProductCategoryAdmin)
 admin.site.register(ServiceCategory, ServiceCategoryAdmin)
 admin.site.register(Product, ProductAdmin)

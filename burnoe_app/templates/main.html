@@ -2,6 +2,7 @@
 {% load static %}
 {% load cloudinary %}
 {% load cloud_image %}
+{% load event_photo %}
 
 {% block title %}Burnoe.kz - рекламно-информационный портал Жуалынского района{% endblock title %}
 
@@ -63,16 +64,38 @@
     </div>
 {% endblock %}
 
+{% block anons %}
+    <div>
+        <p class="font-weight-bold" style="color:#9e0039;">События</p>
+        <div class="my-2 d-flex hide-scroll-bar" style="font-size: 0.9rem; height: 140px;">
+            {% for event in events %}
+                <div class="overflow-hidden ml-2" style="width: 110px; min-width: 110px">
+                    <div class="text-center position-relative" style="height: 80px;">
+                        <img src="{% static 'icons/001-instagram.svg' %}" class="img-fluid position-absolute" style="width: 0.9rem; top: 0; left: 1rem;" />
+                        <a href="#"><img src="{{ event.photo|event_photo }}" class="img-fluid rounded-circle" /></a>
+                    </div>
+                    <div class="small text-center">
+                        <a href="#" style="white-space: nowrap">{{ event.name1 }}</a> <br/>
+                        <span style="white-space: nowrap">{{ event.name2 }}</span><br/>
+                        <span class="text-muted">{{ event.last_date|date:"d.m.Y" }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}
+
 {% block best_adverts %}
     <div class="pt-2"  style="">
         <div style="color:#9e0039;" class="pl-2 font-weight-bold">Рекомендуем</div>
         <div class="my-2 d-flex hide-scroll-bar" style="font-size: 0.9rem; height: 210px">
             {% for service in services %}
-            <div class="rounded-top overflow-hidden pl-2" style="width: 180px; min-width: 180px;">
+            <div class="rounded-top overflow-hidden ml-2 ml-sm-3" style="width: 180px; min-width: 180px;">
                 <div style="min-height: 100px">
                     <img src="https://via.placeholder.com/180x120" class="img-fluid" />
                 </div>
-                <div class=" border" style="height: 4.9rem;">
+                <div class="p-1 border" style="height: 4.9rem;">
                     <a href="#" style="white-space: nowrap;">{{ service.title }}</a>
                     <span class="text-muted" style="">{{ service.contact }}</span>
                 </div>
@@ -83,11 +106,14 @@
 {% endblock %}
 
 {% block content %}
+    <div>
+
+    </div>
     <!-- МАРКЕТ -->
 {#    {% include "_adverts.html" with name='product' name_kaz='Маркет' main_page=True adverts=products categories=product_categories advert_count=product_count only %}#}
 
     <!-- SERVICES -->
-    {% include "_adverts.html" with name='service' name_kaz='Услуги' main_page=True  adverts=services categories=service_categories advert_count=service_count only %}
+{#    {% include "_adverts.html" with name='service' name_kaz='Услуги' main_page=True  adverts=services categories=service_categories advert_count=service_count only %}#}
 {% endblock %}
 
 {% block myscript %}

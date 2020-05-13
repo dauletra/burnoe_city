@@ -10,12 +10,10 @@
         </a>
     </div>
     <div class="col-10 order-2 pl-2 ">
-        {% if name == 'service' %}
-            <div>{{ advert.title }}</div>
-            <div class="small text-muted">
-                <span class="mr-2">{{ advert.contact }}</span>
-            </div>
-        {% endif %}
+        <div>{{ advert.title }}</div>
+        <div class="small text-muted">
+            <span class="mr-2">{{ advert.contact }}</span>
+        </div>
         <div class="" style="font-size: 0.9rem;">
             {{ advert.content|slice:"0:100" }}
             <span class="d-none d-sm-inline">{{ advert.content|slice:"101:" }}</span>

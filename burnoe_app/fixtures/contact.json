@@ -1,0 +1,98 @@
+[
+{
+  "model": "burnoe_app.contact",
+  "pk": 1,
+  "fields": {
+    "name": "\u0414\u0430\u0443\u043b\u0435\u0442 \u0442\u0430\u043a\u0441\u0438",
+    "price": "300 \u0442\u0433",
+    "phone": "+77471126303",
+    "created_date": "2020-05-08T04:46:12.539Z",
+    "modified_date": "2020-05-08T04:46:12.539Z",
+    "last_date": "2020-05-15T04:45:47Z"
+  }
+},
+{
+  "model": "burnoe_app.contact",
+  "pk": 2,
+  "fields": {
+    "name": "\u0414\u0430\u0443\u043b\u0435\u0442 PS4",
+    "price": "\u043e\u0442 1500 \u0442\u0433",
+    "phone": "8 (747) 112 6303",
+    "created_date": "2020-05-08T04:46:29.668Z",
+    "modified_date": "2020-05-08T04:46:29.669Z",
+    "last_date": "2020-05-15T04:46:13Z"
+  }
+},
+{
+  "model": "burnoe_app.contact",
+  "pk": 3,
+  "fields": {
+    "name": "\u041f\u0440\u043e\u043a\u0430\u0442 \u0441\u0442\u043e\u043b\u043e\u0432,",
+    "price": "\u0441\u0442\u0443\u043b\u044c\u0435\u0432, \u043f\u043e\u0441\u0443\u0434\u044b",
+    "phone": "8 (747) 112 6303",
+    "created_date": "2020-05-08T04:46:53.904Z",
+    "modified_date": "2020-05-08T04:46:53.904Z",
+    "last_date": "2020-05-15T04:46:30Z"
+  }
+},
+{
+  "model": "burnoe_app.contact",
+  "pk": 4,
+  "fields": {
+    "name": "\u0413\u0430\u0437\u0435\u043b\u044c",
+    "price": "\u043f\u0435\u0440\u0435\u0432\u043e\u0437\u043a\u0430 \u0442\u043e\u0432\u0430\u0440\u043e\u0432",
+    "phone": "8 (747) 112 6303",
+    "created_date": "2020-05-08T04:47:24.780Z",
+    "modified_date": "2020-05-08T04:47:24.781Z",
+    "last_date": "2020-05-15T04:46:54Z"
+  }
+},
+{
+  "model": "burnoe_app.contact",
+  "pk": 5,
+  "fields": {
+    "name": "\u0411\u0430\u043d\u044f \u21161",
+    "price": "\u0432\u0437\u0440\u043e\u0441\u043b\u044b\u0435: 350 \u0442\u0433",
+    "phone": "8 747 112 6303",
+    "created_date": "2020-05-08T04:47:39.322Z",
+    "modified_date": "2020-05-08T04:47:39.322Z",
+    "last_date": "2020-05-15T04:47:25Z"
+  }
+},
+{
+  "model": "burnoe_app.contact",
+  "pk": 6,
+  "fields": {
+    "name": "\u0410\u043a\u043d\u0438\u0435\u0442 \u0442\u0430\u043a\u0441\u0438",
+    "price": "300 \u0442\u0433",
+    "phone": "+7 (747) 112 63 0",
+    "created_date": "2020-05-08T04:48:57.453Z",
+    "modified_date": "2020-05-08T04:48:57.454Z",
+    "last_date": "2020-05-15T04:47:39Z"
+  }
+},
+{
+  "model": "burnoe_app.contact",
+  "pk": 7,
+  "fields": {
+    "name": "\u0414\u043e\u0441\u0442\u0430\u0432\u043a\u0430 \u043f\u0438\u0446\u0446\u044b",
+    "price": "\u043e\u0442 1500 \u0442\u0433",
+    "phone": "8 747 112 6303",
+    "created_date": "2020-05-08T04:49:22.195Z",
+    "modified_date": "2020-05-08T04:49:22.195Z",
+    "last_date": "2020-05-15T04:49:05Z"
+  }
+},
+{
+  "model": "burnoe_app.contact",
+  "pk": 8,
+  "fields": {
+    "name": "\u0421\u0443\u0448\u0438 \u0438 \u0440\u043e\u043b\u043b\u044b",
+    "price": "\u0434\u043e\u0441\u0442\u0430\u0432\u043a\u0430 \u043e\u0442 3000",
+    "phone": "8 747 112 6303",
+    "created_date": "2020-05-08T04:50:15.243Z",
+    "modified_date": "2020-05-08T04:50:15.243Z",
+    "last_date": "2020-05-15T04:49:22Z"
+  }
+}
+]

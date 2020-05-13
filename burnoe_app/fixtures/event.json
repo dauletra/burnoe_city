@@ -1,0 +1,74 @@
+[
+{
+  "model": "burnoe_app.event",
+  "pk": 1,
+  "fields": {
+    "name1": "\u041a\u043e\u043d\u0446\u0435\u0440\u0442",
+    "name2": "\u049a\u0430\u0439\u0440\u0430\u0442 \u041d\u04b1\u0440\u0442\u0430\u0441",
+    "last_date": "2020-05-25T10:35:03Z",
+    "photo": "image/upload/v1589366828/rgaxmmm8q7ltrro0fngp.jpg",
+    "created_date": "2020-05-13T10:35:14.910Z",
+    "modified_date": "2020-05-13T10:47:09.894Z"
+  }
+},
+{
+  "model": "burnoe_app.event",
+  "pk": 2,
+  "fields": {
+    "name1": "\u0426\u0438\u0440\u043a",
+    "name2": "\u0428\u0430\u043f\u0438\u0442\u043e",
+    "last_date": "2020-05-31T10:35:26Z",
+    "photo": "image/upload/v1589366850/vtv4rlc1qbfbegvvqir5.jpg",
+    "created_date": "2020-05-13T10:35:26.992Z",
+    "modified_date": "2020-05-13T10:47:31.035Z"
+  }
+},
+{
+  "model": "burnoe_app.event",
+  "pk": 3,
+  "fields": {
+    "name1": "\u041a\u043e\u043d\u043a\u0443\u0440\u0441",
+    "name2": "\u0434\u043b\u044f \u043c\u043e\u043b\u043e\u0434\u0435\u0436\u0438",
+    "last_date": "2020-05-29T10:35:49Z",
+    "photo": "image/upload/v1589366845/mfujq0xbpxc8hw2nync7.jpg",
+    "created_date": "2020-05-13T10:35:50.195Z",
+    "modified_date": "2020-05-13T10:47:25.725Z"
+  }
+},
+{
+  "model": "burnoe_app.event",
+  "pk": 4,
+  "fields": {
+    "name1": "\u0421\u043e\u0431\u0440\u0430\u043d\u0438\u0435",
+    "name2": "\u041e\u0442\u0447\u0435\u0442 \u0430\u043a\u0438\u043c\u0430 \u0411\u041c\u0423",
+    "last_date": "2020-06-11T10:36:14Z",
+    "photo": "image/upload/v1589366856/l09eary0hxqngmnzpo8v.jpg",
+    "created_date": "2020-05-13T10:36:15.320Z",
+    "modified_date": "2020-05-13T10:47:37.090Z"
+  }
+},
+{
+  "model": "burnoe_app.event",
+  "pk": 5,
+  "fields": {
+    "name1": "\u041f\u0440\u0438\u0435\u043c \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432",
+    "name2": "\u0434\u043b\u044f \u0431\u0438\u0437\u043d\u0435\u0441 \u0433\u0440\u0430\u043d\u0442\u0430",
+    "last_date": "2020-05-25T10:36:32Z",
+    "photo": "image/upload/v1589366838/ldflvwh7kd5kiyhmzquj.jpg",
+    "created_date": "2020-05-13T10:36:37.717Z",
+    "modified_date": "2020-05-13T10:47:19.552Z"
+  }
+},
+{
+  "model": "burnoe_app.event",
+  "pk": 6,
+  "fields": {
+    "name1": "\u0410\u043a\u0446\u0438\u044f \u043e\u0442 Beeline",
+    "name2": "\u0434\u043b\u044f \u0436\u0438\u0442\u0435\u043b\u0435\u0439 \u0416\u0443\u0430\u043b\u044b\u043d\u0441\u043a",
+    "last_date": "2020-05-16T10:37:44Z",
+    "photo": "image/upload/v1589366642/gpbbhvsqjkvpryibiwrk.jpg",
+    "created_date": "2020-05-13T10:37:45.757Z",
+    "modified_date": "2020-05-13T10:44:03.365Z"
+  }
+}
+]

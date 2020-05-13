@@ -30,8 +30,8 @@ class Contact(models.Model):
     def __str__(self):
         return self.name or self.id
 
-
 # ---- ----
+
 
 class News(models.Model):
     title = models.CharField(max_length=70, verbose_name='Заголовок')
@@ -45,7 +45,31 @@ class News(models.Model):
     class Meta:
         verbose_name_plural = 'News'
         ordering = ['-created_date']
+
 # ---- ----
+
+
+class Event(models.Model):
+    name1 = models.CharField(max_length=20, verbose_name='Заголовок 1')
+    name2 = models.CharField(max_length=20, verbose_name='Заголовок 2')
+    last_date = models.DateTimeField(verbose_name='Дата событии')
+    photo = CloudinaryField('image', null=True)
+    created_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    modified_date = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
+
+    def is_active(self):
+        return self.last_date > now()
+
+    is_active.boolean = True
+
+    def __str__(self):
+        return self.name1
+
+    class Meta:
+        ordering = ['last_date']
+
+# ---- -----
+
 
 class Category(models.Model):
     name = models.CharField(max_length=20)
@@ -68,8 +92,8 @@ class ProductCategory(Category):
     class Meta(Category.Meta):
         verbose_name_plural = 'Product categories'
 
-
 # ---- ----
+
 
 class AdvertManager(models.Manager):
     def active(self):
@@ -97,8 +121,8 @@ class Advert(models.Model):
         abstract = True
         ordering = ['-created_date']
 
-
 # ----
+
 
 class Service(Advert):
     contact = models.CharField(max_length=100, verbose_name='Телефон и адрес')
@@ -112,8 +136,8 @@ class ServicePhoto(models.Model):
     image = CloudinaryField('image')
     service = models.ForeignKey(to=Service, on_delete=models.CASCADE)
 
-
 # ----
+
 
 class Product(Advert):
     category = models.ForeignKey(to=ProductCategory, on_delete=models.PROTECT, verbose_name='Категория')

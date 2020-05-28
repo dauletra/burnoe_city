@@ -52,6 +52,7 @@ class News(models.Model):
 class Event(models.Model):
     name1 = models.CharField(max_length=20, verbose_name='Заголовок 1')
     name2 = models.CharField(max_length=20, verbose_name='Заголовок 2')
+    link = models.URLField()
     last_date = models.DateTimeField(verbose_name='Дата событии')
     photo = CloudinaryField('image', null=True)
     created_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')

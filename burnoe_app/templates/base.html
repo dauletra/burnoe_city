@@ -73,10 +73,12 @@
 {#            </ul>#}
 {#        </div>#}
 
-{#        <div class="bg-light py-2">#}
-{#            <span class="text-uppercase ml-3">Услуги</span>#}
-{#            <span class="text-uppercase ml-3">Маркет</span>#}
-{#        </div>#}
+        <div class="bg-light py-2 d-flex hide-scroll-bar" style="font-size: 0.9rem;">
+            <a href="{% url 'service_list' %}" class="text-uppercase ml-3 text-black">Услуги</a>
+            <span class="text-uppercase ml-3 text-black">Работа</span>
+            <span class="text-uppercase ml-3 text-black">Недвижимость</span>
+            <span class="text-uppercase ml-3 text-black">Маркет</span>
+        </div>
 
         <!-- CONTACTS -->
         {% block contacts %}{% endblock %}

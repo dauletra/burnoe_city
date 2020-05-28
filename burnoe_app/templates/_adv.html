@@ -5,8 +5,8 @@
 <!-- The Modal/Lightbox -->
 <div class="mb-4 row no-gutters">
     <div class="col-2 order-1 pl-sm-2 pl-md-0" style="">
-        <a href="{% url name|add:'_detail' pk=advert.id %}" class="">
-            <img src="{{ advert|get_first_photo:name|cloud_image }}" width="100" height="100" class="img-fluid rounded open-js" />
+        <a href="{% url 'service_detail' pk=advert.id %}" class="">
+            <img src="{{ advert.servicephoto_set.first|crop_image }}" width="100" height="100" class="img-fluid rounded open-js" />
         </a>
     </div>
     <div class="col-10 order-2 pl-2 ">

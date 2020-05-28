@@ -1,13 +1,13 @@
 {% extends "base.html" %}
+{% load crop_image %}
 
 {% block title %}Burnoe.kz - {{ advert.title }}{% endblock %}
 
 {% block content %}
-
     <div class="row no-gutters">
         <div class="col-12 col-md-9">
-            <p class="pl-2">
-                <a href="{% url name|add:'_list' %}?category={{ advert.category.id }}">{{ advert.category.name }}</a>
+            <p class="pl-2 my-3">
+                <a href="{% url 'service_list' %}?category={{ advert.category.id }}" class="border border-warning p-1">{{ advert.category.name }}</a>
             </p>
             {% if photos.count > 0 %}
                 <div id="carouselAdvert" class="carousel slide" data-ride="carousel">
@@ -45,9 +45,11 @@
                     <img src="https://static.detmir.st/_ui/desktop/common/images/no_photo.jpg" class="img-fluid">
                 </div>
             {% endif %}
+
             <div class="pl-2 pt-2">
                 <h5>{{ advert.title }}</h5>
-                <p>{{ advert.content }}</p>
+                <p class="text-muted">{{ advert.contact }}</p>
+                <p>{{ advert.content|linebreaksbr }}</p>
                 <div class="text-muted" style="font-size: 0.9rem;">Опубликовано: {{ advert.created_date }}</div>
                 <div class="text-muted" style="font-size: 0.9rem;">Будет удален: {{ advert.last_date }}</div>
                 <div class="text-muted" style="font-size: 0.9rem;">Номер объявления: #{{ advert.id }}</div>
@@ -60,7 +62,23 @@
         <div class="col-12 col-md-9">
             <p class="h5 pl-2 py-3 bg-light">Похожие объявления</p>
             {% for other_advert in other_adverts %}
-                {% include "_adv.html" with name=name advert=other_advert %}
+                <div class="row no-gutters mb-4">
+                    <div class="col-2">
+                        <img src="{{ other_advert.servicephoto_set.first|crop_image:'100,100' }}" width="100" height="100" class="img-fluid rounded open-js" />
+                    </div>
+                    <div class="col-10 pl-2">
+                        <a href="{% url 'service_detail' pk=other_advert.id %}" class="text-black">{{ other_advert.title }}</a>
+                        <div class="small text-muted">
+                            <span class="mr-2">{{ other_advert.contact }}</span>
+                        </div>
+                        <div class="" style="font-size: 0.9rem; word-wrap: break-word">
+                        {{ other_advert.content|slice:"0:100" }}
+                        <span class="d-none d-sm-inline">{{ other_advert.content|slice:"101:170" }}</span>
+                        {% if other_advert.content|length > 150 %}...{% endif %}
+                        <span class="continue-js text-muted d-sm-none"> дальше</span>
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
         </div>
 {#        <div class="d-none d-md-block col-md-3 border">Доп. инфо</div>#}

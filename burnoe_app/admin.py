@@ -1,8 +1,7 @@
 from django.contrib import admin
 
 from .models import (Contact, News, Event,
-                     Service, ServiceCategory, ServicePhoto,
-                     Product, ProductCategory, ProductPhoto)
+                     Service, ServiceCategory, ServicePhoto)
 
 
 class ContactAdmin(admin.ModelAdmin):
@@ -27,13 +26,6 @@ class ServiceCategoryAdmin(admin.ModelAdmin):
         return obj.service_set.count()
 
 
-class ProductCategoryAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'order', 'count']
-
-    def count(self, obj):
-        return obj.product_set.count()
-
-
 class ServicePhotoInline(admin.StackedInline):
     model = ServicePhoto
     extra = 2
@@ -56,32 +48,8 @@ class ServiceAdmin(admin.ModelAdmin):
     photos.short_description = 'Фото'
 
 
-class ProductPhotoInline(admin.StackedInline):
-    model = ProductPhoto
-    extra = 2
-
-
-class ProductAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'content', 'category_name', 'photos', 'created_date']
-    list_display_links = ['id', 'title']
-    inlines = [ProductPhotoInline]
-
-    def category_name(self, obj):
-        return obj.category.name
-
-    def photos(self, obj):
-        return obj.productphoto_set.count()
-
-    category_name.short_description = 'Категория'
-    category_name.admin_order_field = 'category__name'
-
-    photos.short_description = 'Фото'
-
-
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(News, NewsAdmin)
 admin.site.register(Event, EventAdmin)
-admin.site.register(ProductCategory, ProductCategoryAdmin)
 admin.site.register(ServiceCategory, ServiceCategoryAdmin)
-admin.site.register(Product, ProductAdmin)
 admin.site.register(Service, ServiceAdmin)

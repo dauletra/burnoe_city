@@ -51,32 +51,31 @@
         </div>
 
         <!-- MENU -->
-        <div class="mb-2">
-            <ul class="nav nav-tabs bg-light text-uppercase">
-                <li class="nav-item">
-                    <a
-                            {% if request.path == "/" or request.path|startswith:"/services" %}
-                                class="nav-link active"
-                            {% else %}
-                                class="nav-link"
-                            {% endif %} href="{% url 'service_list' %}">Услуги</a>
-                </li>
-                <li class="nav-item">
-                    <a
-                            {% if request.path|startswith:"/market" %}
-                                class="nav-link active"
-                            {% else %}
-                                class="nav-link"
-                            {% endif %}
-                            href="{% url 'product_list' %}">Маркет</a>
-                </li>
-            </ul>
-        </div>
-        <div class="hide-scroll-bar d-flex">
-            {% for category in service_categories %}
-                <span class="pl-3 text-muted" style="font-size: 0.9rem; white-space: nowrap">{{ category }}</span>
-            {% endfor %}
+{#        <div class="mb-2">#}
+{#            <ul class="nav nav-tabs bg-light text-uppercase">#}
+{#                <li class="nav-item">#}
+{#                    <a#}
+{#                            {% if request.path == "/" or request.path|startswith:"/services" %}#}
+{#                                class="nav-link active"#}
+{#                            {% else %}#}
+{#                                class="nav-link"#}
+{#                            {% endif %} href="{% url 'service_list' %}">Услуги</a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                    <a#}
+{#                            {% if request.path|startswith:"/market" %}#}
+{#                                class="nav-link active"#}
+{#                            {% else %}#}
+{#                                class="nav-link"#}
+{#                            {% endif %}#}
+{#                            href="{% url 'product_list' %}">Маркет</a>#}
+{#                </li>#}
+{#            </ul>#}
+{#        </div>#}
 
+        <div class="bg-light py-2">
+            <span class="text-uppercase ml-3">Услуги</span>
+            <span class="text-uppercase ml-3">Маркет</span>
         </div>
 
         <!-- CONTACTS -->
@@ -90,6 +89,9 @@
 
         <!-- Избранные -->
         {% block best_adverts %}{% endblock %}
+
+        <!-- Категории -->
+        {% block category %}{% endblock %}
 
         <!-- CONTENT -->
         {% block content %}{% endblock content %}

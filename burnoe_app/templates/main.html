@@ -13,9 +13,7 @@
 {% endblock %}
 
 {% block contacts %}
-    <!-- HOT CONTACTS -->
     <div class="mb-2 my-3">
-{#        <div>Горячие контакты</div>#}
         <div class="position-relative">
             <div id="hot-container" class="d-flex hide-scroll-bar">
                 <div class="position-absolute d-md-none" style="top: 47%; left: .5rem;">
@@ -66,15 +64,15 @@
 
 {% block anons %}
     <div>
-        <p class="font-weight-bold" style="color:#9e0039;">События</p>
+        <p class="font-weight-bold pl-2" style="color:#9e0039;">События</p>
         <div class="my-2 d-flex hide-scroll-bar" style="font-size: 0.9rem; height: 140px;">
             {% for event in events %}
-                <div class="overflow-hidden ml-2" style="width: 110px; min-width: 110px">
+                <div class="overflow-hidden ml-2" style="width: 120px; min-width: 120px">
                     <div class="text-center position-relative" style="height: 80px;">
                         <img src="{% static 'icons/001-instagram.svg' %}" class="img-fluid position-absolute" style="width: 0.9rem; top: 0; left: 1rem;" />
                         <a href="#"><img src="{{ event.photo|event_photo }}" class="img-fluid rounded-circle" /></a>
                     </div>
-                    <div class="small text-center">
+                    <div class="text-center" style="font-size: 0.8rem;">
                         <a href="#" style="white-space: nowrap">{{ event.name1 }}</a> <br/>
                         <span style="white-space: nowrap">{{ event.name2 }}</span><br/>
                         <span class="text-muted">{{ event.last_date|date:"d.m.Y" }}</span>
@@ -89,15 +87,15 @@
 {% block best_adverts %}
     <div class="pt-2"  style="">
         <div style="color:#9e0039;" class="pl-2 font-weight-bold">Рекомендуем</div>
-        <div class="my-2 d-flex hide-scroll-bar" style="font-size: 0.9rem; height: 210px">
-            {% for service in services %}
+        <div class="my-2 d-flex hide-scroll-bar" style="font-size: 0.9rem;">
+            {% for advert in best_adverts %}
             <div class="rounded-top overflow-hidden ml-2 ml-sm-3" style="width: 180px; min-width: 180px;">
                 <div style="min-height: 100px">
-                    <img src="https://via.placeholder.com/180x120" class="img-fluid" />
+                    <img src="https://via.placeholder.com/180x100" class="img-fluid" />
                 </div>
-                <div class="p-1 border" style="height: 4.9rem;">
-                    <a href="#" style="white-space: nowrap;">{{ service.title }}</a>
-                    <span class="text-muted" style="">{{ service.contact }}</span>
+                <div class="p-1 border overflow-auto hide-scroll-bar" style="height: 4.9rem;">
+                    <a href="#">{{ advert.title }}</a>
+                    <span class="text-muted" style="">{{ advert.contact }}</span>
                 </div>
             </div>
         {% endfor %}
@@ -105,15 +103,50 @@
     </div>
 {% endblock %}
 
-{% block content %}
-    <div>
-
+{% block category %}
+    <div class="">
+        <div style="color:#9e0039;" class="pl-2 font-weight-bold">Категории</div>
+        <div class="my-2 d-flex flex-wrap small">
+            {% for category in service_categories %}
+                <a href="#" class="text-decoration-none text-black">
+                    <div class="ml-2 ml-sm-3 mb-2 p-1 border border-warning text-center" style="width: 105px; height: 3rem;">{{ category }}</div>
+                </a>
+            {% endfor %}
+            {% for category in service_categories %}
+                <a href="#" class="text-decoration-none text-black">
+                    <div class="ml-2 ml-sm-3 mb-2 p-1 border border-warning text-center" style="width: 105px; height: 3rem;">{{ category }}</div>
+                </a>
+            {% endfor %}
+        </div>
     </div>
-    <!-- МАРКЕТ -->
-{#    {% include "_adverts.html" with name='product' name_kaz='Маркет' main_page=True adverts=products categories=product_categories advert_count=product_count only %}#}
+{% endblock %}
 
-    <!-- SERVICES -->
-{#    {% include "_adverts.html" with name='service' name_kaz='Услуги' main_page=True  adverts=services categories=service_categories advert_count=service_count only %}#}
+{% block content %}
+    <div class="" style="max-width: 650px; font-size: 0.9rem;">
+        {% for foo in '12345' %}
+            <div class="mb-4">
+                <div class="text-uppercase text-muted mb-2 pl-2">Кафе и столовые</div>
+                {% for foo in '123' %}
+                    <div class="row no-gutters mb-2">
+                        <div class="border col-2">
+                            <img src="https://via.placeholder.com/100x100" class="img-fluid" />
+                        </div>
+                        <div class="col-10 pl-2">
+                            {% lorem 20 w random %}
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="text-center text-muted"><u>еще</u></div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="hide-scroll-bar d-flex" style="font-size: 0.9rem; ">
+        <span class="text-muted font-weight-bold pr-1 border-right ">Другие объявления</span>
+        {% for category in service_categories %}
+            <span class="ml-2 px-1 text-muted" style="white-space: nowrap">{{ category }}</span>
+        {% endfor %}
+    </div>
 {% endblock %}
 
 {% block myscript %}

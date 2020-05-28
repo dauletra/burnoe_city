@@ -17,7 +17,9 @@ def home(request):
 
     events = Event.objects.all()
 
-    services = Service.objects.active()[:4]
+    best_adverts = Service.objects.active().order_by('?')[:7]
+
+    services = Service.objects.active()[:8]
     service_count = Service.objects.active().count()
     service_categories = ServiceCategory.objects.all()
 
@@ -26,6 +28,7 @@ def home(request):
                       "contacts": contacts,
                       "news": news,
                       "events": events,
+                      "best_adverts": best_adverts,
                       "services": services,
                       "service_count": service_count,
                       "service_categories": service_categories

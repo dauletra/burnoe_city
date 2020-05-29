@@ -16,7 +16,13 @@
         <div class="my-2 d-flex flex-wrap small">
             {% for category in service_categories %}
                 <a href="{% url 'service_list' %}?category={{ category.id }}" class="text-decoration-none text-black">
-                    <div class="ml-2 ml-sm-3 mb-2 p-1 border border-warning text-center" style="width: 105px; height: 3rem;">{{ category }}</div>
+                    <div class="ml-2 ml-sm-3 mb-2 p-1 border border-warning text-center"
+                         style="width: 105px;
+                                {% if category.id == current_category.id %}
+                                    background-color: #fff98b;
+                                {% endif %}
+                                height: 3rem;"
+                    >{{ category }}</div>
                 </a>
             {% endfor %}
         </div>

@@ -16,8 +16,12 @@
     <div class="mb-2 my-3">
         <div class="position-relative">
             <div id="contacts-container" class="d-flex hide-scroll-bar js-slider">
-                <a href="#" class="position-absolute btn btn-outline-dark bg-light btn-sm js-slide-back d-none font-weight-bold" style="top: 23%; left: .5rem;">&lt;</a>
-                <a href="#" class="position-absolute btn btn-outline-dark bg-light btn-sm js-slide-forward font-weight-bold" style="top: 23%; right: .5rem;">&gt;</a>
+                <a href="#" class="carousel-control-prev js-slide-back d-none font-weight-bold" style="width: 30px; background-color: black;">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a href="#" class="carousel-control-next js-slide-forward font-weight-bold" style="width: 30px; background-color: black;">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
                 {% for contact in contacts %}
                     <div class="border border-success small mr-3 text-center" style="width: 130px; min-width: 130px">
                         <div class="overflow-hidden" style="white-space: nowrap; color: darkgreen">{{ contact.name }}</div>
@@ -31,7 +35,7 @@
 {% endblock %}
 
 {% block news %}
-    <div class="row no-gutters my-md-3">
+    <div class="row no-gutters my-2">
         <div class="col-12 col-md-8 order-2 order-md-1 py-2 py-md-0 m-0" style="font-size: 0.9rem;">
             <div class="" style="max-width: 650px">
                 {% for n_new in news %}
@@ -59,12 +63,16 @@
 {% endblock %}
 
 {% block best_adverts %}
-    <div class="pt-2"  style="">
+    <div class="pt-2 my-2"  style="">
         <div style="color:#9e0039;" class="pl-2 font-weight-bold">Рекомендуем</div>
         <div class="position-relative ">
             <div class="my-2 d-flex hide-scroll-bar js-slider" style="font-size: 0.9rem;">
-                <button class="position-absolute btn btn-outline-dark bg-light js-slide-back d-none font-weight-bold" style="top: 33%; left: .5rem;">&lt;</button>
-                <button class="position-absolute btn btn-outline-dark bg-light js-slide-forward font-weight-bold" style="top: 33%; right: .5rem;">&gt;</button>
+                <a href="#" class="carousel-control-prev js-slide-back d-none font-weight-bold" style="width: 30px; background-color: black;">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a href="#" class="carousel-control-next js-slide-forward font-weight-bold" style="width: 30px; background-color: black;">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
                 {% for advert in best_adverts %}
                 <div class="rounded-top overflow-hidden ml-2 ml-sm-3" style="width: 180px; min-width: 180px;">
                     <div style="min-height: 100px">
@@ -82,22 +90,16 @@
 {% endblock %}
 
 {% block category %}
-    <div class="mb-4">
+    <div class="my-4">
         <div style="color:#9e0039;" class="pl-2 font-weight-bold">Услуги</div>
         <div class="my-2 d-flex flex-wrap small">
             {% for category in service_categories %}
-                <a href="#" class="text-decoration-none text-black">
-                    <div class="ml-2 ml-sm-3 mb-2 p-1 border border-warning text-center" style="width: 105px; height: 3rem;">{{ category }}</div>
+                <a href="{% url 'service_list' %}?category={{ category.id }}" class="text-decoration-none text-black">
+                    <div class="ml-2 ml-sm-3 mb-2 p-1 border border-warning text-center" style="width: 105px; height: 3rem;">{{ category.name }}</div>
                 </a>
             {% endfor %}
-            {% for category in service_categories %}
-                <a href="#" class="text-decoration-none text-black">
-                    <div class="ml-2 ml-sm-3 mb-2 p-1 border border-warning text-center" style="width: 105px; height: 3rem;">{{ category }}</div>
-                </a>
-            {% endfor %}
-
-                <a href="#" class="text-decoration-none text-black">
-                    <div class="ml-2 ml-sm-3 mb-2 p-1 text-center" style="width: 105px; height: 3rem; border: 1px solid #919191;">Все категории</div>
+                <a href="{% url 'service_list' %}" class="text-decoration-none text-black">
+                    <div class="ml-2 ml-sm-3 mb-2 p-1 border border-warning text-center" style="width: 105px; height: 3rem;">Все объявления</div>
                 </a>
         </div>
     </div>
@@ -113,14 +115,23 @@
 {#            </div>#}
     </div>
 
-    <div class="d-flex pl-sm-2 pl-md-4">
-        <div class="text-muted font-weight-bold pl-2 pr-1" style="box-shadow: 3px 0 3px -3px rgba(0,0,0,0.45)">Другие объявления</div>
+    <div class="pl-sm-2 pl-md-4" style="font-size: 0.9rem; ">
+        <div class="text-muted font-weight-bold pl-2 pr-1">Другие объявления</div>
 {#        <a href="#" class="d-flex align-self-center js-slide-back">&lArr;</a>#}
-        <div class="d-flex align-self-center hide-scroll-bar" style="font-size: 0.9rem; ">
-            {% for category in service_categories %}
-                <span class="ml-2 px-1 text-muted" style="white-space: nowrap">{{ category }}</span>
-            {% endfor %}
+        <div class="position-relative overflow-auto">
+            <div class="d-flex align-self-center hide-scroll-bar js-slider py-2">
+                <a href="#" class="carousel-control-prev js-slide-back d-none font-weight-bold" style="width: 30px; background-color: black;">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a href="#" class="carousel-control-next js-slide-forward font-weight-bold" style="width: 30px; background-color: black;">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+                {% for category in service_categories %}
+                    <a href="{% url 'service_list' %}?category={{ category.id }}" class="ml-2 px-1 text-muted" style="white-space: nowrap">{{ category.name }}</a>
+                {% endfor %}
+            </div>
         </div>
+
 {#        <a href="#" class="d-flex align-self-center js-slide-forward">&rArr;</a>#}
     </div>
 {% endblock %}

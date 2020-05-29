@@ -3,22 +3,22 @@
 {% load get_first_photo %}
 
 <!-- The Modal/Lightbox -->
-<div class="mb-4 row no-gutters">
-    <div class="col-2 order-1 pl-sm-2 pl-md-0" style="">
-        <a href="{% url 'service_detail' pk=advert.id %}" class="">
-            <img src="{{ advert.servicephoto_set.first|crop_image }}" width="100" height="100" class="img-fluid rounded open-js" />
-        </a>
+<div>
+    <div class="pl-sm-2">
+        <a href="{% url 'service_detail' pk=advert.id %}" class="text-black">{{ advert.title }}</a>
+        <div class="small text-muted">{{ advert.contact }}</div>
     </div>
-    <div class="col-10 order-2 pl-2 ">
-        <div>{{ advert.title }}</div>
-        <div class="small text-muted">
-            <span class="mr-2">{{ advert.contact }}</span>
+    <div class="row no-gutters mb-4">
+        <div class="col-3 col-sm-2">
+            <img src="{{ advert.servicephoto_set.first|crop_image:'130,130' }}"  class="img-fluid rounded" />
         </div>
-        <div class="" style="font-size: 0.9rem;">
-            {{ advert.content|slice:"0:100" }}
-            <span class="d-none d-sm-inline">{{ advert.content|slice:"101:" }}</span>
-            <span class="continue-js text-muted d-sm-none">...дальше</span>
+        <div class="col-9 col-sm-10 pl-2">
+            <div class="" style="font-size: 0.9rem; word-wrap: break-word">
+            {{ advert.content|slice:"0:120" }}
+            <span class="d-none d-sm-inline">{{ advert.content|slice:"121:300" }}</span>
+
+            <span class="continue-js text-muted d-sm-none"> дальше</span>
         </div>
-        <div class="small text-muted">{{ advert.created_date }}</div>
+        </div>
     </div>
 </div>

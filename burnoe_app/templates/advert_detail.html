@@ -7,7 +7,7 @@
     <div class="row no-gutters">
         <div class="col-12 col-md-9">
             <p class="pl-2 my-3">
-                <a href="{% url 'service_list' %}?category={{ advert.category.id }}" class="border border-warning p-1">{{ advert.category.name }}</a>
+                <a href="{% url 'service_list' %}?category={{ advert.category.id }}" class="">&rarr; {{ advert.category.name }}</a>
             </p>
             {% if photos.count > 0 %}
                 <div id="carouselAdvert" class="carousel slide" data-ride="carousel">

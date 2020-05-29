@@ -27,23 +27,7 @@
     <div class="pl-sm-2 pl-md-4 ml-2" style="max-width: 650px; font-size: 0.9rem;">
 {#            <div class="mb-4">#}
                 {% for advert in services %}
-                    <div class="row no-gutters mb-4">
-                        <div class="col-2">
-                            <img src="{{ advert.servicephoto_set.first|crop_image:'100,100' }}" width="100" height="100" class="img-fluid rounded open-js" />
-                        </div>
-                        <div class="col-10 pl-2">
-                            <a href="{% url 'service_detail' pk=advert.id %}" class="text-black">{{ advert.title }}</a>
-                            <div class="small text-muted">
-                                <span class="mr-2">{{ advert.contact }}</span>
-                            </div>
-                            <div class="" style="font-size: 0.9rem; word-wrap: break-word">
-                            {{ advert.content|slice:"0:100" }}
-                            <span class="d-none d-sm-inline">{{ advert.content|slice:"101:170" }}</span>
-                            {% if advert.content|length > 150 %}...{% endif %}
-                            <span class="continue-js text-muted d-sm-none"> дальше</span>
-                            </div>
-                        </div>
-                    </div>
+                    {% include '_adv.html' with advert=advert only %}
                 {% endfor %}
 {#            </div>#}
     </div>

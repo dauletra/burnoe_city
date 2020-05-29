@@ -124,6 +124,29 @@
     </div>
 {% endblock content %}
 
+
+{% block anons %}
+    <div>
+        <p class="font-weight-bold pl-2" style="color:#9e0039;">События</p>
+        <div class="pl-sm-2 my-2 d-flex hide-scroll-bar" style="font-size: 0.9rem; height: 140px;">
+            {% for event in events %}
+                <div class="overflow-hidden ml-2" style="width: 120px; min-width: 120px">
+                    <div class="text-center position-relative" style="height: 80px;">
+                        <img src="{% static 'icons/001-instagram.svg' %}" class="img-fluid position-absolute" style="width: 0.9rem; top: 0; left: 1rem;" />
+                        <a href="{{ event.link }}" target="_blank"><img src="{{ event.photo|event_photo }}" class="img-fluid rounded-circle" /></a>
+                    </div>
+                    <div class="text-center" style="font-size: 0.8rem;">
+                        <a href="{{ event.link }}" target="_blank" style="white-space: nowrap">{{ event.name1 }}</a> <br/>
+                        <span style="white-space: nowrap">{{ event.name2 }}</span><br/>
+                        <span class="text-muted">{{ event.last_date|date:"d.m.Y" }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}
+
 {% block myscript %}
 <script>
     var hot_slide = document.getElementById('hot-slide');

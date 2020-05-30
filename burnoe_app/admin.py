@@ -32,7 +32,7 @@ class ServicePhotoInline(admin.StackedInline):
 
 
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'contact', 'content', 'category_name', 'photos', 'created_date']
+    list_display = ['id', 'title', 'contact', 'content', 'category_name', 'photos', 'created_date', 'elect_date', 'is_active', 'only']
     list_display_links = ['id', 'title']
     inlines = [ServicePhotoInline]
 

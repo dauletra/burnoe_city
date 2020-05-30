@@ -11,15 +11,21 @@ import cloudinary.api
 
 
 def home(request):
+    best_length = 7
+    only_length = 7
+
     contacts = Contact.objects.filter(last_date__gt=now()).order_by('?')
 
     news = News.objects.all()[:5]
 
-    events = Event.objects.all()
+    best_adverts = Service.objects.active().filter(elect_date__gt=now()).order_by('?')[:7]
 
-    best_adverts = Service.objects.active().order_by('?')[:7]
+    services = Service.objects.active().filter(elect_date__isnull=True, only=True)[:only_length]
 
-    services = Service.objects.active()[:8]
+    if services.count() < only_length:
+        minus = only_length - services.count()
+        temp_services = Service.objects.active().filter(elect_date__isnull=True, only=False)[:minus]
+        services = services | temp_services
     service_count = Service.objects.active().count()
     service_categories = ServiceCategory.objects.all()
 
@@ -27,7 +33,7 @@ def home(request):
                   context={
                       "contacts": contacts,
                       "news": news,
-                      "events": events,
+                      # "events": events,
                       "best_adverts": best_adverts,
                       "services": services,
                       "service_count": service_count,
@@ -37,6 +43,7 @@ def home(request):
 
 class ServiceList(ListView):
     context_object_name = 'services'
+    ordering = ['created_date']
     queryset = Service.objects.active()
     template_name = 'service_list.html'
     paginate_by = 6

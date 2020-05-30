@@ -7,10 +7,11 @@
     <div class="row no-gutters">
         <div class="col-12 col-md-9">
             <p class="pl-2 my-3">
-                <a href="{% url 'service_list' %}?category={{ advert.category.id }}" class="">&rarr; {{ advert.category.name }}</a>
+                <a href="{% url 'service_list' %}" class="">Услуги</a> &rarr;
+                <a href="{% url 'service_list' %}?category={{ advert.category.id }}" class="">{{ advert.category.name }}</a>
             </p>
             {% if photos.count > 0 %}
-                <div id="carouselAdvert" class="carousel slide" data-ride="carousel">
+                <div id="carouselAdvert" class="carousel slide" data-ride="carousel" data-interval="false">
                     <ol class="carousel-indicators">
                         {% for photo in photos %}
                             <li data-target="#carouselAdvert" data-slide-to="{{ forloop.counter0 }}"

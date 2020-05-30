@@ -91,13 +91,18 @@ class ServiceManager(models.Manager):
 
 class Service(models.Model):
     title = models.CharField(max_length=100, verbose_name='Заголовок')
-    content = models.TextField(verbose_name='Описание')
+    content = models.TextField(max_length=310, verbose_name='Описание')
     created_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     modified_date = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
     last_date = models.DateTimeField(verbose_name='Дата удаления', default=after_advert)
 
     contact = models.CharField(max_length=100, verbose_name='Телефон и адрес')
     category = models.ForeignKey(to=ServiceCategory, on_delete=models.PROTECT, verbose_name='Категория')
+
+    only = models.BooleanField(verbose_name='Единственный', default=False)
+    elect_date = models.DateTimeField(verbose_name='Дата (избранный)', null=True, blank=True, default=None)
+
+    only.boolean = True
 
     objects = ServiceManager()
 

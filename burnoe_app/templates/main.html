@@ -92,6 +92,7 @@
 {% block category %}
     <div class="my-4">
         <div style="color:#9e0039;" class="pl-2 font-weight-bold">Услуги</div>
+        <div class="text-muted pl-2" style="font-size: 0.9rem;">Всего {{ service_count }} объявлении</div>
         <div class="my-2 d-flex flex-wrap small">
             {% for category in service_categories %}
                 <a href="{% url 'service_list' %}?category={{ category.id }}" class="text-decoration-none text-black">
@@ -107,17 +108,13 @@
 
 {% block content %}
     <div class="pl-sm-2 pl-md-4 ml-2" style="max-width: 650px;">
-{#            <div class="mb-4">#}
-{#                <div class="text-uppercase text-muted mb-2 pl-2">Кафе и столовые</div>#}
-                {% for advert in services %}
-                    {% include '_adv.html' with advert=advert only %}
-                {% endfor %}
-{#            </div>#}
+        {% for advert in services %}
+            {% include '_adv.html' with advert=advert only %}
+        {% endfor %}
     </div>
 
     <div class="pl-sm-2 pl-md-4" style="font-size: 0.9rem; ">
         <div class="text-muted font-weight-bold pl-2 pr-1">Другие объявления</div>
-{#        <a href="#" class="d-flex align-self-center js-slide-back">&lArr;</a>#}
         <div class="position-relative overflow-auto">
             <div class="d-flex align-self-center hide-scroll-bar js-slider py-2">
                 <a href="#" class="carousel-control-prev js-slide-back d-none font-weight-bold" style="width: 30px; background-color: black;">
@@ -131,8 +128,6 @@
                 {% endfor %}
             </div>
         </div>
-
-{#        <a href="#" class="d-flex align-self-center js-slide-forward">&rArr;</a>#}
     </div>
 {% endblock %}
 
@@ -142,11 +137,6 @@ $('.js-slider').each(function(index) {
     console.log('js-slider ' + index);
     let width = $(this).width();
     let scrollWidth = $(this).get(0).scrollWidth;
-    // let scrollLeft = $(this).scrollLeft();
-    // console.log(`width: ${width}`);
-    // console.log(`scrollWidth: ${scrollWidth}`);
-    // console.log(`scrollLeft: ${scrollLeft}`);
-    // console.log(`scrollWidth - width=${scrollWidth - width}`);
     if (width === scrollWidth)
         $(this).children('.js-slide-forward').first().addClass('d-none');
     else {
@@ -189,20 +179,5 @@ $('.js-slider').each(function(index) {
 
     })
 });
-
-function sideScroll(element, direction, speed, distance, step) {
-    scrollAmount = 0;
-    var slideTimer = setInterval(function() {
-        let hor = element.scrollLeft();
-        if (direction === 'left') {
-            element.scrollLeft(hor-step)
-        } else {
-            element.scrollLeft(hor+step)
-        }
-        scrollAmount += step;
-        if (scrollAmount >= distance)
-            window.clearInterval(slideTimer);
-    })
-}
 </script>
 {% endblock %}

@@ -2,6 +2,7 @@ from django.utils.timezone import now
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
+from django.db.models import Count
 
 from .models import Contact, News, Event, Service, ServiceCategory
 
@@ -26,8 +27,11 @@ def home(request):
         minus = only_length - services.count()
         temp_services = Service.objects.active().filter(elect_date__isnull=True, only=False)[:minus]
         services = services | temp_services
+
     service_count = Service.objects.active().count()
-    service_categories = ServiceCategory.objects.all()
+    categories = ServiceCategory.objects.annotate(service_count=Count('service'))
+    service_categories = categories[:8]
+    other_service_categories = categories[9:]
 
     return render(request, 'main.html',
                   context={
@@ -37,7 +41,8 @@ def home(request):
                       "best_adverts": best_adverts,
                       "services": services,
                       "service_count": service_count,
-                      "service_categories": service_categories
+                      "service_categories": service_categories,
+                      "other_service_categories": other_service_categories
                   })
 
 
@@ -63,7 +68,7 @@ class ServiceList(ListView):
             current_category = ServiceCategory.objects.get(pk=cat_id)
         except ValueError:
             current_category = None
-        res['service_categories'] = ServiceCategory.objects.all()
+        res['service_categories'] = ServiceCategory.objects.annotate(service_count=Count('service'))
         res['service_count'] = self.get_queryset().count()
         res['current_category'] = current_category
         res['filter_param_str'] = '&category='+str(current_category.id) if current_category is not None else ''

@@ -95,12 +95,16 @@
         <div class="text-muted pl-2" style="font-size: 0.9rem;">Всего {{ service_count }} объявлении</div>
         <div class="my-2 d-flex flex-wrap small">
             {% for category in service_categories %}
-                <a href="{% url 'service_list' %}?category={{ category.id }}" class="text-decoration-none text-black">
-                    <div class="ml-2 ml-sm-3 mb-2 p-1 border border-warning text-center" style="width: 105px; height: 3rem;">{{ category.name }}</div>
+                {% if category.service_count == 0 %}
+                    <div class="ml-2 ml-sm-3 mb-2 p-1 border border-secondary text-muted text-center" style="width: 105px; height: 3rem;">{{ category.name }}</div>
+                {% else %}
+                <a href="{% url 'service_list' %}?category={{ category.id }}" class="text-decoration-none" style="color: #00454f;">
+                    <div class="ml-2 ml-sm-3 mb-2 p-1 text-center" style="width: 105px; height: 3rem; border: 1px solid #00898b;">{{ category.name }}</div>
                 </a>
+                {% endif %}
             {% endfor %}
-                <a href="{% url 'service_list' %}" class="text-decoration-none text-black">
-                    <div class="ml-2 ml-sm-3 mb-2 p-1 border border-warning text-center" style="width: 105px; height: 3rem;">Все объявления</div>
+                <a href="{% url 'service_list' %}" class="text-decoration-none" style="color: #00454f;">
+                    <div class="ml-2 ml-sm-3 mb-2 p-1 text-center" style="width: 105px; height: 3rem; border: 1px solid #00898b;">Все категории</div>
                 </a>
         </div>
     </div>
@@ -123,8 +127,8 @@
                 <a href="#" class="carousel-control-next js-slide-forward font-weight-bold" style="width: 30px; background-color: black;">
                     <span class="carousel-control-next-icon"></span>
                 </a>
-                {% for category in service_categories %}
-                    <a href="{% url 'service_list' %}?category={{ category.id }}" class="ml-2 px-1 text-muted" style="white-space: nowrap">{{ category.name }}</a>
+                {% for other_category in other_service_categories %}
+                    <a href="{% url 'service_list' %}?category={{ other_category.id }}" class="ml-2 px-1 text-muted" style="white-space: nowrap">{{ other_category.name }}</a>
                 {% endfor %}
             </div>
         </div>

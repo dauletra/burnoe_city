@@ -21,6 +21,7 @@ class EventAdmin(admin.ModelAdmin):
 
 class ServiceCategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'order', 'count']
+    list_display_links = ['id', 'name']
 
     def count(self, obj):
         return obj.service_set.count()

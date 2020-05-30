@@ -11,20 +11,29 @@
 {% endblock mycss %}
 
 {% block category %}
-    <div class="text-muted pl-2" style="font-size: 0.9rem;">Всего {{ service_count }} объявлении</div>
+    <div class="text-muted pl-2" style="font-size: 0.9rem;">
+        Всего {{ service_count }} объявлении
+        {% if current_category %}
+            в "{{ current_category.name }}"
+        {% endif %}
+    </div>
     <div class="">
 {#        <div style="color:#9e0039;" class="pl-2 font-weight-bold">Услуги</div>#}
         <div class="my-2 d-flex flex-wrap small">
             {% for category in service_categories %}
-                <a href="{% url 'service_list' %}?category={{ category.id }}" class="text-decoration-none text-black">
-                    <div class="ml-2 ml-sm-3 mb-2 p-1 border border-warning text-center"
+                {% if category.service_count == 0 %}
+                    <div class="ml-2 ml-sm-3 mb-2 p-1 border border-secondary text-muted text-center" style="width: 105px; height: 3rem;">{{ category.name }}</div>
+                {% else %}
+                <a href="{% url 'service_list' %}?category={{ category.id }}" class="text-decoration-none" style="color: #00454f;">
+                    <div class="ml-2 ml-sm-3 mb-2 p-1 text-center"
                          style="width: 105px;
                                 {% if category.id == current_category.id %}
-                                    background-color: #fff98b;
+                                    background-color: #c3fff1;
                                 {% endif %}
-                                height: 3rem;"
+                                height: 3rem; border: 1px solid #00898b;"
                     >{{ category }}</div>
                 </a>
+                {% endif %}
             {% endfor %}
         </div>
     </div>
@@ -35,6 +44,10 @@
 {#            <div class="mb-4">#}
                 {% for advert in services %}
                     {% include '_adv.html' with advert=advert only %}
+                {% empty %}
+                    <div class="h5 alert alert-info text-center">
+                        Пока нет активных объявлении 😴
+                    </div>
                 {% endfor %}
 {#            </div>#}
     </div>

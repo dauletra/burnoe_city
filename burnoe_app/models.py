@@ -73,7 +73,7 @@ class Event(models.Model):
 
 
 class ServiceCategory(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=25)
     order = models.IntegerField(verbose_name='Порядок', default=10)
 
     def __str__(self):

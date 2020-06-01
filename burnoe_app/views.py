@@ -1,6 +1,6 @@
 from django.utils.timezone import now
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.views.generic import ListView, DetailView
 from django.db.models import Count
 
@@ -77,13 +77,11 @@ class ServiceList(ListView):
 
 class ServiceDetail(DetailView):
     template_name = 'advert_detail.html'
-    queryset = Service.objects.active()
+    queryset = Service.objects.all()
     context_object_name = 'advert'
 
     def get_context_data(self, **kwargs):
         res = super().get_context_data(**kwargs)
-        obj = Service.objects.get(pk=self.kwargs.get('pk'))
-        res['photos'] = obj.servicephoto_set.all()
+        obj = res['advert']
         res['other_adverts'] = Service.objects.active().filter(category=obj.category.id).exclude(id=obj.id).order_by('?')[:4]
-        res['name'] = 'service'
         return res

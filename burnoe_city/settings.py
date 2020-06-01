@@ -25,7 +25,7 @@ SECRET_KEY = 'd0qgm^uu69mi0o3fot#fy)hx68b!@t12#ip^f-w@+oh_ja$@r('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -129,7 +129,14 @@ cloudinary.config(
     api_secret = "hUVDdJWICMlfcg20Cg9WVXp-q00"
 )
 
+DEBUG = os.environ.get('DEBUG', 'on') == 'on'
+ALLOWED_HOSTS += os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+
 INSTALLED_APPS += ['burnoe_app.apps.BurnoeAppConfig', 'cloudinary']
+MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
 LANGUAGE_CODE = 'ru'
 TIME_ZONE = 'Asia/Almaty'
+
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_ROOT = 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

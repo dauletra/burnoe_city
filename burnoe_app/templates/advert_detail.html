@@ -10,58 +10,63 @@
                 <a href="{% url 'service_list' %}" class="">Услуги</a> &rarr;
                 <a href="{% url 'service_list' %}?category={{ advert.category.id }}" class="">{{ advert.category.name }}</a>
             </p>
-            {% if photos.count > 0 %}
-                <div id="carouselAdvert" class="carousel slide" data-ride="carousel" data-interval="false">
-                    <ol class="carousel-indicators">
-                        {% for photo in photos %}
-                            <li data-target="#carouselAdvert" data-slide-to="{{ forloop.counter0 }}"
-                                {% if forloop.first %}
-                                    class="active"
-                                {% endif %}
-                            ></li>
-                        {% endfor %}
-                    </ol>
-                    <div class="carousel-inner">
-                        {% for photo in photos %}
-                            <div
+            {% if advert.is_active %}
+                {% if advert.servicephoto_set.all.count > 0 %}
+                    <div id="carouselAdvert" class="carousel slide" data-ride="carousel" data-interval="false">
+                        <ol class="carousel-indicators">
+                            {% for photo in advert.servicephoto_set.all %}
+                                <li data-target="#carouselAdvert" data-slide-to="{{ forloop.counter0 }}"
                                     {% if forloop.first %}
-                                        class="carousel-item active"
-                                    {% else %}
-                                        class="carousel-item"
+                                        class="active"
                                     {% endif %}
-                            >
-                                <img src="{{ photo.image.url }}" class="d-block w-100" alt="...">
-                            </div>
-                        {% endfor %}
+                                ></li>
+                            {% endfor %}
+                        </ol>
+                        <div class="carousel-inner">
+                            {% for photo in advert.servicephoto_set.all %}
+                                <div
+                                        {% if forloop.first %}
+                                            class="carousel-item active"
+                                        {% else %}
+                                            class="carousel-item"
+                                        {% endif %}
+                                >
+                                    <img src="{{ photo.image.url }}" class="d-block w-100" alt="...">
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselAdvert" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselAdvert" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselAdvert" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselAdvert" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </a>
+                {% else %}
+                    <div class="text-center">
+                        <img src="https://static.detmir.st/_ui/desktop/common/images/no_photo.jpg" class="img-fluid">
+                    </div>
+                {% endif %}
+
+                <div class="pl-2 pt-2">
+                    <h5>{{ advert.title }}</h5>
+                    <p class="text-muted">{{ advert.contact }}</p>
+                    <p style="word-wrap: break-word;">{{ advert.content|linebreaksbr }}</p>
+                    <div class="text-muted" style="font-size: 0.9rem;">Опубликовано: {{ advert.created_date }}</div>
+                    <div class="text-muted" style="font-size: 0.9rem;">Будет удален: {{ advert.last_date }}</div>
+                    <div class="text-muted" style="font-size: 0.9rem;">Номер объявления: #{{ advert.id }}</div>
                 </div>
             {% else %}
-                <div class="text-center">
-                    <img src="https://static.detmir.st/_ui/desktop/common/images/no_photo.jpg" class="img-fluid">
+                <div class="alert alert-secondary text-center">
+                    Объявление не доступен 😐
                 </div>
             {% endif %}
-
-            <div class="pl-2 pt-2">
-                <h5>{{ advert.title }}</h5>
-                <p class="text-muted">{{ advert.contact }}</p>
-                <p style="word-wrap: break-word;">{{ advert.content|linebreaksbr }}</p>
-                <div class="text-muted" style="font-size: 0.9rem;">Опубликовано: {{ advert.created_date }}</div>
-                <div class="text-muted" style="font-size: 0.9rem;">Будет удален: {{ advert.last_date }}</div>
-                <div class="text-muted" style="font-size: 0.9rem;">Номер объявления: #{{ advert.id }}</div>
-            </div>
         </div>
-{#        <div class="d-none d-md-block col-md-3 border">др. объявлен. автора</div>#}
     </div>
 
     <div class="row no-gutters mt-4">
         <div class="col-12 col-md-9">
-            <p class="h5 pl-2 py-3 bg-light">Похожие объявления</p>
+            <p class=" pl-2 py-3 bg-light">Похожие объявления</p>
             {% for other_advert in other_adverts %}
                 <div class="row no-gutters mb-4">
                     <div class="col-2">

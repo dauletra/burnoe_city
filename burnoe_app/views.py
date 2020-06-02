@@ -76,7 +76,7 @@ class ServiceList(ListView):
 
 
 class ServiceDetail(DetailView):
-    template_name = 'advert_detail.html'
+    template_name = 'service_detail.html'
     queryset = Service.objects.all()
     context_object_name = 'advert'
 

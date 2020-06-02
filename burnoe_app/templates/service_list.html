@@ -10,7 +10,7 @@
 </style>
 {% endblock mycss %}
 
-{% block category %}
+{% block content %}
     <div class="">
         {% if current_category %}
         <div class="pl-2 my-3"><a href="{% url 'service_list' %}">Услуги</a> &rarr; <span>{{ current_category.name }}</span></div>
@@ -44,9 +44,7 @@
             в "{{ current_category.name }}"
         {% endif %}
     </p>
-{% endblock %}
 
-{% block content %}
     <div class="pl-sm-2 pl-md-4 ml-2" style="max-width: 650px; ">
 {#            <div class="mb-4">#}
                 {% for advert in services %}

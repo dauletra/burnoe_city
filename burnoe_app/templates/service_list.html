@@ -13,12 +13,12 @@
 {% block category %}
     <div class="">
         {% if current_category %}
-        <div class="pl-2"><a href="{% url 'service_list' %}">Услуги</a> &rarr; <span>{{ current_category.name }}</span></div>
+        <div class="pl-2 my-3"><a href="{% url 'service_list' %}">Услуги</a> &rarr; <span>{{ current_category.name }}</span></div>
         {% else %}
-        <p class="pl-2">
+        <p class="pl-2 my-3">
             <span>Услуги</span>
         </p>
-        <div class="mt-2 d-flex flex-wrap small">
+        <div class="mt-2 d-flex flex-wrap small2">
             {% for category in service_categories %}
                 {% if category.service_count == 0 %}
                     <div class="ml-2 ml-sm-3 mb-2 p-1 border border-secondary text-muted text-center" style="width: 105px; height: 3rem;">{{ category.name }}</div>
@@ -38,8 +38,8 @@
         {% endif %}
     </div>
 
-    <p class="text-muted pl-2" style="font-size: 0.9rem;">
-        Всего {{ service_count }} объявлении
+    <p class="text-muted pl-2" style="">
+        Найдено {{ service_count }} объявлений
         {% if current_category %}
             в "{{ current_category.name }}"
         {% endif %}
@@ -47,7 +47,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="pl-sm-2 pl-md-4 ml-2" style="max-width: 650px; font-size: 0.9rem;">
+    <div class="pl-sm-2 pl-md-4 ml-2" style="max-width: 650px; ">
 {#            <div class="mb-4">#}
                 {% for advert in services %}
                     {% include '_adv.html' with advert=advert only %}

@@ -23,7 +23,7 @@
                     <span class="carousel-control-next-icon"></span>
                 </a>
                 {% for contact in contacts %}
-                    <div class="border border-success small mr-3 text-center" style="width: 130px; min-width: 130px">
+                    <div class="border border-success small2 mr-3 text-center" style="width: 130px; min-width: 130px">
                         <div class="overflow-hidden" style="white-space: nowrap; color: darkgreen">{{ contact.name }}</div>
                         <div class="overflow-hidden" style="white-space: nowrap; color: darkgreen">{{ contact.price }}</div>
                         <div class="overflow-hidden" style="white-space: nowrap; color: green;">{{ contact.phone }}</div>
@@ -36,7 +36,7 @@
 
 {% block news %}
     <div class="row no-gutters my-2">
-        <div class="col-12 col-md-8 order-2 order-md-1 py-2 py-md-0 m-0" style="font-size: 0.9rem;">
+        <div class="col-12 col-md-8 order-2 order-md-1 py-2 py-md-0 m-0" style="">
             <div class="" style="max-width: 650px">
                 {% for n_new in news %}
                     <div class="my-2 my-sm-1 pl-1">
@@ -49,9 +49,9 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="col-12 col-md-4 order-1 border-top border-bottom order-md-2">
+        <div class="col-12 col-md-4 order-1 border-top border-bottom order-md-2 normall">
             <div class="m-auto text-center rounded py-2" style="max-width: 350px; color: #1c9300;">
-                <div>Подать объявление <span class="font-weight-bold" style="color: #9e0039;">бесплатно</span></div>
+                <div>Подать объявление <span class="font-weight-bold blood-color">бесплатно</span></div>
                 <div>через Whatsapp</div>
                 <div>
                     <img src="{% static 'icons/002-whatsapp.svg' %}" class="img-fluid" style="width: 1.25rem;" />
@@ -64,9 +64,9 @@
 
 {% block best_adverts %}
     <div class="pt-2 my-2"  style="">
-        <div style="color:#9e0039;" class="pl-2 font-weight-bold">Рекомендуем</div>
+        <div class="pl-2 font-weight-bold normall blood-color">Рекомендуем</div>
         <div class="position-relative ">
-            <div class="my-2 d-flex hide-scroll-bar js-slider" style="font-size: 0.9rem;">
+            <div class="my-2 d-flex hide-scroll-bar js-slider" style="">
                 <a href="#" class="carousel-control-prev js-slide-back d-none font-weight-bold" style="width: 30px; background-color: black;">
                     <span class="carousel-control-prev-icon"></span>
                 </a>
@@ -78,7 +78,7 @@
                     <div style="min-height: 100px">
                         <img src="{{ advert.servicephoto_set.first|crop_image:'180,100' }}" width="180" height="100" class="img-fluid" />
                     </div>
-                    <div class="p-1 border overflow-auto hide-scroll-bar" style="font-size: 0.9rem; height: 90px;">
+                    <div class="p-1 border overflow-auto hide-scroll-bar" style="height: 90px;">
                         <a href="{% url 'service_detail' pk=advert.id %}" class="text-black">{{ advert.title }}</a> -
                         <span class="text-muted" style="">{{ advert.contact }}</span>
                     </div>
@@ -91,9 +91,9 @@
 
 {% block category %}
     <div class="my-4">
-        <div style="color:#9e0039;" class="pl-2 font-weight-bold">Услуги</div>
-        <div class="text-muted pl-2" style="font-size: 0.9rem;">Всего {{ service_count }} объявлении</div>
-        <div class="my-2 d-flex flex-wrap small">
+        <div class="pl-2 font-weight-bold normall blood-color">Услуги</div>
+        <div class="text-muted pl-2" style="">Всего {{ service_count }} объявлении</div>
+        <div class="my-2 d-flex flex-wrap small2">
             {% for category in service_categories %}
                 {% if category.service_count == 0 %}
                     <div class="ml-2 ml-sm-3 mb-2 p-1 border border-secondary text-muted text-center" style="width: 105px; height: 3rem;">{{ category.name }}</div>
@@ -104,7 +104,7 @@
                 {% endif %}
             {% endfor %}
                 <a href="{% url 'service_list' %}" class="text-decoration-none" style="color: #00454f;">
-                    <div class="ml-2 ml-sm-3 mb-2 p-1 text-center" style="width: 105px; height: 3rem; border: 1px solid #00898b;">Все категории</div>
+                    <div class="ml-2 ml-sm-3 mb-2 p-1 text-center" style="width: 105px; height: 3rem; border: 1px solid #00898b;">Все категории &hellip;</div>
                 </a>
         </div>
     </div>
@@ -117,7 +117,7 @@
         {% endfor %}
     </div>
 
-    <div class="pl-sm-2 pl-md-4" style="font-size: 0.9rem; ">
+    <div class="pl-sm-2 pl-md-4" style="">
         <div class="text-muted font-weight-bold pl-2 pr-1">Другие объявления</div>
         <div class="position-relative overflow-auto">
             <div class="d-flex align-self-center hide-scroll-bar js-slider py-2">

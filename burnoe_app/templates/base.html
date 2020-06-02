@@ -6,47 +6,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
-
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'site.css' %}" />
     {% block mycss %}{% endblock mycss %}
-    <style>
-        .hide-scroll-bar {
-            overflow-y: scroll;
-            overflow-x: scroll;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none;  /* Internet Explorer 10+ */
-        }
-        .hide-scroll-bar::-webkit-scrollbar { /* WebKit */
-            width: 0;
-            height: 0;
-        }
-        .rotateimg180 {
-            -webkit-transform:rotate(180deg);
-            -moz-transform: rotate(180deg);
-            -ms-transform: rotate(180deg);
-            -o-transform: rotate(180deg);
-            transform: rotate(180deg);
-        }
-        .pri-color{
-            color: #4a4b49
-        }
-        .sec-bg {
-            background-color: #d6fcff;
-        }
-        .main-bg {
-            background-color: rgb(0,182,166);
-        }
-        .text-black {
-            color: #212529;
-        }
-    </style>
 
     <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
     <div class="container-fluid p-0" style="max-width: 860px; font-family: Arial, Tahoma, 'Bitstream Vera Sans', sans-serif">
         <!-- HEADER -->
-        <div class="navbar navbar-light mb-2" style="background-color: rgb(0,182,166);">
+        <div class="navbar navbar-light mb-2 normall base-bg">
             <a class="navbar-brand text-white font-weight-bolder" style="" href="/">Burnoe.kz</a>
             <div class="d-flex align-self-center">
                 <span class="mr-2">
@@ -80,7 +49,7 @@
 {#            </ul>#}
 {#        </div>#}
 
-{#        <div class="bg-light py-2 d-flex hide-scroll-bar" style="font-size: 0.9rem;">#}
+{#        <div class="bg-light py-2 d-flex hide-scroll-bar" style="">#}
 {#            <a href="{% url 'service_list' %}" class="text-uppercase ml-3 text-black">Услуги</a>#}
 {#            <span class="text-uppercase ml-3 text-black">Недвижимость</span>#}
 {#            <span class="text-uppercase ml-3 text-black">Работа</span>#}
@@ -107,7 +76,7 @@
     </div>
 
     <!-- FOOTER -->
-    <div class="py-5 text-center small" style="height: 100px">
+    <div class="py-5 text-center small2" style="height: 100px">
         Бурное 2020 | vk.com/dauletra
     </div>
 

@@ -11,15 +11,14 @@
 {% endblock mycss %}
 
 {% block category %}
-    <div class="text-muted pl-2" style="font-size: 0.9rem;">
-        Всего {{ service_count }} объявлении
-        {% if current_category %}
-            в "{{ current_category.name }}"
-        {% endif %}
-    </div>
     <div class="">
-{#        <div style="color:#9e0039;" class="pl-2 font-weight-bold">Услуги</div>#}
-        <div class="my-2 d-flex flex-wrap small">
+        {% if current_category %}
+        <div class="pl-2"><a href="{% url 'service_list' %}">Услуги</a> &rarr; <span>{{ current_category.name }}</span></div>
+        {% else %}
+        <p class="pl-2">
+            <span>Услуги</span>
+        </p>
+        <div class="mt-2 d-flex flex-wrap small">
             {% for category in service_categories %}
                 {% if category.service_count == 0 %}
                     <div class="ml-2 ml-sm-3 mb-2 p-1 border border-secondary text-muted text-center" style="width: 105px; height: 3rem;">{{ category.name }}</div>
@@ -36,7 +35,15 @@
                 {% endif %}
             {% endfor %}
         </div>
+        {% endif %}
     </div>
+
+    <p class="text-muted pl-2" style="font-size: 0.9rem;">
+        Всего {{ service_count }} объявлении
+        {% if current_category %}
+            в "{{ current_category.name }}"
+        {% endif %}
+    </p>
 {% endblock %}
 
 {% block content %}

@@ -46,7 +46,7 @@
 <body>
     <div class="container-fluid p-0" style="max-width: 860px; font-family: Arial, Tahoma, 'Bitstream Vera Sans', sans-serif">
         <!-- HEADER -->
-        <div class="navbar navbar-light" style="background-color: rgb(0,182,166);">
+        <div class="navbar navbar-light mb-2" style="background-color: rgb(0,182,166);">
             <a class="navbar-brand text-white font-weight-bolder" style="" href="/">Burnoe.kz</a>
             <div class="d-flex align-self-center">
                 <span class="mr-2">
@@ -80,12 +80,12 @@
 {#            </ul>#}
 {#        </div>#}
 
-        <div class="bg-light py-2 d-flex hide-scroll-bar" style="font-size: 0.9rem;">
-            <a href="{% url 'service_list' %}" class="text-uppercase ml-3 text-black">Услуги</a>
+{#        <div class="bg-light py-2 d-flex hide-scroll-bar" style="font-size: 0.9rem;">#}
+{#            <a href="{% url 'service_list' %}" class="text-uppercase ml-3 text-black">Услуги</a>#}
 {#            <span class="text-uppercase ml-3 text-black">Недвижимость</span>#}
 {#            <span class="text-uppercase ml-3 text-black">Работа</span>#}
 {#            <span class="text-uppercase ml-3 text-black">Маркет</span>#}
-        </div>
+{#        </div>#}
 
         <!-- CONTACTS -->
         {% block contacts %}{% endblock %}

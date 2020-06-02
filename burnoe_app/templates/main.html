@@ -128,7 +128,13 @@
                     <span class="carousel-control-next-icon"></span>
                 </a>
                 {% for other_category in other_service_categories %}
-                    <a href="{% url 'service_list' %}?category={{ other_category.id }}" class="ml-2 px-1 text-muted" style="white-space: nowrap">{{ other_category.name }}</a>
+                    <a href="{% url 'service_list' %}?category={{ other_category.id }}" class="ml-2 px-1
+                    {% if other_category.service_count == 0 %}
+                    text-muted
+                    {% else %}
+                    text-black
+                    {% endif %}
+                    " style="white-space: nowrap">{{ other_category.name }}</a>
                 {% endfor %}
             </div>
         </div>

@@ -32,8 +32,12 @@ body {
 }
 
 
-.blood-color{
+.blood-color {
     color: #9e0039;
+}
+a.blood-color:hover {
+    color: #9e0039;
+    text-decoration: none;
 }
 
 .sec-bg {
@@ -41,7 +45,7 @@ body {
 }
 
 .base-bg {
-    background-color: rgb(0,182,166);
+    background-color: #00B6A6;
 }
 
 
@@ -50,4 +54,18 @@ body {
 }
 a.text-black:hover {
     text-decoration: none;
+}
+
+
+.category {
+    width: 105px;
+    height: 3rem;
+    border: 1px solid #00B6A6;
+    border-radius: .8rem;
+    color: #00454f;
+}
+a.category:hover {
+    background-color: #00B6A6;
+    text-decoration: none;
+    color: white;
 }

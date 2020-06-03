@@ -4,57 +4,46 @@
 
 {% block title %}Burnoe.kz - Услуги{% endblock title %}
 
-{% block mycss %}
-<style>
-
-</style>
-{% endblock mycss %}
-
 {% block content %}
     <div class="">
-        {% if current_category %}
-        <div class="pl-2 my-3"><a href="{% url 'service_list' %}">Услуги</a> &rarr; <span>{{ current_category.name }}</span></div>
-        {% else %}
-        <p class="pl-2 my-3">
-            <span>Услуги</span>
-        </p>
+        <!-- Услуги - категория -->
+        <div>
+            {% if not current_category %}
+                <div class="pl-2 font-weight-bold normall blood-color">Услуги</div>
+            {% else %}
+                <div class="pl-2 normall">
+                    <a href="{% url 'service_list' %}" class="blood-color font-weight-bold">Услуги</a> &rarr;
+                    <span class="text-muted">{{ current_category.name }}</span>
+                </div>
+            {% endif %}
+            <p class="text-muted pl-2" style="">
+                {% if service_count %}
+                    Найдено {{ service_count }} объявлений
+                {% endif %}
+            </p>
+        </div>
+
+        {% if not current_category %}
         <div class="mt-2 d-flex flex-wrap small2">
             {% for category in service_categories %}
-                {% if category.service_count == 0 %}
-                    <div class="ml-2 ml-sm-3 mb-2 p-1 border border-secondary text-muted text-center" style="width: 105px; height: 3rem;">{{ category.name }}</div>
-                {% else %}
-                <a href="{% url 'service_list' %}?category={{ category.id }}" class="text-decoration-none" style="color: #00454f;">
-                    <div class="ml-2 ml-sm-3 mb-2 p-1 text-center"
-                         style="width: 105px;
-                                {% if category.id == current_category.id %}
-                                    background-color: #c3fff1;
-                                {% endif %}
-                                height: 3rem; border: 1px solid #00898b;"
-                    >{{ category }}</div>
+                <a href="{% url 'service_list' %}?category={{ category.id }}" class="ml-2 ml-sm-3 mb-2 p-1 text-center category">
+                    {{ category.name }}
                 </a>
-                {% endif %}
             {% endfor %}
         </div>
         {% endif %}
     </div>
 
-    <p class="text-muted pl-2" style="">
-        Найдено {{ service_count }} объявлений
-        {% if current_category %}
-            в "{{ current_category.name }}"
-        {% endif %}
-    </p>
+    <div class="px-sm-2 mx-2" style="max-width: 650px; ">
+        {% for advert in services %}
+            {% include '_adv.html' with advert=advert only %}
+        {% empty %}
 
-    <div class="pl-sm-2 pl-md-4 ml-2" style="max-width: 650px; ">
-{#            <div class="mb-4">#}
-                {% for advert in services %}
-                    {% include '_adv.html' with advert=advert only %}
-                {% empty %}
-                    <div class="h5 alert alert-info text-center">
-                        Пока нет активных объявлении 😴
-                    </div>
-                {% endfor %}
-{#            </div>#}
+
+            <div class="h5 alert alert-info text-center">
+                Пока нет активных объявлении 😴
+            </div>
+        {% endfor %}
     </div>
 
     {% if is_paginated %}

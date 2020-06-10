@@ -8,8 +8,8 @@
         <!-- Услуги - Категория -->
         <div class="pl-2 mb-3">
             <a href="{% url 'service_list' %}" class="blood-color font-weight-bold normall">Услуги</a> &rarr;
-            <a href="{% url 'service_list' %}?category={{ advert.category.id }}" class="normall">{{ advert.category.name }}</a> &rarr;
-            <span class="text-muted">id{{ advert.id }}</span>
+            <a href="{% url 'service_list' %}?category={{ advert.category.id }}" class="normall text-black">{{ advert.category.name }}</a> &rarr;
+            <span class="text-muted">{{ advert.id }}</span>
         </div>
 
         {% if advert.is_active %}
@@ -67,7 +67,7 @@
     </div>
 
     <div class="pl-2" style="max-width: 650px">
-        <p class="pl-2 py-3 bg-light normall blood-color">Похожие объявления</p>
+        <p class="pl-2 py-2 bg-light normall blood-color">Похожие объявления</p>
         {% for other_advert in other_adverts %}
             <div class="row no-gutters mb-4">
                 <div class="col-2">

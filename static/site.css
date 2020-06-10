@@ -1,11 +1,48 @@
 body {
     font-size: 0.9rem;
+    font-family: Arial, Tahoma, 'Bitstream Vera Sans', sans-serif;
 }
 
+a {
+  color: #00B6A6;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: #008576;
+  text-decoration: none;
+}
+
+/* -------------------------------- */
+
+.page-link {
+  color: #00B6A6;
+}
+
+.page-link:hover {
+  color: #008576;
+}
+
+.page-item.active .page-link {
+  background-color: #00B6A6;
+  border-color: #00B6A6;
+}
+
+.page-link:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 137, 139, 0.25);
+}
+
+/* ------------------------ */
+
+.bg-base {
+    background-color: #00B6A6;
+}
 
 .small2 {
     font-size: 0.8rem;
 }
+
 .normall {
     font-size: 1rem;
 }
@@ -37,23 +74,12 @@ body {
 }
 a.blood-color:hover {
     color: #9e0039;
-    text-decoration: none;
 }
 
-.sec-bg {
-    background-color: #d6fcff;
-}
-
-.base-bg {
-    background-color: #00B6A6;
-}
 
 
 .text-black {
     color: #212529;
-}
-a.text-black:hover {
-    text-decoration: none;
 }
 
 
@@ -66,6 +92,5 @@ a.text-black:hover {
 }
 a.category:hover {
     background-color: #00B6A6;
-    text-decoration: none;
     color: white;
 }

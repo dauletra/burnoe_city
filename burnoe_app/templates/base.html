@@ -13,16 +13,18 @@
     <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
-    <div class="container-fluid p-0" style="max-width: 860px; font-family: Arial, Tahoma, 'Bitstream Vera Sans', sans-serif">
+    <div class="container-fluid p-0" style="max-width: 860px;">
         <!-- HEADER -->
-        <div class="navbar navbar-light mb-2 normall base-bg">
+        <div class="navbar navbar-light mb-2 normall bg-base">
             <a class="navbar-brand text-white font-weight-bolder" style="" href="/">Burnoe.kz</a>
             <div class="d-flex align-self-center">
-                <span class="mr-2">
+                <a href="#" class="mr-2">
                     <img src="{% static 'icons/001-instagram.svg' %}" width="20rem" />
-                </span>
-                <img class="mr-1" src="{% static 'icons/002-whatsapp.svg' %}" width="20rem" />
-                <span class=" text-white font-weight-bold">+7 747 112 6303</span>
+                </a>
+                <a href="#" class="text-decoration-none">
+                    <img class="mr-1" src="{% static 'icons/002-whatsapp.svg' %}" width="20rem" />
+                    <span class="text-white font-weight-bold">+7 775 157 2323</span>
+                </a>
             </div>
         </div>
 
@@ -80,8 +82,8 @@
         Бурное 2020 | vk.com/dauletra
     </div>
 
-    <script src="{% static 'js/jquery-3.4.1.js' %}" ></script>
-    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}" ></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script>
         $('.continue-js').click(function() {
             $(this).addClass('d-none');

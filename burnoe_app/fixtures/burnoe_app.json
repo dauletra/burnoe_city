@@ -257,7 +257,7 @@
   "model": "burnoe_app.servicecategory",
   "pk": 1,
   "fields": {
-    "name": "\u0420\u0430\u0437\u0432\u043b\u0435\u0447\u0435\u043d\u0438\u0435",
+    "name": "\u041e\u0442\u0434\u044b\u0445 \u0438 \u0440\u0430\u0437\u0432\u043b\u0435\u0447\u0435\u043d\u0438\u0435",
     "order": 15
   }
 },
@@ -355,14 +355,6 @@
   "fields": {
     "name": "\u0414\u0440\u0443\u0433\u0438\u0435 \u0443\u0441\u043b\u0443\u0433\u0438",
     "order": 80
-  }
-},
-{
-  "model": "burnoe_app.servicecategory",
-  "pk": 23,
-  "fields": {
-    "name": "\u041e\u0442\u0434\u044b\u0445",
-    "order": 35
   }
 },
 {
@@ -890,7 +882,7 @@
     "title": "\u0421\u0430\u043d\u0442\u0435\u0445\u043d\u0438\u043a, \u0427\u0438\u0441\u0442\u043a\u0430 \u043a\u0430\u043d\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f",
     "content": "\u0417\u0410\u041c\u0415\u041d\u0410 \u0421\u0422\u041e\u042f\u041a\u041e\u0412 (\u0442\u0440\u0443\u0431) \u0445\u043e\u043b\u043e\u0434\u043d\u043e\u0439, \u0433\u043e\u0440\u044f\u0447\u0435\u0439 \u0412\u041e\u0414\u042b, \u041a\u0410\u041d\u0410\u041b\u0418\u0417\u0410\u0426\u0418\u0418 \u041f\u0420\u041e\u0427\u0418\u0421\u0422\u041a\u0410 \u041a\u0423\u0425\u041e\u041d\u041d\u041e\u0419 \u041a\u0410\u041d\u0410\u041b\u0418\u0417\u0410\u0426\u0418\u0418\r\n-\u0417\u0410\u041c\u0415\u041d\u0410 \u041e\u0422\u041e\u041f\u041b\u0415\u041d\u0418\u042f,\u0420\u0410\u0414\u0418\u0410\u0422\u041e\u0420\u041e\u0412 \u041e\u0422\u041e\u041f\u041b\u0415\u041d\u0418\u042f,\r\n- \u0423\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430 \u0441\u0430\u043d\u0442\u0435\u0445\u043d\u0438\u043a\u0438:\r\n\u0441\u043c\u0435\u0441\u0438\u0442\u0435\u043b\u044f ,\u0441\u0438\u0444\u043e\u043d\u0430;\r\n\u0443\u043d\u0438\u0442\u0430\u0437\u0430, \u0441\u043b\u0438\u0432\u043d\u043e\u0433\u043e \u0431\u0430\u0447\u043a\u0430, \u0431\u0438\u0434\u0435;",
     "created_date": "2020-05-13T07:13:00.275Z",
-    "modified_date": "2020-05-30T04:50:19.455Z",
+    "modified_date": "2020-06-02T14:17:08.310Z",
     "last_date": "2020-06-03T07:12:30Z",
     "contact": "8 747 112 63 03, \u0411\u041c\u0423, \u0443\u043b. \u0418\u0433\u0438\u043b\u0438\u043a \u211614",
     "category": 3,
@@ -905,8 +897,8 @@
     "title": "\u0412\u044b\u0435\u0437\u0434\u043d\u0430\u044f \u0447\u0438\u0441\u0442\u043a\u0430 \u043a\u043e\u0432\u0440\u043e\u043b\u0438\u043d\u0430, \u043c\u0435\u0431\u0435\u043b\u0438",
     "content": "\u0413\u043b\u0443\u0431\u0438\u043d\u043d\u0430\u044f \u0445\u0438\u043c\u0447\u0438\u0441\u0442\u043a\u0430 \u043c\u044f\u0433\u043a\u043e\u0439 \u043c\u0435\u0431\u0435\u043b\u0438(\u0434\u0438\u0432\u0430\u043d\u044b, \u043a\u0440\u0435\u0441\u043b\u0430, \u0443\u0433\u043e\u043b\u043a\u0438, \u0441\u0442\u0443\u043b\u044c\u044f, \u043c\u0430\u0442\u0440\u0430\u0441\u044b, \u043f\u0443\u0444\u0438\u043a\u0438) \u0412 \u0441\u043e\u0431\u0440\u0430\u043d\u043d\u043e\u043c \u0432\u0438\u0434\u0435 \u0438 \u0432 \u0440\u0430\u0441\u043a\u043b\u0430\u0434\u043d\u043e\u043c. \u0425\u0438\u043c\u0447\u0438\u0441\u0442\u043a\u0430 \u043a\u043e\u0432\u0440\u043e\u0432\u044b\u0445 \u043f\u043e\u043a\u0440\u044b\u0442\u0438\u0439 (\u043a\u043e\u0432\u0440\u043e\u043b\u0438\u043d, \u043a\u043e\u0432\u0440\u044b, \u0438\u0441\u043a\u0443\u0441\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0439 \u0433\u0430\u0437\u043e\u043d) \u0427\u0438\u0441\u0442\u043a\u0430 \u0432\u0451\u0440\u0434\u044b\u0445 \u043f\u043e\u0432\u0435\u0440\u0445\u043d\u043e\u0441\u0442\u0435\u0439.",
     "created_date": "2020-05-13T07:13:39.187Z",
-    "modified_date": "2020-05-30T05:20:05.080Z",
-    "last_date": "2020-06-03T07:13:05Z",
+    "modified_date": "2020-06-01T13:45:03.815Z",
+    "last_date": "2020-06-01T13:40:57Z",
     "contact": "8747 112 6303, \u0443\u043b \u0411.\u0421\u0430\u0444\u0438\u043d\u043e\u0432",
     "category": 3,
     "only": false,
@@ -1483,22 +1475,6 @@
 },
 {
   "model": "burnoe_app.servicephoto",
-  "pk": 72,
-  "fields": {
-    "image": "image/upload/v1589353980/oia2ivlq9hodbinyezc6.jpg",
-    "service": 35
-  }
-},
-{
-  "model": "burnoe_app.servicephoto",
-  "pk": 73,
-  "fields": {
-    "image": "image/upload/v1589353982/gdcpk8zpsxdcxblcjzpd.jpg",
-    "service": 35
-  }
-},
-{
-  "model": "burnoe_app.servicephoto",
   "pk": 74,
   "fields": {
     "image": "image/upload/v1589353984/odhtko4d5sqvjc1cpg0c.jpg",
@@ -1527,6 +1503,22 @@
   "fields": {
     "image": "image/upload/v1589354023/o4n89kd54o4mxomkkp8e.jpg",
     "service": 36
+  }
+},
+{
+  "model": "burnoe_app.servicephoto",
+  "pk": 78,
+  "fields": {
+    "image": "image/upload/v1591107228/swdvuk5arecx0tszxpzf.jpg",
+    "service": 35
+  }
+},
+{
+  "model": "burnoe_app.servicephoto",
+  "pk": 81,
+  "fields": {
+    "image": "image/upload/v1591107430/vpz2unktx7dgstkac2lm.jpg",
+    "service": 35
   }
 }
 ]

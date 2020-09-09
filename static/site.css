@@ -3,42 +3,6 @@ body {
     font-family: Arial, Tahoma, 'Bitstream Vera Sans', sans-serif;
 }
 
-a {
-  color: #00B6A6;
-  text-decoration: none;
-  background-color: transparent;
-}
-
-a:hover {
-  color: #008576;
-  text-decoration: none;
-}
-
-/* -------------------------------- */
-
-.page-link {
-  color: #00B6A6;
-}
-
-.page-link:hover {
-  color: #008576;
-}
-
-.page-item.active .page-link {
-  background-color: #00B6A6;
-  border-color: #00B6A6;
-}
-
-.page-link:focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 137, 139, 0.25);
-}
-
-/* ------------------------ */
-
-.bg-base {
-    background-color: #00B6A6;
-}
-
 .small2 {
     font-size: 0.8rem;
 }
@@ -47,6 +11,9 @@ a:hover {
     font-size: 1rem;
 }
 
+.bb-times {
+    font-family: "Times New Roman", sans-serif;
+}
 
 .hide-scroll-bar {
     overflow-y: scroll;

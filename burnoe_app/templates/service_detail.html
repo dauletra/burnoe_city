@@ -4,14 +4,16 @@
 {% block title %}{{ advert.title }} - burnoe.kz{% endblock %}
 
 {% block content %}
-    <div class="" style="max-width: 650px">
+    <div>
         <!-- Услуги - Категория -->
         <div class="pl-2 mb-3">
             <a href="{% url 'service_list' %}" class="blood-color font-weight-bold normall">Услуги</a> &rarr;
             <a href="{% url 'service_list' %}?category={{ advert.category.id }}" class="normall text-black">{{ advert.category.name }}</a> &rarr;
             <span class="text-muted">{{ advert.id }}</span>
         </div>
-
+    </div>
+    <div class="row">
+        <div class="col" style="max-width: 650px">
         {% if advert.is_active %}
             <!-- Фотографии -->
             {% if advert.servicephoto_set.all.count > 0 %}
@@ -64,6 +66,8 @@
                 Объявление не доступен 😐
             </div>
         {% endif %}
+    </div>
+        {% include "_upgrade.html" %}
     </div>
 
     <div class="pl-2" style="max-width: 650px">

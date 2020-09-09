@@ -34,16 +34,17 @@
         {% endif %}
     </div>
 
-    <div class="px-sm-2 mx-2" style="max-width: 650px; ">
-        {% for advert in services %}
-            {% include '_adv.html' with advert=advert only %}
-        {% empty %}
-
-
-            <div class="h5 alert alert-info text-center">
-                Пока нет активных объявлении 😴
-            </div>
-        {% endfor %}
+    <div class="row">
+        <div class="px-sm-2 mx-2 col" style="max-width: 650px; ">
+            {% for advert in services %}
+                {% include '_adv.html' with advert=advert only %}
+            {% empty %}
+                <div class="h5 alert alert-info text-center">
+                    Пока нет активных объявлении 😴
+                </div>
+            {% endfor %}
+        </div>
+        {% include "_upgrade.html" %}
     </div>
 
     {% if is_paginated %}

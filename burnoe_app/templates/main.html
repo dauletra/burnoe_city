@@ -16,17 +16,19 @@
     <div class="mb-2 my-3">
         <div class="position-relative">
             <div id="contacts-container" class="d-flex hide-scroll-bar js-slider">
-                <a href="#" class="carousel-control-prev js-slide-back d-none font-weight-bold" style="width: 30px; background-color: #008576;">
+                <a href="#" class="carousel-control-prev js-slide-back d-none font-weight-bold bg-primary" style="width: 30px;">
                     <span class="carousel-control-prev-icon"></span>
                 </a>
-                <a href="#" class="carousel-control-next js-slide-forward font-weight-bold" style="width: 30px; background-color: #008576;">
+                <a href="#" class="carousel-control-next js-slide-forward font-weight-bold bg-primary" style="width: 30px;">
                     <span class="carousel-control-next-icon"></span>
                 </a>
                 {% for contact in contacts %}
-                    <div class="border border-success small2 mr-3 text-center" style="width: 130px; min-width: 130px">
-                        <div class="overflow-hidden" style="white-space: nowrap; color: darkgreen">{{ contact.name }}</div>
-                        <div class="overflow-hidden" style="white-space: nowrap; color: darkgreen">{{ contact.price }}</div>
-                        <div class="overflow-hidden" style="white-space: nowrap; color: green;">{{ contact.phone }}</div>
+                    <div class="border small2 mr-3 text-center border border-success" style="width: 130px; min-width: 130px">
+                        <div class="overflow-hidden" style="white-space: nowrap; ">{{ contact.name }}</div>
+                        <div class="overflow-hidden" style="white-space: nowrap; ">{{ contact.price }}</div>
+                        <div class="overflow-hidden " style="white-space: nowrap; ">
+                            <a href="#">{{ contact.phone }}</a>
+                        </div>
                     </div>
                 {% endfor %}
             </div>
@@ -63,14 +65,14 @@
 {% endblock %}
 
 {% block best_adverts %}
-    <div class="pt-2 my-2"  style="">
-        <div class="pl-2 font-weight-bold normall blood-color">Рекомендуем</div>
+    <div class="pt-2 my-3"  style="">
+{#        <div class="pl-2 font-weight-bold normall blood-color">Рекомендуем</div>#}
         <div class="position-relative ">
             <div class="my-2 d-flex hide-scroll-bar js-slider" style="">
-                <a href="#" class="carousel-control-prev js-slide-back d-none font-weight-bold" style="width: 30px; background-color: #008576;">
+                <a href="#" class="carousel-control-prev js-slide-back d-none font-weight-bold bg-primary" style="width: 30px;">
                     <span class="carousel-control-prev-icon"></span>
                 </a>
-                <a href="#" class="carousel-control-next js-slide-forward font-weight-bold" style="width: 30px; background-color: #008576;">
+                <a href="#" class="carousel-control-next js-slide-forward font-weight-bold bg-primary" style="width: 30px;">
                     <span class="carousel-control-next-icon"></span>
                 </a>
                 {% for advert in best_adverts %}
@@ -79,7 +81,7 @@
                         <img src="{{ advert.servicephoto_set.first|crop_image:'180,100' }}" width="180" height="100" class="img-fluid" />
                     </div>
                     <div class="p-1 border overflow-auto hide-scroll-bar" style="height: 90px;">
-                        <a href="{% url 'service_detail' pk=advert.id %}" class="text-black">{{ advert.title }}</a> -
+                        <a href="{% url 'service_detail' pk=advert.id %}" class="">{{ advert.title }}</a> -
                         <span class="text-muted" style="">{{ advert.contact }}</span>
                     </div>
                 </div>
@@ -90,17 +92,17 @@
 {% endblock %}
 
 {% block category %}
-    <div class="my-4">
-        <div class="pl-2">
-            <a href="{% url 'service_list' %}" class="font-weight-bold normall blood-color">Услуги</a></div>
-        <div class="text-muted pl-2" style="">Всего {{ service_count }} объявлении</div>
-        <div class="my-2 d-flex flex-wrap small2">
+    <div class="my-3">
+{#        <div class="pl-2">#}
+{#            <a href="{% url 'service_list' %}" class="font-weight-bold normall blood-color">Услуги</a></div>#}
+{#        <div class="text-muted pl-2" style="">Всего {{ service_count }} объявлении</div>#}
+        <div class="my-2 d-flex flex-wrap">
             {% for category in service_categories %}
-                <a href="{% url 'service_list' %}?category={{ category.id }}" class="ml-2 ml-sm-3 mb-2 p-1 text-center category">
+                <a href="{% url 'service_list' %}?category={{ category.id }}" class="ml-2 ml-sm-3 mb-2 p-1 text-center ">
                     {{ category.name }}
                 </a>
             {% endfor %}
-                <a href="{% url 'service_list' %}"                            class="ml-2 ml-sm-3 mb-2 p-1 text-center category">
+                <a href="{% url 'service_list' %}" class="ml-2 ml-sm-3 mb-2 p-1 text-center ">
                     Все категории &hellip;
                 </a>
         </div>
@@ -108,10 +110,13 @@
 {% endblock %}
 
 {% block content %}
-    <div class="pl-sm-2 pl-md-4 ml-2" style="max-width: 650px;">
-        {% for advert in services %}
-            {% include '_adv.html' with advert=advert only %}
-        {% endfor %}
+    <div class="pl-sm-2 ml-2 row">
+        <div class="col" style="max-width: 650px;">
+            {% for advert in services %}
+                {% include '_adv.html' with advert=advert only %}
+            {% endfor %}
+        </div>
+        {% include '_upgrade.html' %}
     </div>
 
     <div class="pl-sm-2 pl-md-4" style="">

@@ -1,4 +1,7 @@
 from django.contrib import admin
+from django.utils.timezone import now
+
+from datetime import timedelta
 
 from .models import (Contact, News, Event,
                      Service, ServiceCategory, ServicePhoto)
@@ -7,6 +10,12 @@ from .models import (Contact, News, Event,
 class ContactAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'price', 'phone', 'created_date', 'last_date', 'is_active']
     list_display_links = ['id', 'name']
+    actions = ['add_last_date']
+
+    def add_last_date(self, request, queryset):
+        queryset.update(last_date=now() + timedelta(days=21))
+
+    add_last_date.short_description = "Увеличить дату удаления на 21 день"
 
 
 class NewsAdmin(admin.ModelAdmin):
@@ -33,9 +42,10 @@ class ServicePhotoInline(admin.StackedInline):
 
 
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'contact', 'content', 'category_name', 'photos', 'created_date', 'elect_date', 'is_active', 'only']
+    list_display = ['id', 'title', 'contact', 'content', 'category_name', 'photos', 'last_date', 'elect_date', 'is_active', 'only']
     list_display_links = ['id', 'title']
     inlines = [ServicePhotoInline]
+    actions = ['add_last_date', 'add_last_elect_date']
 
     def category_name(self, obj):
         return obj.category.name
@@ -43,6 +53,14 @@ class ServiceAdmin(admin.ModelAdmin):
     def photos(self, obj):
         return obj.servicephoto_set.count()
 
+    def add_last_date(self, request, queryset):
+        queryset.update(last_date=now()+timedelta(days=21))
+
+    def add_last_elect_date(self, request, queryset):
+        queryset.update(elect_date=now()+timedelta(days=14))
+
+    add_last_date.short_description = 'Увеличить дату удаления на 21 день'
+    add_last_elect_date.short_description = 'Увел. дату удал. из избран. на 14 день'
     category_name.short_description = 'Категория'
     category_name.admin_order_field = 'category__name'
 

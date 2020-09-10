@@ -43,7 +43,7 @@
                 {% for n_new in news %}
                     <div class="my-2 my-sm-1 pl-1">
                         <span class="text-muted">{{ n_new.created_date|date:'d.m' }}</span>
-                        <img src="{% static 'icons/001-instagram.svg' %}" class="img-fluid" style="width: .9rem" />
+                        <img src="{% static 'icons/instagram.svg' %}" class="img-fluid" style="width: .9rem" />
                         <a href="{{ n_new.link }}" class="text-black" target="_blank">
                             {{ n_new.title }}
                         </a>
@@ -56,8 +56,8 @@
                 <div>Подать объявление <span class="font-weight-bold blood-color">бесплатно</span></div>
                 <div>через Whatsapp</div>
                 <div>
-                    <img src="{% static 'icons/002-whatsapp.svg' %}" class="img-fluid" style="width: 1.25rem;" />
-                    <span style="color: #1c9300" class="font-weight-bold">+7 775 157 2323</span>
+                    <img src="{% static 'icons/whatsapp.svg' %}" class="img-fluid" style="width: 1.25rem;" />
+                    <a href="https://wa.me/77751572323" style="color: #1c9300" class="font-weight-bold" target="_blank">+7 775 157 2323</a>
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@
 {% endblock %}
 
 {% block best_adverts %}
-    <div class="pt-2 my-3"  style="">
+    <div class="mt-2 mb-3">
 {#        <div class="pl-2 font-weight-bold normall blood-color">Рекомендуем</div>#}
         <div class="position-relative ">
             <div class="my-2 d-flex hide-scroll-bar js-slider" style="">
@@ -91,26 +91,30 @@
     </div>
 {% endblock %}
 
+{% block search %}
+    {% include "_search_bar.html" %}
+{% endblock %}
+
 {% block category %}
     <div class="my-3">
 {#        <div class="pl-2">#}
 {#            <a href="{% url 'service_list' %}" class="font-weight-bold normall blood-color">Услуги</a></div>#}
 {#        <div class="text-muted pl-2" style="">Всего {{ service_count }} объявлении</div>#}
-        <div class="my-2 d-flex flex-wrap">
+        <div class="my-2 d-flex flex-column justify-content-sm-around flex-sm-wrap border hide-scroll-bar" style="max-height: 115px; height: 115px;">
             {% for category in service_categories %}
-                <a href="{% url 'service_list' %}?category={{ category.id }}" class="ml-2 ml-sm-3 mb-2 p-1 text-center ">
-                    {{ category.name }}
-                </a>
+                <div class="border d-flex mb-2 mx-1" style="width: 178px; min-width: 178px">
+                    <img src="{% static "icons/cafe.svg" %}" style="width: 2.4rem" />
+                    <a href="{% url 'service_list' %}?category={{ category.id }}" class="ml-3">
+                        {{ category.name }}
+                    </a>
+                </div>
             {% endfor %}
-                <a href="{% url 'service_list' %}" class="ml-2 ml-sm-3 mb-2 p-1 text-center ">
-                    Все категории &hellip;
-                </a>
         </div>
     </div>
 {% endblock %}
 
 {% block content %}
-    <div class="pl-sm-2 ml-2 row">
+    <div class="pl-sm-2 ml-2 row no-gutters">
         <div class="col" style="max-width: 650px;">
             {% for advert in services %}
                 {% include '_adv.html' with advert=advert only %}

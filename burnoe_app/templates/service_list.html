@@ -5,21 +5,17 @@
 {% block title %}Burnoe.kz - Услуги{% endblock title %}
 
 {% block content %}
+    {% include "_search_bar.html" %}
+
     <div class="">
-        <!-- Услуги - категория -->
         <div>
-            {% if not current_category %}
-                <div class="pl-2 font-weight-bold normall blood-color">Услуги</div>
-            {% else %}
-                <div class="pl-2 normall">
-                    <a href="{% url 'service_list' %}" class="blood-color font-weight-bold">Услуги</a> &rarr;
-                    <span class="text-muted">{{ current_category.name }}</span>
-                </div>
+            {% if current_category %}
+            <div class="pl-2 normall">
+                <span class="">{{ current_category.name }}</span>
+            </div>
             {% endif %}
             <p class="text-muted pl-2" style="">
-
-                    Найдено {{ service_count }} объявлений
-
+                Найдено {{ service_count }} объявлений
             </p>
         </div>
 
@@ -34,7 +30,7 @@
         {% endif %}
     </div>
 
-    <div class="row">
+    <div class="row no-gutters">
         <div class="px-sm-2 mx-2 col" style="max-width: 650px; ">
             {% for advert in services %}
                 {% include '_adv.html' with advert=advert only %}

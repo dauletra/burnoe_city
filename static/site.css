@@ -61,3 +61,14 @@ a.category:hover {
     background-color: #00B6A6;
     color: white;
 }
+
+.bb-search-bar {
+    width: 310px;
+    margin: auto;
+}
+
+@media screen and (min-width: 572px) {
+    .bb-search-bar {
+        width: 470px;
+    }
+}

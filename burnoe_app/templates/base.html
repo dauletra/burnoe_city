@@ -15,15 +15,15 @@
 <body>
     <div class="container-fluid p-0" style="max-width: 860px;">
         <!-- HEADER -->
-        <div class="navbar navbar-light bg-primary mb-2 normall bg-base">
+        <div class="navbar navbar-light bg-primary normall bg-base">
             <a class="navbar-brand text-white font-weight-bolder" style="" href="/">Burnoe.kz</a>
             <div class="d-flex align-self-center">
                 <a href="#" class="mr-2">
-                    <img src="{% static 'icons/001-instagram.svg' %}" width="20rem" />
+                    <img src="{% static 'icons/instagram.svg' %}" width="20rem" />
                 </a>
                 <a href="#">
-                    <img class="mr-1" src="{% static 'icons/002-whatsapp.svg' %}" width="20rem" />
-                    <span class="text-white font-weight-bold">+7 775 157 2323</span>
+                    <img class="mr-1" src="{% static 'icons/whatsapp.svg' %}" width="20rem" />
+                    <a href="https://wa.me/77751572323" class="text-white font-weight-bold" target="_blank">+7 775 157 2323</a>
                 </a>
             </div>
         </div>
@@ -67,8 +67,12 @@
         <!-- Анонс -->
         {% block anons %}{% endblock %}
 
+        <!-- Поиск -->
+        {% block search %}{% endblock %}
+
         <!-- Избранные -->
         {% block best_adverts %}{% endblock %}
+
 
         <!-- Категории -->
         {% block category %}{% endblock %}
@@ -79,7 +83,8 @@
 
     <!-- FOOTER -->
     <div class="py-5 text-center small2" style="height: 100px">
-        Бурное 2020 | vk.com/dauletra
+        <span>Бурное 2020 | vk.com/dauletra</span>
+        <div>Icons made by <a href="https://www.flaticon.local/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.local/" title="Flaticon">www.flaticon.local</a></div>
     </div>
 
     <script src="{% static 'js/jquery-3.4.1.min.js' %}" ></script>

@@ -67,8 +67,6 @@
 
 {% block content %}
 
-    {% include "_search_bar.html" %}
-
     <!-- BEST ADVERTS -->
     <div class="my-3">
         <div class="position-relative ">
@@ -85,7 +83,7 @@
                         <img src="{{ advert.servicephoto_set.first|crop_image:'180,100' }}" width="180" height="100" class="img-fluid" />
                     </div>
                     <div class="p-1 border overflow-auto hide-scroll-bar" style="height: 90px;">
-                        <a href="{% url 'service_detail' pk=advert.id %}" class="">{{ advert.title }}</a> -
+                        <a href="{% url 'service_detail' pk=advert.id %}" class="stretched-link">{{ advert.title }}</a> -
                         <span class="text-muted" style="">{{ advert.contact }}</span>
                     </div>
                 </div>
@@ -94,9 +92,11 @@
         </div>
     </div>
 
+    {% include "_search_bar.html" %}
+
     <!-- CATEGORIES -->
     <div class="my-3">
-        <div class="my-2 pl-sm-2 d-flex flex-column flex-sm-row flex-wrap hide-scroll-bar bb-categories">
+        <div class="my-2 pl-sm-2 d-flex justify-content-center flex-column flex-sm-row flex-wrap hide-scroll-bar bb-categories">
             {% for category in service_categories %}
                 <div class="d-flex mb-3 ml-2" style="width: 178px; min-width: 178px">
                     <img src="{% static "icons/"|add:category.icon_name %}" style="width: 2.4rem" />

@@ -10,22 +10,26 @@
     <div class="">
         <div>
             {% if current_category %}
-            <div class="pl-2 normall">
-                <span class="">{{ current_category.name }}</span>
+            <div class="pl-2 normall mt-2 mb-3">
+                <a href="{% url 'service_list' %}">Категории</a>
+                <span class="text-muted"> &rang; {{ current_category.name }}</span>
             </div>
             {% endif %}
-            <p class="text-muted pl-2" style="">
-                Найдено {{ service_count }} объявлений
-            </p>
         </div>
 
         {% if not current_category %}
-        <div class="mt-2 d-flex flex-wrap small2">
-            {% for category in service_categories %}
-                <a href="{% url 'service_list' %}?category={{ category.id }}" class="ml-2 ml-sm-3 mb-2 p-1 text-center category">
-                    {{ category.name }}
-                </a>
-            {% endfor %}
+        <!-- CATEGORIES -->
+        <div class="my-3">
+            <div class="my-2 pl-sm-2 d-flex justify-content-center flex-column flex-sm-row flex-wrap hide-scroll-bar bb-categories">
+                {% for category in service_categories %}
+                    <div class="d-flex mb-3 ml-2" style="width: 178px; min-width: 178px">
+                        <img src="{% static "icons/"|add:category.icon_name %}" style="width: 2.4rem" />
+                        <a href="{% url 'service_list' %}?category={{ category.id }}" class="ml-2 align-self-center">
+                            {{ category.name }}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
         {% endif %}
     </div>

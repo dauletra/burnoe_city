@@ -19,7 +19,7 @@ def home(request):
 
     news = News.objects.all()[:5]
 
-    best_adverts = Service.objects.active().filter(elect_date__gt=now()).order_by('?')[:7]
+    best_adverts = Service.objects.active().filter(elect_date__gt=now()).order_by('?')[:best_length]
 
     services = Service.objects.active().filter(elect_date__isnull=True, only=True)[:only_length]
 
@@ -31,18 +31,15 @@ def home(request):
     service_count = Service.objects.active().count()
     categories = ServiceCategory.objects.annotate(service_count=Count('service'))
     service_categories = categories
-    other_service_categories = categories[9:]
 
     return render(request, 'main.html',
                   context={
                       "contacts": contacts,
                       "news": news,
-                      # "events": events,
                       "best_adverts": best_adverts,
                       "services": services,
                       "service_count": service_count,
-                      "service_categories": service_categories,
-                      "other_service_categories": other_service_categories
+                      "service_categories": service_categories
                   })
 
 

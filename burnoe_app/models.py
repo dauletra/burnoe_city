@@ -75,6 +75,7 @@ class Event(models.Model):
 class ServiceCategory(models.Model):
     name = models.CharField(max_length=25)
     order = models.IntegerField(verbose_name='Порядок', default=10)
+    icon_name = models.CharField(max_length=100, default='default_icon.svg')
 
     def __str__(self):
         return self.name

@@ -64,9 +64,13 @@
     </div>
 {% endblock %}
 
-{% block best_adverts %}
-    <div class="mt-2 mb-3">
-{#        <div class="pl-2 font-weight-bold normall blood-color">Рекомендуем</div>#}
+
+{% block content %}
+
+    {% include "_search_bar.html" %}
+
+    <!-- BEST ADVERTS -->
+    <div class="my-3">
         <div class="position-relative ">
             <div class="my-2 d-flex hide-scroll-bar js-slider" style="">
                 <a href="#" class="carousel-control-prev js-slide-back d-none font-weight-bold bg-primary" style="width: 30px;">
@@ -89,61 +93,29 @@
             </div>
         </div>
     </div>
-{% endblock %}
 
-{% block search %}
-    {% include "_search_bar.html" %}
-{% endblock %}
-
-{% block category %}
+    <!-- CATEGORIES -->
     <div class="my-3">
-{#        <div class="pl-2">#}
-{#            <a href="{% url 'service_list' %}" class="font-weight-bold normall blood-color">Услуги</a></div>#}
-{#        <div class="text-muted pl-2" style="">Всего {{ service_count }} объявлении</div>#}
-        <div class="my-2 d-flex flex-column justify-content-sm-around flex-sm-wrap border hide-scroll-bar" style="max-height: 115px; height: 115px;">
+        <div class="my-2 pl-sm-2 d-flex flex-column flex-sm-row flex-wrap hide-scroll-bar bb-categories">
             {% for category in service_categories %}
-                <div class="border d-flex mb-2 mx-1" style="width: 178px; min-width: 178px">
-                    <img src="{% static "icons/cafe.svg" %}" style="width: 2.4rem" />
-                    <a href="{% url 'service_list' %}?category={{ category.id }}" class="ml-3">
+                <div class="d-flex mb-3 ml-2" style="width: 178px; min-width: 178px">
+                    <img src="{% static "icons/"|add:category.icon_name %}" style="width: 2.4rem" />
+                    <a href="{% url 'service_list' %}?category={{ category.id }}" class="ml-2 align-self-center">
                         {{ category.name }}
                     </a>
                 </div>
             {% endfor %}
         </div>
     </div>
-{% endblock %}
 
-{% block content %}
-    <div class="pl-sm-2 ml-2 row no-gutters">
+    <!-- ADVERTS -->
+    <div class="pl-sm-2 my-3 row no-gutters">
         <div class="col" style="max-width: 650px;">
             {% for advert in services %}
                 {% include '_adv.html' with advert=advert only %}
             {% endfor %}
         </div>
         {% include '_upgrade.html' %}
-    </div>
-
-    <div class="pl-sm-2 pl-md-4" style="">
-        <div class="text-muted font-weight-bold pl-2 pr-1">Другие объявления</div>
-        <div class="position-relative overflow-auto">
-            <div class="d-flex align-self-center hide-scroll-bar js-slider py-2">
-                <a href="#" class="carousel-control-prev js-slide-back d-none font-weight-bold" style="width: 30px; background-color: black;">
-                    <span class="carousel-control-prev-icon"></span>
-                </a>
-                <a href="#" class="carousel-control-next js-slide-forward font-weight-bold" style="width: 30px; background-color: black;">
-                    <span class="carousel-control-next-icon"></span>
-                </a>
-                {% for other_category in other_service_categories %}
-                    <a href="{% url 'service_list' %}?category={{ other_category.id }}" class="ml-2 px-1
-                    {% if other_category.service_count == 0 %}
-                    text-muted
-                    {% else %}
-                    text-black
-                    {% endif %}
-                    " style="white-space: nowrap">{{ other_category.name }}</a>
-                {% endfor %}
-            </div>
-        </div>
     </div>
 {% endblock %}
 

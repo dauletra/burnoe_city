@@ -30,7 +30,7 @@ def home(request):
 
     service_count = Service.objects.active().count()
     categories = ServiceCategory.objects.annotate(service_count=Count('service'))
-    service_categories = categories[:8]
+    service_categories = categories
     other_service_categories = categories[9:]
 
     return render(request, 'main.html',

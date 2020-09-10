@@ -62,13 +62,23 @@ a.category:hover {
     color: white;
 }
 
+
+.bb-categories {
+    height: 115px;
+    max-height: 115px;
+}
+
 .bb-search-bar {
     width: 310px;
     margin: auto;
 }
 
-@media screen and (min-width: 572px) {
+@media screen and (min-width: 576px) {
     .bb-search-bar {
         width: 470px;
+    }
+    .bb-categories {
+        height: auto;
+        max-height: 1000px;
     }
 }

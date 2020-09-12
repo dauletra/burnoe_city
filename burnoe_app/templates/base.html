@@ -76,11 +76,15 @@
 
     <script src="{% static 'js/jquery-3.4.1.min.js' %}" ></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-autocomplete.min.js' %}"></script>
+
     <script>
         $('.continue-js').click(function() {
             $(this).addClass('d-none');
             $(this).siblings('span').removeClass('d-none')
         });
+
+        $('.basicAutoComplete').autoComplete()
     </script>
     {% block myscript %}{% endblock myscript %}
 </body>

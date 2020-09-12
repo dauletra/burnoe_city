@@ -3,7 +3,7 @@ from django.utils.timezone import now
 
 from datetime import timedelta
 
-from .models import (Contact, News, Event, SearchQuery,
+from .models import (Contact, News, Event, SearchQuery, Tag,
                      Service, ServiceCategory, ServicePhoto)
 
 
@@ -68,9 +68,16 @@ class ServiceAdmin(admin.ModelAdmin):
 
 
 class SearchQueryAdmin(admin.ModelAdmin):
-    list_display = ['id', 'text', 'count']
+    list_display = ['id', 'text', 'count', 'modified_date']
+    list_display_links = ['id', 'text']
 
 
+class TagAdmin(admin.ModelAdmin):
+    list_display = ['id', 'text', 'alternative_text', 'count', 'modified_date']
+    list_display_links = ['id', 'text']
+
+
+admin.site.register(Tag, TagAdmin)
 admin.site.register(SearchQuery, SearchQueryAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(News, NewsAdmin)

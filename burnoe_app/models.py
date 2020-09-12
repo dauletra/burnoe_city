@@ -129,6 +129,7 @@ class ServicePhoto(models.Model):
 class SearchQuery(models.Model):
     text = models.CharField(max_length=100, verbose_name='Запрос', unique=True)
     count = models.IntegerField(default=0, verbose_name='Количество запросов')
+    modified_date = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
 
     def __str__(self):
         return self.text + ' ({0})'.format(self.count)
@@ -136,3 +137,13 @@ class SearchQuery(models.Model):
     class Meta:
         ordering = ['-count']
         verbose_name_plural = 'SearchQueries'
+
+
+class Tag(models.Model):
+    text = models.CharField(max_length=60, verbose_name='Тег', unique=True)
+    alternative_text = models.TextField(verbose_name='Похожие', blank=True, null=True)
+    count = models.IntegerField(default=0, verbose_name='Количество запросов')
+    modified_date = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
+
+    def __str__(self):
+        return self.text

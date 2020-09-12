@@ -1,10 +1,10 @@
 from django.utils.timezone import now
 from django.shortcuts import render
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, JsonResponse
 from django.views.generic import ListView, DetailView, View
 from django.db.models import Count, F
 
-from .models import Contact, News, Event, Service, ServiceCategory, SearchQuery
+from .models import Contact, News, Event, Service, ServiceCategory, SearchQuery, Tag
 
 import cloudinary
 import cloudinary.uploader
@@ -53,6 +53,14 @@ class SearchResult(View):
             search_query.count=F('count')+1
             search_query.save()
         return render(request, self.template_name, {'query': query})
+
+
+def hints_json(request):
+    length = 7
+    q = request.GET['q']
+    tags_contains = Tag.objects.filter(text__icontains=q.lower())
+    tags = [tag.text for tag in tags_contains][:length]
+    return JsonResponse(tags, safe=False)
 
 
 class ServiceList(ListView):

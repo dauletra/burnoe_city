@@ -1,10 +1,10 @@
 from django.utils.timezone import now
 from django.shortcuts import render
 from django.http import HttpResponse, Http404
-from django.views.generic import ListView, DetailView
-from django.db.models import Count
+from django.views.generic import ListView, DetailView, View
+from django.db.models import Count, F
 
-from .models import Contact, News, Event, Service, ServiceCategory
+from .models import Contact, News, Event, Service, ServiceCategory, SearchQuery
 
 import cloudinary
 import cloudinary.uploader
@@ -41,6 +41,18 @@ def home(request):
                       "service_count": service_count,
                       "service_categories": service_categories
                   })
+
+
+class SearchResult(View):
+    template_name = 'search_result.html'
+
+    def get(self, request, *args, **kwargs):
+        query = request.GET.get('query', '')
+        if not query == '':
+            search_query, _ = SearchQuery.objects.get_or_create(text=query.lower())
+            search_query.count=F('count')+1
+            search_query.save()
+        return render(request, self.template_name, {'query': query})
 
 
 class ServiceList(ListView):

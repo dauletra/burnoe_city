@@ -122,3 +122,17 @@ class Service(models.Model):
 class ServicePhoto(models.Model):
     image = CloudinaryField('image')
     service = models.ForeignKey(to=Service, on_delete=models.CASCADE)
+
+# -----------------------
+
+
+class SearchQuery(models.Model):
+    text = models.CharField(max_length=100, verbose_name='Запрос', unique=True)
+    count = models.IntegerField(default=0, verbose_name='Количество запросов')
+
+    def __str__(self):
+        return self.text + ' ({0})'.format(self.count)
+
+    class Meta:
+        ordering = ['-count']
+        verbose_name_plural = 'SearchQueries'

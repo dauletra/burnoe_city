@@ -129,6 +129,15 @@ cloudinary.config(
     api_secret = "hUVDdJWICMlfcg20Cg9WVXp-q00"
 )
 
+DATABASES['default'] = {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'burnoedb',
+    'USER': 'daulet',
+    'PASSWORD': '',
+    'HOST': 'localhost',
+    'PORT': ''
+}
+
 DEBUG = os.environ.get('DEBUG', 'on') == 'on'
 ALLOWED_HOSTS += os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 

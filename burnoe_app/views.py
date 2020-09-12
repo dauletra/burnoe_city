@@ -48,11 +48,33 @@ class SearchResult(View):
 
     def get(self, request, *args, **kwargs):
         query = request.GET.get('query', '')
-        if not query == '':
+        # если нет текста вернуть 20 случайных объявлении
+        if query == '':
+            services = Service.objects.active().order_by('?')[:20]
+            other_services = []
+            title = 'Поиск услуг по Жуалынскому району'
+        else:
+            # сохранить текст запроса в базе данных
             search_query, _ = SearchQuery.objects.get_or_create(text=query.lower())
             search_query.count=F('count')+1
             search_query.save()
-        return render(request, self.template_name, {'query': query})
+            # поиск по тегу
+            try:
+                tag = Tag.objects.get(text=query.lower())
+                services_by_tag = Service.objects.active().filter(tags=tag)
+                services_out_tag = Service.objects.active().exclude(tags=tag)
+                print('--- By Tags Count = {0}'.format(len(services_by_tag)))
+            except Tag.DoesNotExist:
+                services_by_tag = Service.objects.none()
+                services_out_tag = Service.objects.active()
+            # поиск по тексту
+            services_by_icontains = services_out_tag.filter(content__icontains=query)
+            services = services_by_tag | services_by_icontains
+            if len(services) < 10:
+                other_services = services_out_tag.exclude(content__icontains=query).order_by('?')[:5]
+            title = 'Результаты поиска по запросу {0}'.format(query)
+
+        return render(request, self.template_name, {'query': query, 'services': services, 'title': title, 'other_services': other_services})
 
 
 def hints_json(request):

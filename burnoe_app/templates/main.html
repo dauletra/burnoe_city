@@ -78,7 +78,7 @@
                     <span class="carousel-control-next-icon"></span>
                 </a>
                 {% for advert in best_adverts %}
-                <div class="rounded-top overflow-hidden ml-2 ml-sm-3" style="width: 180px; min-width: 180px;">
+                <div class="rounded-top overflow-hidden ml-2 ml-sm-3" style="width: 180px; min-width: 180px; transform: rotate(0)">
                     <div style="min-height: 100px">
                         <img src="{{ advert.servicephoto_set.first|crop_image:'180,100' }}" width="180" height="100" class="img-fluid" />
                     </div>

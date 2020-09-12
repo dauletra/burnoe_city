@@ -42,16 +42,20 @@ class ServicePhotoInline(admin.StackedInline):
 
 
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'contact', 'content', 'category_name', 'photos', 'last_date', 'elect_date', 'is_active', 'only']
+    list_display = ['id', 'title', 'contact', 'category_name', 'get_tags', 'photos', 'last_date', 'is_best', 'is_active']
     list_display_links = ['id', 'title']
     inlines = [ServicePhotoInline]
     actions = ['add_last_date', 'add_last_elect_date']
+    filter_horizontal = ('tags',)
 
     def category_name(self, obj):
         return obj.category.name
 
     def photos(self, obj):
         return obj.servicephoto_set.count()
+
+    def get_tags(self, obj):
+        return ", ".join([str(t) for t in obj.tags.all()])
 
     def add_last_date(self, request, queryset):
         queryset.update(last_date=now()+timedelta(days=21))

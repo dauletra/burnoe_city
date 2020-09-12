@@ -1,9 +1,21 @@
 {% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
     {% include '_search_bar.html' %}
-
+    <div class="pl-2 normall mt-2 mb-3">
+        <a href="{% url 'service_list' %}">Категории</a>
+        <span class="text-muted">&rang; Результаты поиска</span>
+    </div>
     <div>
-        Search Result
+        {% for advert in services %}
+            {% include "_adv.html" with advert=advert only %}
+        {% endfor %}
+    </div>
+    <div>
+        <p>Другие объявления</p>
+        {% for other_service in other_services %}
+            {% include "_adv.html" with advert=other_service only %}
+        {% endfor %}
     </div>
 {% endblock %}

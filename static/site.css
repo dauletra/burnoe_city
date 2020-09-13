@@ -1,14 +1,13 @@
 body {
-    font-size: 0.9rem;
+    /*font-size: 0.9rem;*/
     font-family: Arial, Tahoma, 'Bitstream Vera Sans', sans-serif;
 }
 
 .small2 {
     font-size: 0.8rem;
 }
-
-.normall {
-    font-size: 1rem;
+.bb-small {
+    font-size: 0.9rem;
 }
 
 .bb-times {

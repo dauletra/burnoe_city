@@ -70,7 +70,7 @@ class Event(models.Model):
         ordering = ['last_date']
 
 
-class SearchQuery(models.Model):
+class SearchText(models.Model):
     text = models.CharField(max_length=100, verbose_name='Запрос', unique=True)
     count = models.IntegerField(default=0, verbose_name='Количество запросов')
     modified_date = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')

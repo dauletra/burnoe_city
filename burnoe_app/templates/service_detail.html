@@ -71,25 +71,9 @@
     </div>
 
     <div class="mt-4" style="max-width: 650px">
-        <p class="pl-2 py-2 bg-light normall text-secondary">Похожие объявления</p>
+        <p class="pl-2 py-2 bg-light text-secondary">Похожие объявления</p>
         {% for other_advert in other_adverts %}
-            <div class="row no-gutters mb-4">
-                <div class="col-2">
-                    <img src="{{ other_advert.servicephoto_set.first|crop_image:'100,100' }}" width="100" height="100" class="img-fluid rounded open-js" />
-                </div>
-                <div class="col-10 pl-2">
-                    <a href="{% url 'service_detail' pk=other_advert.id %}" class="">{{ other_advert.title }}</a>
-                    <div class="small2 text-muted">
-                        <span class="mr-2">{{ other_advert.contact }}</span>
-                    </div>
-                    <div class="" style="word-wrap: break-word">
-                    {{ other_advert.content|slice:"0:100" }}
-                    <span class="d-none d-sm-inline">{{ other_advert.content|slice:"101:170" }}</span>
-                    {% if other_advert.content|length > 150 %}...{% endif %}
-                    <span class="continue-js text-muted d-sm-none"> дальше</span>
-                    </div>
-                </div>
-            </div>
+            {% include "_adv.html" with advert=other_advert only %}
         {% endfor %}
     </div>
 {% endblock %}

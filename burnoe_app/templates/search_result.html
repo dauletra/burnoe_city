@@ -3,17 +3,24 @@
 
 {% block content %}
     {% include '_search_bar.html' %}
-    <div class="pl-2 normall mt-2 mb-3">
+    <div class="pl-2 mt-2 mb-3">
         <a href="{% url 'service_list' %}">Категории</a>
         <span class="text-muted">&rang; Результаты поиска</span>
     </div>
     <div>
         {% for advert in services %}
             {% include "_adv.html" with advert=advert only %}
+        {% empty %}
+            <div class="alert alert-secondary">
+                <h5 class="alert-heading">Нам очень жаль...</h5>
+                <p>По вашему запросу ничего не найден. Мы каждый день работаем над улучшением поиска</p>
+                <hr/>
+                <p>Попробуйте <b>изменить запрос</b> 😉</p>
+            </div>
         {% endfor %}
     </div>
-    <div>
-        <p>Другие объявления</p>
+    <div style="max-width: 650px;">
+        <div class="bg-light py-2 mb-2 mt-5">Другие объявления</div>
         {% for other_service in other_services %}
             {% include "_adv.html" with advert=other_service only %}
         {% endfor %}

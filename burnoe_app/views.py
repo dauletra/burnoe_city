@@ -4,8 +4,10 @@ from django.http import HttpResponse, Http404, JsonResponse
 from django.views.generic import ListView, DetailView, View
 from django.db.models import Count, F
 
-from .models import Contact, News, Event, Service, ServiceCategory, SearchQuery, Tag
+from django.contrib.postgres.search import SearchQuery, SearchVector
 
+from .models import Contact, News, Event, Service, ServiceCategory, SearchText, Tag
+import time
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -47,6 +49,7 @@ class SearchResult(View):
     template_name = 'search_result.html'
 
     def get(self, request, *args, **kwargs):
+        # start_time = time.time()
         query = request.GET.get('query', '')
         # если нет текста вернуть 20 случайных объявлении
         if query == '':
@@ -55,9 +58,9 @@ class SearchResult(View):
             title = 'Поиск услуг по Жуалынскому району'
         else:
             # сохранить текст запроса в базе данных
-            search_query, _ = SearchQuery.objects.get_or_create(text=query.lower())
-            search_query.count=F('count')+1
-            search_query.save()
+            client_query, _ = SearchText.objects.get_or_create(text=query.lower())
+            client_query.count=F('count')+1
+            client_query.save()
             # поиск по тегу
             try:
                 tag = Tag.objects.get(text=query.lower())
@@ -68,12 +71,14 @@ class SearchResult(View):
                 services_by_tag = Service.objects.none()
                 services_out_tag = Service.objects.active()
             # поиск по тексту
-            services_by_icontains = services_out_tag.filter(content__icontains=query)
+            search_vector = SearchVector('title', 'content', config='russian')
+            search_query = SearchQuery(query, config='russian')
+            services_by_icontains = services_out_tag.annotate(search=search_vector).filter(search=search_query)
             services = services_by_tag | services_by_icontains
             if len(services) < 10:
                 other_services = services_out_tag.exclude(content__icontains=query).order_by('?')[:5]
             title = 'Результаты поиска по запросу {0}'.format(query)
-
+        # print('@Timer: {0}'.format(time.time()-start_time))
         return render(request, self.template_name, {'query': query, 'services': services, 'title': title, 'other_services': other_services})
 
 

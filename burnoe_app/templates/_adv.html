@@ -6,7 +6,7 @@
 <div>
     <div class="pl-sm-2">
         <a href="{% url 'service_detail' pk=advert.id %}" class="normall">{{ advert.title }}</a>
-        <div class="text-muted">{{ advert.contact }}</div>
+        <div class="text-muted bb-small">{{ advert.contact }}</div>
     </div>
     <div class="row no-gutters mb-4">
         <div class="col-3 col-sm-2">
@@ -15,7 +15,7 @@
             </a>
         </div>
         <div class="col-9 col-sm-10 pl-2">
-            <div class="" style="font-size: 0.9rem; word-wrap: break-word">
+            <div class="bb-small" style="word-wrap: break-word">
             {{ advert.content|slice:"0:120" }}
             <span class="d-none d-sm-inline">{{ advert.content|slice:"121:305" }}</span>
 

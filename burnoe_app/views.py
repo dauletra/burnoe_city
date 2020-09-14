@@ -6,7 +6,7 @@ from django.db.models import Count, F
 
 from django.contrib.postgres.search import SearchQuery, SearchVector
 
-from .models import Contact, News, Event, Service, ServiceCategory, SearchText, Tag
+from .models import Contact, News, Event, Service, ServiceCategory, ServicePhoto, SearchText, Tag
 import time
 import cloudinary
 import cloudinary.uploader
@@ -88,6 +88,14 @@ def hints_json(request):
     tags_contains = Tag.objects.filter(text__icontains=q.lower())
     tags = [tag.text for tag in tags_contains][:length]
     return JsonResponse(tags, safe=False)
+
+
+def carousel_html(request, id):
+    try:
+        advert = Service.objects.active().get(id=id)
+    except Service.DoesNotExist:
+        advert = None
+    return render(request, '_carousel.html', context={'advert': advert})
 
 
 class ServiceList(ListView):

@@ -1,0 +1,36 @@
+{% load pad_image %}
+
+{% if advert.servicephoto_set.count > 0 %}
+<div id="carouselAdvert_{{ advert.id }}" class="carousel slide" data-ride="carousel" data-interval="false">
+    <ol class="carousel-indicators">
+        {% for photo in advert.servicephoto_set.all %}
+            <li data-target="#carouselAdvert_{{ advert.id }}" data-slide-to="{{ forloop.counter0 }}"
+                {% if forloop.first %}
+                    class="active"
+                {% endif %}
+            ></li>
+        {% endfor %}
+    </ol>
+    <div class="carousel-inner">
+        {% for photo in advert.servicephoto_set.all %}
+            <div
+                    {% if forloop.first %}
+                        class="carousel-item active"
+                    {% else %}
+                        class="carousel-item"
+                    {% endif %}
+            >
+                <img src="{{ photo|pad_image:'650,500' }}" class="d-block w-100" alt="...">
+            </div>
+        {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#carouselAdvert_{{ advert.id }}" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#carouselAdvert_{{ advert.id }}" role="button" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
+{% else %}
+
+{% endif %}

@@ -8,19 +8,25 @@
         <a href="{% url 'service_detail' pk=advert.id %}" class="normall">{{ advert.title }}</a>
         <div class="text-muted bb-small">{{ advert.contact }}</div>
     </div>
-    <div class="row no-gutters mb-4">
-        <div class="col-3 col-sm-2">
-            <a href="{% url 'service_detail' pk=advert.id %}">
-                <img src="{{ advert.servicephoto_set.first|crop_image:'130,130' }}"  class="img-fluid rounded" />
-            </a>
-        </div>
-        <div class="col-9 col-sm-10 pl-2">
+    <div id="fake_adve_{{ advert.id }}" class="position-relative d-none" style="min-height: 100px;">
+        <span class="loader position-absolute" style="top: 0; bottom: 0; margin: auto; left: 0; right: 0"></span>
+    </div>
+    <div id="adve_{{ advert.id }}"></div>
+    <div class="d-flex mb-4">
+            {% if advert.servicephoto_set.count > 0 %}
+            <div class="bb-responsive-photo mr-2">
+                <a href="#" onclick="showImages(this, {{ advert.id }}); return false;">
+                    <img src="{{ advert.servicephoto_set.first|crop_image:'130,130' }}"  class="img-fluid rounded" />
+                </a>
+            </div>
+            {% endif %}
+        <div class="">
             <div class="bb-small" style="word-wrap: break-word">
-            {{ advert.content|slice:"0:120" }}
-            <span class="d-none d-sm-inline">{{ advert.content|slice:"121:305" }}</span>
+                {{ advert.content|slice:"0:120" }}
+                <span class="d-none d-sm-inline">{{ advert.content|slice:"121:305" }}</span>
 
-            <span class="continue-js text-muted d-sm-none"> дальше</span>
-        </div>
+                <span class="continue-js text-muted d-sm-none"> дальше</span>
+            </div>
         </div>
     </div>
 </div>

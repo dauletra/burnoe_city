@@ -84,7 +84,19 @@
             $(this).siblings('span').removeClass('d-none')
         });
 
-        $('.basicAutoComplete').autoComplete()
+        $('.basicAutoComplete').autoComplete();
+
+        function showImages(elem, id) {
+            console.log('ID='+id);
+            var url = '/carousel/'+id+'.html';
+            $('#fake_adve_'+id).removeClass('d-none');
+            $(elem).parent('div.bb-responsive-photo').addClass('d-none');
+
+            $('#adve_'+id).load(url, function() {
+                $('#fake_adve_'+id).addClass('d-none');
+                console.log('Load was performed');
+            })
+        }
     </script>
     {% block myscript %}{% endblock myscript %}
 </body>

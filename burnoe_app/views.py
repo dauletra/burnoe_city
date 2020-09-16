@@ -50,11 +50,11 @@ class SearchResult(View):
 
     def get(self, request, *args, **kwargs):
         # start_time = time.time()
-        query = request.GET.get('query', '')
+        query: str = request.GET.get('query', '')
         # если нет текста вернуть 20 случайных объявлении
+        other_services = []
         if query == '':
             services = Service.objects.active().order_by('?')[:20]
-            other_services = []
             title = 'Поиск услуг по Жуалынскому району'
         else:
             # сохранить текст запроса в базе данных
@@ -65,21 +65,19 @@ class SearchResult(View):
             try:
                 tag = Tag.objects.get(text=query.lower())
                 services_by_tag = Service.objects.active().filter(tags=tag)
-                services_out_tag = Service.objects.active().exclude(tags=tag)
-                print('--- By Tags Count = {0}'.format(len(services_by_tag)))
             except Tag.DoesNotExist:
                 services_by_tag = Service.objects.none()
-                services_out_tag = Service.objects.active()
-            # поиск по тексту
+            # поиск по полному тексту
             search_vector = SearchVector('title', 'content', config='russian')
             search_query = SearchQuery(query, config='russian')
-            services_by_icontains = services_out_tag.annotate(search=search_vector).filter(search=search_query)
-            services = services_by_tag | services_by_icontains
+            services_by_query = Service.objects.active().annotate(search=search_vector).filter(search=search_query)
+
+            services = services_by_tag | services_by_query
             if len(services) < 10:
-                other_services = services_out_tag.exclude(content__icontains=query).order_by('?')[:5]
+                other_services = Service.objects.active().exclude(content__icontains=query).order_by('?')[:5]
             title = 'Результаты поиска по запросу {0}'.format(query)
         # print('@Timer: {0}'.format(time.time()-start_time))
-        return render(request, self.template_name, {'query': query, 'services': services, 'title': title, 'other_services': other_services})
+        return render(request, self.template_name, {'query': query, 'services': services.distinct(), 'title': title, 'other_services': other_services})
 
 
 def hints_json(request):

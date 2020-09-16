@@ -2,12 +2,8 @@
     <form class="bb-search-bar bb-small" action="{% url 'search_result' %}" method="get">
         <div class="mb-2 text-muted">Поиск услуг:</div>
         <div class="d-flex">
-            <input name="query" value="{{ query }}" class="form-control basicAutoComplete" autocomplete="off" data-url="/hints.json" required placeholder="Например, доставка еды" />
+            <input name="query" value="{{ query }}" class="form-control basicAutoComplete" autocomplete="off" data-url="/hints.json" required placeholder="Введите запрос" />
             <button class="btn btn-primary ml-2">Поиск</button>
-        </div>
-        <div class="my-2">
-            <a href="#">Кафе</a>, <a href="#">Play Station</a>, <a href="#">Прокат столов</a>,
-            <a href="#">Чиккен</a>, <a href="#">Такси</a>
         </div>
     </form>
 </div>

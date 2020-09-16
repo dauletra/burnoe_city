@@ -34,16 +34,16 @@
                                         class="carousel-item active"
                                     {% else %}
                                         class="carousel-item"
-                                    {% endif %}
+                                    {% endif %} style="background-color: gray"
                             >
-                                <img src="{{ photo|pad_image:'650,500' }}" class="d-block w-100" alt="...">
+                                <img src="{{ photo|pad_image:'650,650' }}" class="m-auto" style="max-width: 100%;" alt="...">
                             </div>
                         {% endfor %}
                     </div>
-                    <a class="carousel-control-prev" href="#carouselAdvert" role="button" data-slide="prev">
+                    <a class="carousel-control-prev bg-primary" href="#carouselAdvert" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon"></span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselAdvert" role="button" data-slide="next">
+                    <a class="carousel-control-next bg-primary" href="#carouselAdvert" role="button" data-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </a>
                 </div>

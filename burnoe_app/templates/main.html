@@ -80,11 +80,16 @@
                 {% for advert in best_adverts %}
                 <div class="rounded-top overflow-hidden ml-2 ml-sm-3 bb-small" style="width: 180px; min-width: 180px; transform: rotate(0)">
                     <div style="min-height: 100px">
-                        <img src="{{ advert.servicephoto_set.first|crop_image:'180,100' }}" width="180" height="100" class="img-fluid" />
+                        <a href="#" onclick="showImages(this, {{ advert.id }}); return false;">
+                            <img src="{{ advert.servicephoto_set.first|crop_image:'180,100' }}" width="180" height="100" class="img-fluid" />
+                        </a>
                     </div>
-                    <div class="p-1 border overflow-auto hide-scroll-bar" style="height: 90px;">
-                        <a href="{% url 'service_detail' pk=advert.id %}" class="stretched-link">{{ advert.title }}</a> -
-                        <span class="text-muted" style="">{{ advert.contact }}</span>
+                    <div class="p-1 border-left border-right overflow-auto hide-scroll-bar" style="height: 55px;">
+                        <a href="{% url 'service_detail' pk=advert.id %}" class="">{{ advert.title }}</a>
+                    </div>
+                    <div class="p-1 border" style="white-space: nowrap;">
+                        <img src="{% static 'icons/'|add:advert.contact_set.first.type.icon %}" style="width: 1rem" />
+                        <a href="{{ advert.contact_set.first.type.link_suff }}{{ advert.contact_set.first.account }}">{{ advert.contact_set.first.account }}</a>
                     </div>
                 </div>
                 {% endfor %}
@@ -98,7 +103,7 @@
     <div class="my-3">
         <div class="my-2 pl-sm-2 d-flex justify-content-center flex-column flex-sm-row flex-wrap hide-scroll-bar bb-categories">
             {% for category in service_categories %}
-                <div class="d-flex mb-3 ml-2" style="width: 178px; min-width: 178px">
+                <div class="d-flex mb-3 ml-2" style="width: 180px; min-width: 180px">
                     <img src="{% static "icons/"|add:category.icon_name %}" style="width: 2.4rem" />
                     <a href="{% url 'service_list' %}?category={{ category.id }}" class="ml-2 align-self-center">
                         {{ category.name }}

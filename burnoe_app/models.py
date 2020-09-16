@@ -14,7 +14,7 @@ def after_advert():
     return now() + timedelta(days=21)
 
 
-class Contact(models.Model):
+class MomentAdvert(models.Model):
     name = models.CharField(max_length=17, verbose_name='Название')
     price = models.CharField(max_length=17, verbose_name='Цена')
     phone = models.CharField(max_length=17, verbose_name='Телефон')
@@ -120,13 +120,13 @@ class Service(models.Model):
 
     tags = models.ManyToManyField(Tag)
 
-    contact = models.CharField(max_length=100, verbose_name='Телефон и адрес')
+    address = models.CharField(max_length=100, verbose_name='Адрес', default='', blank=True, null=True)
     category = models.ForeignKey(to=ServiceCategory, on_delete=models.PROTECT, verbose_name='Категория')
 
-    only = models.BooleanField(verbose_name='Единственный', default=False)
-    elect_date = models.DateTimeField(verbose_name='Дата избранный', null=True, blank=True, default=None)
+    is_monopolist = models.BooleanField(verbose_name='Единственный в районе', default=False)
+    last_best_date = models.DateTimeField(verbose_name='Избранный до', null=True, blank=True, default=None)
 
-    only.boolean = True
+    is_monopolist.boolean = True
 
     objects = ServiceManager()
 
@@ -134,9 +134,9 @@ class Service(models.Model):
         return self.last_date > now()
 
     def is_best(self):
-        if self.elect_date is None:
+        if self.last_best_date is None:
             return False
-        return self.elect_date > now()
+        return self.last_best_date > now()
 
     is_active.boolean = True
     is_best.boolean = True
@@ -146,6 +146,24 @@ class Service(models.Model):
 
     class Meta:
         ordering = ['-created_date']
+
+
+class ContactType(models.Model):
+    name = models.CharField(max_length=30)
+    link_suff = models.CharField(max_length=50)
+    icon = models.CharField(max_length=100, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Contact(models.Model):
+    account = models.CharField(max_length=50)
+    type = models.ForeignKey(to=ContactType, on_delete=models.PROTECT)
+    service = models.ForeignKey(to=Service, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.account
 
 
 class ServicePhoto(models.Model):

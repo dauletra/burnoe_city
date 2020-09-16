@@ -3,11 +3,11 @@ from django.utils.timezone import now
 
 from datetime import timedelta
 
-from .models import (Contact, News, Event, SearchText, Tag,
-                     Service, ServiceCategory, ServicePhoto)
+from .models import (MomentAdvert, News, Event, SearchText, Tag,
+                     Service, ServiceCategory, ServicePhoto, Contact, ContactType)
 
 
-class ContactAdmin(admin.ModelAdmin):
+class MomentAdvertAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'price', 'phone', 'created_date', 'last_date', 'is_active']
     list_display_links = ['id', 'name']
     actions = ['add_last_date']
@@ -41,11 +41,24 @@ class ServicePhotoInline(admin.StackedInline):
     extra = 2
 
 
+class ContactTypeAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'link_suff', 'icon', 'contacts_count']
+    list_display_links = ['id', 'name']
+
+    def contacts_count(self, obj):
+        return obj.contact_set.count()
+
+
+class ContactInline(admin.StackedInline):
+    model = Contact
+    extra = 2
+
+
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'contact', 'category_name', 'get_tags', 'photos', 'last_date', 'is_best', 'is_active']
+    list_display = ['id', 'title', 'category_name', 'get_tags', 'photos', 'last_date', 'is_best', 'is_active']
     list_display_links = ['id', 'title']
-    inlines = [ServicePhotoInline]
-    actions = ['add_last_date', 'add_last_elect_date']
+    inlines = [ContactInline, ServicePhotoInline]
+    actions = ['add_last_date', 'add_last_best_date']
     filter_horizontal = ('tags',)
 
     def category_name(self, obj):
@@ -60,11 +73,11 @@ class ServiceAdmin(admin.ModelAdmin):
     def add_last_date(self, request, queryset):
         queryset.update(last_date=now()+timedelta(days=21))
 
-    def add_last_elect_date(self, request, queryset):
+    def add_last_best_date(self, request, queryset):
         queryset.update(elect_date=now()+timedelta(days=14))
 
-    add_last_date.short_description = 'Увеличить дату удаления на 21 день'
-    add_last_elect_date.short_description = 'Увел. дату удал. из избран. на 14 день'
+    add_last_date.short_description = 'Увеличить дату удаления на 21 дней'
+    add_last_best_date.short_description = 'Увел. дату удал. из избран. на 14 дней'
     category_name.short_description = 'Категория'
     category_name.admin_order_field = 'category__name'
 
@@ -81,9 +94,10 @@ class TagAdmin(admin.ModelAdmin):
     list_display_links = ['id', 'text']
 
 
+admin.site.register(ContactType, ContactTypeAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(SearchText, SearchTextAdmin)
-admin.site.register(Contact, ContactAdmin)
+admin.site.register(MomentAdvert, MomentAdvertAdmin)
 admin.site.register(News, NewsAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(ServiceCategory, ServiceCategoryAdmin)

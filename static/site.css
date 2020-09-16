@@ -79,8 +79,9 @@ a.category:hover {
 
 
 .bb-categories {
-    height: 115px;
-    max-height: 115px;
+    height: 138px;
+    max-height: 138px;
+    font-size: 0.9rem;
 }
 
 .bb-search-bar {
@@ -89,7 +90,8 @@ a.category:hover {
 }
 
 .bb-responsive-photo {
-    min-width: 90px;
+    max-width: 90px;
+    width: 90px;
 }
 
 @media screen and (min-width: 576px) {
@@ -101,6 +103,13 @@ a.category:hover {
         max-height: 1000px;
     }
     .bb-responsive-photo {
-        min-width: 130px;
+        max-width: 130px;
+        width: 130px;
+    }
+}
+
+@media screen and (min-width: 760px) {
+    .bb-categories {
+        font-size: 1rem;
     }
 }

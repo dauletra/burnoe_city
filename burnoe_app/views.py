@@ -6,7 +6,7 @@ from django.db.models import Count, F
 
 from django.contrib.postgres.search import SearchQuery, SearchVector
 
-from .models import Contact, News, Event, Service, ServiceCategory, ServicePhoto, SearchText, Tag
+from .models import MomentAdvert, News, Service, ServiceCategory, ServicePhoto, SearchText, Tag
 import time
 import cloudinary
 import cloudinary.uploader
@@ -15,19 +15,19 @@ import cloudinary.api
 
 def home(request):
     best_length = 7
-    only_length = 7
+    monopolists_length = 7
 
-    contacts = Contact.objects.filter(last_date__gt=now()).order_by('?')
+    contacts = MomentAdvert.objects.filter(last_date__gt=now()).order_by('?')
 
     news = News.objects.all()[:5]
 
-    best_adverts = Service.objects.active().filter(elect_date__gt=now()).order_by('?')[:best_length]
+    best_adverts = Service.objects.active().filter(last_best_date__gt=now()).order_by('?')[:best_length]
 
-    services = Service.objects.active().filter(elect_date__isnull=True, only=True)[:only_length]
+    services = Service.objects.active().filter(last_best_date__isnull=True, is_monopolist=True)[:monopolists_length]
 
-    if services.count() < only_length:
-        minus = only_length - services.count()
-        temp_services = Service.objects.active().filter(elect_date__isnull=True, only=False)[:minus]
+    if services.count() < monopolists_length:
+        minus = monopolists_length - services.count()
+        temp_services = Service.objects.active().filter(last_best_date__isnull=True, is_monopolist=False)[:minus]
         services = services | temp_services
 
     service_count = Service.objects.active().count()

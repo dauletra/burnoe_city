@@ -135,3 +135,15 @@ class ServiceDetail(DetailView):
         obj = res['advert']
         res['other_adverts'] = Service.objects.active().filter(category=obj.category.id).exclude(id=obj.id).order_by('?')[:5]
         return res
+
+
+def terms(request):
+    return render(request, "terms.html", {})
+
+
+def confident(request):
+    return render(request, "confident.html", {})
+
+
+def help_page(request):
+    return render(request, "help.html", {})

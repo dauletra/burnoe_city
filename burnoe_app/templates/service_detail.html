@@ -74,11 +74,11 @@
             </div>
         {% endif %}
     </div>
-        {% include "_upgrade.html" %}
+        {% include "_info_fake.html" %}
     </div>
 
     <div class="mt-4" style="max-width: 650px">
-        <p class="pl-2 py-2 bg-light text-secondary">Похожие объявления</p>
+        <p class="pl-2 py-2 bg-light text-secondary">Другие объявления</p>
         <div class="mx-2 mx-md-0">
             {% for other_advert in other_adverts %}
                 {% include "_adv.html" with advert=other_advert only %}

@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block contacts %}
-    <div class="mb-2 my-3">
+    <div class="my-3">
         <div class="position-relative">
             <div id="contacts-container" class="d-flex hide-scroll-bar js-slider">
                 <a href="#" class="carousel-control-prev js-slide-back d-none font-weight-bold bg-primary" style="width: 30px;">
@@ -23,7 +23,7 @@
                     <span class="carousel-control-next-icon"></span>
                 </a>
                 {% for contact in contacts %}
-                    <div class="border mr-3 text-center border border-success bb-small" style="width: 160px; min-width: 160px">
+                    <div class="border ml-2 ml-sm-3 text-center border border-success bb-small" style="width: 160px; min-width: 160px">
                         <div class="overflow-hidden" style="white-space: nowrap; ">{{ contact.name }}</div>
                         <div class="overflow-hidden" style="white-space: nowrap; ">{{ contact.price }}</div>
                         <div class="overflow-hidden " style="white-space: nowrap; ">
@@ -119,6 +119,10 @@
             {% for advert in services %}
                 {% include '_adv.html' with advert=advert only %}
             {% endfor %}
+
+            <div class="text-center">
+                <a href="{% url 'service_list' %}" class="btn btn-outline-primary">Все объявления</a>
+            </div>
         </div>
         {% include '_upgrade.html' %}
     </div>

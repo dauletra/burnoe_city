@@ -85,7 +85,7 @@ class ServiceAdmin(admin.ModelAdmin):
 
 
 class SearchTextAdmin(admin.ModelAdmin):
-    list_display = ['id', 'text', 'count', 'modified_date']
+    list_display = ['id', 'text', 'count', 'created_date']
     list_display_links = ['id', 'text']
 
 

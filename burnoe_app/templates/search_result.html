@@ -12,7 +12,7 @@
             {% for advert in services %}
                 {% include "_adv.html" with advert=advert only %}
             {% empty %}
-                <div class="alert alert-secondary">
+                <div class="alert alert-warning">
                     <h5 class="alert-heading">Упс...</h5>
                     <p>По вашему запросу ничего не найден. Попробуйте <b>изменить запрос</b> 😉</p>
                     <hr/>

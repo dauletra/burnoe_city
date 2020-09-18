@@ -71,16 +71,16 @@ class Event(models.Model):
 
 
 class SearchText(models.Model):
-    text = models.CharField(max_length=100, verbose_name='Запрос', unique=True)
+    text = models.CharField(max_length=100, verbose_name='Запрос', unique_for_date='created_date')
     count = models.IntegerField(default=0, verbose_name='Количество запросов')
-    modified_date = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
+    created_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
 
     def __str__(self):
         return self.text + ' ({0})'.format(self.count)
 
     class Meta:
-        ordering = ['-count']
-        verbose_name_plural = 'SearchQueries'
+        ordering = ['-created_date']
+        verbose_name_plural = 'Search Texts'
 
 
 class Tag(models.Model):

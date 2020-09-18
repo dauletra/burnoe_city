@@ -1,5 +1,5 @@
 from django.utils.timezone import now
-from django.shortcuts import render
+from django.shortcuts import render, redirect, resolve_url
 from django.http import HttpResponse, Http404, JsonResponse
 from django.views.generic import ListView, DetailView, View
 from django.db.models import Count, F
@@ -8,6 +8,7 @@ from django.contrib.postgres.search import SearchQuery, SearchVector
 
 from .models import MomentAdvert, News, Service, ServiceCategory, ServicePhoto, SearchText, Tag
 import time
+from datetime import date
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -50,34 +51,33 @@ class SearchResult(View):
 
     def get(self, request, *args, **kwargs):
         # start_time = time.time()
-        query: str = request.GET.get('query', '')
+        query: str = request.GET.get('query', '').strip()
         # если нет текста вернуть 20 случайных объявлении
-        other_services = []
+        other_services = Service.objects.none()
         if query == '':
-            services = Service.objects.active().order_by('?')[:20]
-            title = 'Поиск услуг - рекламно-информационный сайт Жуалынского района'
-        else:
-            # сохранить текст запроса в базе данных
-            client_query, _ = SearchText.objects.get_or_create(text=query.lower())
-            client_query.count=F('count')+1
-            client_query.save()
-            # поиск по тегу
-            try:
-                tag = Tag.objects.get(text=query.lower())
-                services_by_tag = Service.objects.active().filter(tags=tag)
-            except Tag.DoesNotExist:
-                services_by_tag = Service.objects.none()
-            # поиск по полному тексту
-            search_vector = SearchVector('title', 'content', config='russian')
-            search_query = SearchQuery(query, config='russian')
-            services_by_query = Service.objects.active().annotate(search=search_vector).filter(search=search_query)
+            return redirect(resolve_url('service_list'))
+        # сохранить текст запроса в базе данных
+        client_query, _ = SearchText.objects.get_or_create(text=query.lower(), created_date__date=date.today())
+        client_query.count = F('count')+1
+        client_query.save()
+        # поиск по тегу
+        try:
+            tag = Tag.objects.get(text=query.lower())
+            services_by_tag = Service.objects.active().filter(tags=tag)
+        except Tag.DoesNotExist:
+            services_by_tag = Service.objects.none()
+        # поиск по полному тексту
+        search_vector = SearchVector('title', 'content', config='russian')
+        search_query = SearchQuery(query, config='russian')
+        services_by_query = Service.objects.active().annotate(search=search_vector).filter(search=search_query)
 
-            services = services_by_tag | services_by_query
-            if len(services) < 10:
-                other_services = Service.objects.active().exclude(content__icontains=query).order_by('?')[:5]
-            title = 'Результаты поиска по запросу {0}'.format(query)
+        services = services_by_tag | services_by_query
+        if len(services) < 10:
+            other_services = Service.objects.active().exclude(content__icontains=query).order_by('?')[:5]
+        title = 'Результаты поиска по запросу {0}'.format(query)
+        services.distinct()
         # print('@Timer: {0}'.format(time.time()-start_time))
-        return render(request, self.template_name, {'query': query, 'services': services.distinct(), 'title': title, 'other_services': other_services})
+        return render(request, self.template_name, {'query': query, 'services': services, 'title': title, 'other_services': other_services})
 
 
 def hints_json(request):

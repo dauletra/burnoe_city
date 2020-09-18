@@ -4,7 +4,7 @@
 
 <div class="clearfix mb-4">
         {% if advert.servicephoto_set.count > 0 %}
-        <div class="bb-responsive-photo mr-2 float-left">
+        <div class="bb-responsive-photo mr-2 pt-2 float-left">
             <a href="#" onclick="showImages(this, {{ advert.id }}); return false;">
                 <img src="{{ advert.servicephoto_set.first|crop_image:'130,130' }}"  class="img-fluid rounded" style="max-width: 100%; max-height: 100%;" />
             </a>

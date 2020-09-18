@@ -58,6 +58,9 @@ a.blood-color:hover {
     color: #9e0039;
 }
 
+a[href^="tel:"] {
+    color: #1c6cb1;
+}
 
 
 .text-black {

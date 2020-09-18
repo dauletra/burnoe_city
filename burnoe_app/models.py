@@ -15,9 +15,9 @@ def after_advert():
 
 
 class MomentAdvert(models.Model):
-    name = models.CharField(max_length=17, verbose_name='Название')
-    price = models.CharField(max_length=17, verbose_name='Цена')
-    phone = models.CharField(max_length=17, verbose_name='Телефон')
+    name = models.CharField(max_length=21, verbose_name='Название')
+    price = models.CharField(max_length=21, verbose_name='Цена')
+    phone = models.CharField(max_length=21, verbose_name='Телефон')
     created_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     modified_date = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
     last_date = models.DateTimeField(verbose_name="Дата удаления", default=after)

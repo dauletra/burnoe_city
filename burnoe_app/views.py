@@ -55,7 +55,7 @@ class SearchResult(View):
         other_services = []
         if query == '':
             services = Service.objects.active().order_by('?')[:20]
-            title = 'Поиск услуг по Жуалынскому району'
+            title = 'Поиск услуг - рекламно-информационный сайт Жуалынского района'
         else:
             # сохранить текст запроса в базе данных
             client_query, _ = SearchText.objects.get_or_create(text=query.lower())
@@ -127,11 +127,11 @@ class ServiceList(ListView):
 
 class ServiceDetail(DetailView):
     template_name = 'service_detail.html'
-    queryset = Service.objects.all()
+    queryset = Service.objects.active()
     context_object_name = 'advert'
 
     def get_context_data(self, **kwargs):
         res = super().get_context_data(**kwargs)
         obj = res['advert']
-        res['other_adverts'] = Service.objects.active().filter(category=obj.category.id).exclude(id=obj.id).order_by('?')[:4]
+        res['other_adverts'] = Service.objects.active().filter(category=obj.category.id).exclude(id=obj.id).order_by('?')[:5]
         return res

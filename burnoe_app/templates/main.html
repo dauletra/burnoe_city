@@ -4,7 +4,7 @@
 {% load crop_image %}
 {% load event_photo %}
 
-{% block title %}Burnoe.kz - рекламно-информационный портал Жуалынского района{% endblock title %}
+{% block title %}Burnoe.kz - рекламно-информационный сайт Жуалынского района{% endblock title %}
 
 {% block mycss %}
 <style>
@@ -23,7 +23,7 @@
                     <span class="carousel-control-next-icon"></span>
                 </a>
                 {% for contact in contacts %}
-                    <div class="border small2 mr-3 text-center border border-success" style="width: 130px; min-width: 130px">
+                    <div class="border mr-3 text-center border border-success bb-small" style="width: 160px; min-width: 160px">
                         <div class="overflow-hidden" style="white-space: nowrap; ">{{ contact.name }}</div>
                         <div class="overflow-hidden" style="white-space: nowrap; ">{{ contact.price }}</div>
                         <div class="overflow-hidden " style="white-space: nowrap; ">
@@ -115,7 +115,7 @@
 
     <!-- ADVERTS -->
     <div class="pl-sm-2 my-3 row no-gutters">
-        <div class="col" style="max-width: 650px;">
+        <div class="col mx-2 mx-md-0" style="max-width: 650px;">
             {% for advert in services %}
                 {% include '_adv.html' with advert=advert only %}
             {% endfor %}

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static crop_image pad_image %}
+{% load static crop_image pad_image get_displayed_tags %}
 
 {% block title %}{{ advert.title }} - рекламно-информационный сайт Жуалынского района{% endblock %}
 
@@ -56,7 +56,14 @@
             <div class="pl-2 pt-2">
                 <h5>{{ advert.title }}</h5>
                 <p class="text-muted normall">{{ advert.address }}</p>
-                <p style="word-wrap: break-word;" class="normall">{{ advert.content|linebreaksbr }}</p>
+                <div style="word-wrap: break-word;" class="normall">{{ advert.content|linebreaksbr }}</div>
+
+                <p>
+                    {% for tag in advert.tags|get_displayed_tags %}
+                        <a href="{% url 'search' %}?query={{ tag }}" class="badge badge-info">{{ tag }} </a>
+                    {% endfor %}
+                </p>
+
                 <p>
                 {% for contact in advert.contact_set.all %}
                     <img src="{% static 'icons/'|add:contact.type.icon %}" style="width: 1rem" />
@@ -67,6 +74,7 @@
                 <div class="text-muted" style="">Опубликовано: {{ advert.created_date }}</div>
                 <div class="text-muted" style="">Будет удален: {{ advert.last_date }}</div>
                 <div class="text-muted" style="">Номер объявления: #{{ advert.id }}</div>
+
             </div>
         {% else %}
             <div class="alert alert-secondary text-center">

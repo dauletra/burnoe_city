@@ -7,7 +7,7 @@ urlpatterns = [
     path('services', views.ServiceList.as_view(), name='service_list'),
     path('services/<int:pk>', views.ServiceDetail.as_view(), name='service_detail'),
 
-    path('search', views.SearchResult.as_view(), name='search_result'),
+    path('search', views.SearchResult.as_view(), name='search'),
 
     path('terms', views.terms, name='terms'),
     path('confident', views.confident, name='confident'),

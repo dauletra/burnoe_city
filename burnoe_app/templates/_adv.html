@@ -1,5 +1,6 @@
 {% load static %}
 {% load crop_image %}
+{% load get_displayed_tags %}
 
 
 <div class="clearfix mb-4">
@@ -12,7 +13,7 @@
         {% endif %}
         <div class="">
             <div class="pl-sm-2">
-                <a href="{% url 'service_detail' pk=advert.id %}" class="normall">{{ advert.title }}</a>
+                <a href="{% url 'service_detail' pk=advert.id %}" class="bb-title">{{ advert.title }}</a>
             </div>
             <div class="bb-small" style="word-wrap: break-word">
                 {{ advert.content|slice:"0:120" }}
@@ -25,6 +26,11 @@
                     </span>
                 </span>
                 <span class="continue-js text-muted d-sm-none"> дальше</span>
+            </div>
+            <div>
+                {% for tag in advert.tags|get_displayed_tags %}
+                    <a href="{% url 'search' %}?query={{ tag }}" class="badge badge-secondary">{{ tag }} </a>
+                {% endfor %}
             </div>
         </div>
 </div>

@@ -80,6 +80,9 @@ a.category:hover {
     color: white;
 }
 
+.bb-title {
+    font-size: 1.07rem;
+}
 
 .bb-categories {
     height: 138px;

@@ -8,8 +8,74 @@
         <a href="/">Басты бет</a>
         <span class="text-muted">&rang; Көмек</span>
     </div>
-    <div>
-        <h5>Хабарландыруды қалай жарнамалауға болады?</h5>
-        <p></p>
+
+    <div class="accordion mt-3" style="font-size: 0.9rem;" id="helpAccordion">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Хабарландыруды қалай жариялауға болады?
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#helpAccordion">
+                <div class="card-body">
+                    <p>
+                        Burnoe.kz сайты хабарландыруды WhatsApp желісі арқылы ғана қабылдайды. Хабарландыру міндетті
+                        түрде сайтта көрсетілген қандай да бір категорияға (санатқа) жатқызылуы тиіс.
+                    </p>
+                    <p>
+                        Хабарландырудың тақырыбы, сипаттамасы, телефон номері және фото суреттері болу керек. Тақырып ұсынылып отырған
+                        қызметтің атауын білдіреді, ал сипаттамасына қосымша ақпараттар: бағасы, жұмыс уақыты, мекен-жайы және т.б
+                        көрсетуге болады.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        Қандай хабарландыру қабылданады?
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#helpAccordion">
+                <div class="card-body">
+                    Хабарландыру міндетті түрде қызмет көрсету саласына қатысты болу керек.
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        Қандай хабарландыру қабылданбайды?
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#helpAccordion">
+                <div class="card-body">
+                    Ұсталған заттар, жануарлар, көлік немесе жылжымайтын мүлік сату бойынша хабарландырулар қабылданбайды.
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingFour">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                        Жарияланған хабарландыруды қалай өшіруге немесе өзгертуге болады?
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#helpAccordion">
+                <div class="card-body">
+                    Ол үшін хабарландыруда көрсетілген кез-келген номеріңіз арқылы бізге WhatsApp арқылы хабарласыңыз.
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

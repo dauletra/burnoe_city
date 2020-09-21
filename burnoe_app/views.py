@@ -58,11 +58,13 @@ class SearchResult(View):
             return redirect(resolve_url('service_list'))
         # сохранить текст запроса в базе данных
         client_query, _ = SearchText.objects.get_or_create(text=query.lower(), created_date__date=date.today())
-        client_query.count = F('count')+1
+        client_query.count = F('count') + 1
         client_query.save()
         # поиск по тегу
         try:
             tag = Tag.objects.get(text=query.lower())
+            tag.count = F('count') + 1
+            tag.save()
             services_by_tag = Service.objects.active().filter(tags=tag)
         except Tag.DoesNotExist:
             services_by_tag = Service.objects.none()
@@ -127,7 +129,8 @@ class ServiceList(ListView):
 
 class ServiceDetail(DetailView):
     template_name = 'service_detail.html'
-    queryset = Service.objects.active()
+    # eger xabarlandyru aktjvnyj bolmasa: qol zhetimsiz degen sooz shyghady
+    queryset = Service.objects.all()
     context_object_name = 'advert'
 
     def get_context_data(self, **kwargs):

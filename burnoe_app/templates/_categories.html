@@ -1,0 +1,12 @@
+{% load static %}
+
+<div class="my-2 pl-sm-2 d-flex justify-content-center flex-column flex-sm-row flex-wrap hide-scroll-bar bb-categories m-auto" style="max-width: 600px;">
+    {% for category in categories %}
+        <div class="d-flex mb-3 ml-2 bb-category">
+            <img src="{% static "icons/"|add:category.icon_name %}" style="width: 2.4rem" />
+            <a href="{% url 'service_list' %}?category={{ category.id }}" class="ml-2 align-self-center">
+                {{ category.name }}
+            </a>
+        </div>
+    {% endfor %}
+</div>

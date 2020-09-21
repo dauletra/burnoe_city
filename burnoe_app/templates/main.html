@@ -4,7 +4,7 @@
 {% load crop_image %}
 {% load event_photo %}
 
-{% block title %}Burnoe.kz - рекламно-информационный сайт Жуалынского района{% endblock title %}
+{% block title %}Burnoe.kz - Жуалы ауданы бойынша қызметтерді жарнамалау сайты{% endblock title %}
 
 {% block mycss %}
 <style>
@@ -53,8 +53,8 @@
         </div>
         <div class="col-12 col-md-4 order-1 border-top border-bottom order-md-2">
             <div class="m-auto text-center rounded py-2" style="max-width: 350px; color: #1c9300;">
-                <div>Подать объявление <span class="font-weight-bold blood-color">бесплатно</span></div>
-                <div>через Whatsapp</div>
+                <div>Whatsapp арқылы</div>
+                <div><span class="font-weight-bold blood-color">тегін</span> хабарландыру беріңіз </div>
                 <div>
                     <img src="{% static 'icons/whatsapp.svg' %}" class="img-fluid" style="width: 1.25rem;" />
                     <a href="https://wa.me/77751572323" style="color: #1c9300" class="font-weight-bold" target="_blank">+7 775 157 2323</a>
@@ -101,16 +101,7 @@
 
     <!-- CATEGORIES -->
     <div class="my-3">
-        <div class="my-2 pl-sm-2 d-flex justify-content-center flex-column flex-sm-row flex-wrap hide-scroll-bar bb-categories">
-            {% for category in service_categories %}
-                <div class="d-flex mb-3 ml-2" style="width: 180px; min-width: 180px">
-                    <img src="{% static "icons/"|add:category.icon_name %}" style="width: 2.4rem" />
-                    <a href="{% url 'service_list' %}?category={{ category.id }}" class="ml-2 align-self-center">
-                        {{ category.name }}
-                    </a>
-                </div>
-            {% endfor %}
-        </div>
+        {% include '_categories.html' with categories=service_categories only %}
     </div>
 
     <!-- ADVERTS -->
@@ -121,7 +112,7 @@
             {% endfor %}
 
             <div class="text-center">
-                <a href="{% url 'service_list' %}" class="btn btn-outline-primary">Все объявления</a>
+                <a href="{% url 'service_list' %}" class="btn btn-outline-primary">Барлық хабарландыру</a>
             </div>
         </div>
         {% include '_upgrade.html' %}

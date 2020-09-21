@@ -2,7 +2,7 @@
 {% load static %}
 {% load crop_image %}
 
-{% block title %}Все услуги - рекламно-информационный сайт Жуалынского района{% endblock title %}
+{% block title %}Қызметтер тізімі - Жуалы ауданы бойынша қызметтерді жарнамалау сайты{% endblock title %}
 
 {% block content %}
     {% include "_search_bar.html" %}
@@ -11,7 +11,7 @@
         <div>
             {% if current_category %}
             <div class="pl-2 normall mt-2 mb-3">
-                <a href="{% url 'service_list' %}">Категории</a>
+                <a href="{% url 'service_list' %}">Категориялар</a>
                 <span class="text-muted"> &rang; {{ current_category.name }}</span>
             </div>
             {% endif %}
@@ -20,16 +20,7 @@
         {% if not current_category %}
         <!-- CATEGORIES -->
         <div class="my-3">
-            <div class="my-2 pl-sm-2 d-flex justify-content-center flex-column flex-sm-row flex-wrap hide-scroll-bar bb-categories">
-                {% for category in service_categories %}
-                    <div class="d-flex mb-3 ml-2" style="width: 178px; min-width: 178px">
-                        <img src="{% static "icons/"|add:category.icon_name %}" style="width: 2.4rem" />
-                        <a href="{% url 'service_list' %}?category={{ category.id }}" class="ml-2 align-self-center">
-                            {{ category.name }}
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
+            {% include '_categories.html' with categories=service_categories only %}
         </div>
         {% endif %}
     </div>
@@ -40,7 +31,7 @@
                 {% include '_adv.html' with advert=advert only %}
             {% empty %}
                 <div class="h5 alert alert-info text-center">
-                    Пока нет активных объявлении 😴
+                    Әзірге хабарландыру жоқ 😴
                 </div>
             {% endfor %}
         </div>

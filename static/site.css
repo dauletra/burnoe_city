@@ -90,6 +90,11 @@ a.category:hover {
     font-size: 0.9rem;
 }
 
+.bb-category {
+    width: 180px;
+    min-width: 180px
+}
+
 .bb-search-bar {
     width: 310px;
     margin: auto;

@@ -16,16 +16,14 @@
                 <a href="{% url 'service_detail' pk=advert.id %}" class="bb-title">{{ advert.title }}</a>
             </div>
             <div class="bb-small" style="word-wrap: break-word">
-                {{ advert.content|slice:"0:120" }}
-                <span class="d-none d-sm-inline">
-                    {{ advert.content|slice:"121:305" }}
+                {{ advert.content|slice:"0:120" }}<span class="d-none d-sm-inline">{{ advert.content|slice:"120:305" }}
                     <span>{{ advert.address }}</span>
                     <span class="text-center text-sm-left" style="white-space: nowrap;">
                         <img src="{% static "icons/"|add:advert.contact_set.first.type.icon %}" style="width: 1rem" />
                         <a href="{{ advert.contact_set.first.type.link_suff }}{{ advert.contact_set.first.account }}">{{ advert.contact_set.first.account }}</a>
                     </span>
                 </span>
-                <span class="continue-js text-muted d-sm-none"> дальше</span>
+                <span class="continue-js text-muted d-sm-none" style="white-space: nowrap; text-decoration: underline;"> ары қарай</span>
             </div>
             <div>
                 {% for tag in advert.tags|get_displayed_tags %}

@@ -12,11 +12,11 @@
         </div>
         {% endif %}
         <div class="">
-            <div class="pl-sm-2">
+            <h3 class="pl-sm-2">
                 <a href="{% url 'service_detail' pk=advert.id %}" class="bb-title">{{ advert.title }}</a>
-            </div>
+            </h3>
             <div class="bb-small" style="word-wrap: break-word">
-                {{ advert.content|slice:"0:120" }}<span class="d-none d-sm-inline">{{ advert.content|slice:"120:305" }}
+                {{ advert.content|slice:"0:120" }}<span class="d-none d-sm-inline">{{ advert.content|slice:"120:" }}
                     <span>{{ advert.address }}</span>
                     <span class="text-center text-sm-left" style="white-space: nowrap;">
                         <img src="{% static "icons/"|add:advert.contact_set.first.type.icon %}" style="width: 1rem" />

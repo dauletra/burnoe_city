@@ -2,7 +2,13 @@
 {% load static %}
 {% load crop_image %}
 
-{% block title %}Қызметтер тізімі - Жуалы ауданы бойынша қызметтерді жарнамалау сайты{% endblock title %}
+{% block title %}
+    {% if current_category %}
+        {{ current_category.name|title }}
+    {% else %}
+        Қызметтер тізімі
+    {% endif %} - {{ page_obj.number }} бет - Жуалы ауданы бойынша қызметтерді жарнамалау сайты
+{% endblock title %}
 
 {% block content %}
     {% include "_search_bar.html" %}

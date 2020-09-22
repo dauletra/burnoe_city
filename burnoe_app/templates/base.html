@@ -1,7 +1,7 @@
 {% load static %}
 {% load startswith %}
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="kk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,9 +10,11 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'site.css' %}" />
-    {% block mycss %}{% endblock mycss %}
 
     <title>{% block title %}{% endblock title %}</title>
+    <meta name="description" content="{% block description %}Жуалы ауданы бойынша жарнамалық сайт. Тамақтану,
+        тасымалдау, демалу және көңіл көтеру, білім беру курстары, техниканы жөндеу және т.б. хабарландырулар табасыз{% endblock %}" >
+
 </head>
 <body>
     <div class="container-fluid p-0" style="max-width: 860px;">
@@ -29,36 +31,6 @@
                 </a>
             </div>
         </div>
-
-        <!-- MENU -->
-{#        <div class="mb-2">#}
-{#            <ul class="nav nav-tabs bg-light text-uppercase">#}
-{#                <li class="nav-item">#}
-{#                    <a#}
-{#                            {% if request.path == "/" or request.path|startswith:"/services" %}#}
-{#                                class="nav-link active"#}
-{#                            {% else %}#}
-{#                                class="nav-link"#}
-{#                            {% endif %} href="{% url 'service_list' %}">Услуги</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a#}
-{#                            {% if request.path|startswith:"/market" %}#}
-{#                                class="nav-link active"#}
-{#                            {% else %}#}
-{#                                class="nav-link"#}
-{#                            {% endif %}#}
-{#                            href="{% url 'product_list' %}">Маркет</a>#}
-{#                </li>#}
-{#            </ul>#}
-{#        </div>#}
-
-{#        <div class="bg-light py-2 d-flex hide-scroll-bar" style="">#}
-{#            <a href="{% url 'service_list' %}" class="text-uppercase ml-3 text-black">Услуги</a>#}
-{#            <span class="text-uppercase ml-3 text-black">Недвижимость</span>#}
-{#            <span class="text-uppercase ml-3 text-black">Работа</span>#}
-{#            <span class="text-uppercase ml-3 text-black">Маркет</span>#}
-{#        </div>#}
 
         <!-- CONTACTS -->
         {% block contacts %}{% endblock %}
@@ -92,6 +64,9 @@
         </div>
 
         <div>&copy; Бурное 2020</div>
+        <div>
+            <a href="mailto:zhualyburnoe@gmail.com">zhualyburnoe@gmail.com</a>
+        </div>
         <div>Icons made by <a href="https://www.flaticon.local/authors/freepik" title="Freepik" target="_blank">Freepik</a> from <a href="https://www.flaticon.local/" title="Flaticon" target="_blank">www.flaticon.local</a></div>
     </div>
 

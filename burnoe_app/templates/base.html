@@ -3,6 +3,15 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178693965-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-178693965-1');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon_io/favicon-32x32.png' %}">
@@ -22,12 +31,12 @@
         <div class="navbar navbar-light bg-primary normall bg-base">
             <a class="navbar-brand text-white font-weight-bolder" style="" href="/">Burnoe.kz</a>
             <div class="d-flex align-self-center">
-                <a href="#" class="mr-2">
+                <a href="https://instagram.com/burnoekz" class="mr-2" target="_blank">
                     <img src="{% static 'icons/instagram.svg' %}" width="20rem" />
                 </a>
-                <a href="#">
+                <a  href="https://wa.me/77751572323" class="text-white font-weight-bold" target="_blank">
                     <img class="mr-1" src="{% static 'icons/whatsapp.svg' %}" width="20rem" />
-                    <a href="https://wa.me/77751572323" class="text-white font-weight-bold" target="_blank">+7 775 157 2323</a>
+                    <span>+7 775 157 2323</span>
                 </a>
             </div>
         </div>

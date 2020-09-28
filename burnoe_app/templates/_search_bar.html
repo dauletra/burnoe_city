@@ -2,7 +2,7 @@
     <form class="bb-search-bar bb-small pb-3" action="{% url 'search' %}" method="get">
         <div class="mb-2 text-muted">Қызметті іздеу:</div>
         <div class="d-flex">
-            <input name="query" value="{{ query }}" class="form-control basicAutoComplete" autocomplete="off" data-url="/hints.json" required placeholder="Не іздедіңіз?" />
+            <input name="query" value="{{ query }}" class="form-control basicAutoComplete" autocomplete="off" data-url="/hints.json" placeholder="Не іздедіңіз?" />
             <button class="btn btn-primary ml-2">Іздеу</button>
         </div>
     </form>

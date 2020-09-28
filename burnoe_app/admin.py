@@ -23,11 +23,6 @@ class NewsAdmin(admin.ModelAdmin):
     list_display_links = ['id', 'title']
 
 
-class EventAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name1', 'name2', 'created_date', 'last_date', 'is_active']
-    list_display_links = ['id', 'name1']
-
-
 class ServiceCategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'order', 'count']
     list_display_links = ['id', 'name']
@@ -74,7 +69,7 @@ class ServiceAdmin(admin.ModelAdmin):
         queryset.update(last_date=now()+timedelta(days=21))
 
     def add_last_best_date(self, request, queryset):
-        queryset.update(elect_date=now()+timedelta(days=14))
+        queryset.update(last_best_date=now()+timedelta(days=14))
 
     add_last_date.short_description = 'Увеличить дату удаления на 21 дней'
     add_last_best_date.short_description = 'Увел. дату удал. из избран. на 14 дней'
@@ -90,7 +85,7 @@ class SearchTextAdmin(admin.ModelAdmin):
 
 
 class TagAdmin(admin.ModelAdmin):
-    list_display = ['id', 'text', 'alternative_text', 'count', 'modified_date']
+    list_display = ['id', 'text', 'alternative_text', 'count', 'is_displayed', 'modified_date']
     list_display_links = ['id', 'text']
 
 
@@ -99,6 +94,5 @@ admin.site.register(Tag, TagAdmin)
 admin.site.register(SearchText, SearchTextAdmin)
 admin.site.register(MomentAdvert, MomentAdvertAdmin)
 admin.site.register(News, NewsAdmin)
-admin.site.register(Event, EventAdmin)
 admin.site.register(ServiceCategory, ServiceCategoryAdmin)
 admin.site.register(Service, ServiceAdmin)

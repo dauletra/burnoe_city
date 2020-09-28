@@ -1,0 +1,20 @@
+[
+{
+  "model": "burnoe_app.contacttype",
+  "pk": 1,
+  "fields": {
+    "name": "\u0422\u0435\u043b\u0435\u0444\u043e\u043d",
+    "link_suff": "tel:",
+    "icon": "phone.svg"
+  }
+},
+{
+  "model": "burnoe_app.contacttype",
+  "pk": 2,
+  "fields": {
+    "name": "WhatsApp",
+    "link_suff": "https://wa.me/",
+    "icon": "whatsapp.svg"
+  }
+}
+]

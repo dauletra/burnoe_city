@@ -124,9 +124,9 @@ STATIC_URL = '/static/'
 import cloudinary
 
 cloudinary.config(
-    cloud_name = "burnoe",
-    api_key = "644119254921293",
-    api_secret = "hUVDdJWICMlfcg20Cg9WVXp-q00"
+    cloud_name="burnoe",
+    api_key="644119254921293",
+    api_secret="hUVDdJWICMlfcg20Cg9WVXp-q00"
 )
 
 DATABASES['default'] = {
@@ -154,5 +154,6 @@ import dj_database_url
 prod_db = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+if 'localhost' not in ALLOWED_HOSTS:
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_SSL_REDIRECT = True

@@ -68,7 +68,7 @@
                 <p>
                 {% for contact in advert.contact_set.all %}
                     <img src="{% static 'icons/'|add:contact.type.icon %}" style="width: 1rem" />
-                    <a href="{{ contact.type.link_suff }}{{ contact.account }}">{{ contact.account }}</a><br/>
+                    <a href="{{ contact.type.link_suff }}{{ contact.account }}" class="js-tel-number">{{ contact.account }}</a><br/>
                 {% endfor %}
                 </p>
 

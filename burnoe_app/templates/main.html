@@ -27,7 +27,7 @@
                         <div class="overflow-hidden" style="white-space: nowrap; ">{{ contact.name }}</div>
                         <div class="overflow-hidden" style="white-space: nowrap; ">{{ contact.price }}</div>
                         <div class="overflow-hidden " style="white-space: nowrap; ">
-                            <a href="tel:{{ contact.phone }}">{{ contact.phone }}</a>
+                            <a href="tel:{{ contact.phone }}" class="js-tel-number">{{ contact.phone }}</a>
                         </div>
                     </div>
                 {% endfor %}
@@ -89,7 +89,7 @@
                     </div>
                     <div class="p-1 border" style="white-space: nowrap;">
                         <img src="{% static 'icons/'|add:advert.contact_set.first.type.icon %}" style="width: 1rem" />
-                        <a href="{{ advert.contact_set.first.type.link_suff }}{{ advert.contact_set.first.account }}">{{ advert.contact_set.first.account }}</a>
+                        <a href="{{ advert.contact_set.first.type.link_suff }}{{ advert.contact_set.first.account }}" class="js-tel-number">{{ advert.contact_set.first.account }}</a>
                     </div>
                 </div>
                 {% endfor %}

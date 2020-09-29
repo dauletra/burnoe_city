@@ -20,7 +20,7 @@
                     <span>{{ advert.address }}</span>
                     <span class="text-center text-sm-left" style="white-space: nowrap;">
                         <img src="{% static "icons/"|add:advert.contact_set.first.type.icon %}" style="width: 1rem" />
-                        <a href="{{ advert.contact_set.first.type.link_suff }}{{ advert.contact_set.first.account }}">{{ advert.contact_set.first.account }}</a>
+                        <a href="{{ advert.contact_set.first.type.link_suff }}{{ advert.contact_set.first.account }}" class="js-tel-number">{{ advert.contact_set.first.account }}</a>
                     </span>
                 </span>
                 <span class="continue-js text-muted d-sm-none" style="white-space: nowrap; text-decoration: underline;"> ары қарай</span>

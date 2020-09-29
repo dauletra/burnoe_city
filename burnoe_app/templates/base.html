@@ -106,6 +106,17 @@
         $('#imageModal').on('hidden.bs.modal', function(e) {
             $('#imageModalBody').empty()
         })
+
+        let elements = document.getElementsByClassName('js-tel-number');
+        let elem;
+
+        for (elem of elements) {
+            let text = elem.textContent;
+            if (/^\d+$/.test(text) && text.length === 11) {
+                text = '+'+text.slice(0, 1)+'('+text.slice(1, 4)+')'+text.slice(4, 7)+'-'+text.slice(7);
+                elem.textContent = text;
+            }
+        }
     </script>
     {% block myscript %}{% endblock myscript %}
 </body>

@@ -74,7 +74,7 @@ class ServiceAdmin(admin.ModelAdmin):
         queryset.update(last_date=now()+timedelta(days=21))
 
     def add_last_best_date(self, request, queryset):
-        queryset.update(elect_date=now()+timedelta(days=14))
+        queryset.update(last_best_date=now()+timedelta(days=14))
 
     add_last_date.short_description = 'Увеличить дату удаления на 21 дней'
     add_last_best_date.short_description = 'Увел. дату удал. из избран. на 14 дней'
@@ -90,8 +90,14 @@ class SearchTextAdmin(admin.ModelAdmin):
 
 
 class TagAdmin(admin.ModelAdmin):
-    list_display = ['id', 'text', 'alternative_text', 'count', 'modified_date']
+    list_display = ['id', 'text', 'alternative_text', 'count', 'is_displayed', 'modified_date']
     list_display_links = ['id', 'text']
+    actions = ['make_displayed']
+
+    def make_displayed(self, request, queryset):
+        queryset.update(is_displayed=True)
+
+    make_displayed.short_description = 'Показывать на сайте'
 
 
 admin.site.register(ContactType, ContactTypeAdmin)

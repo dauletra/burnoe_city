@@ -105,6 +105,8 @@ class Tag(models.Model):
     count = models.IntegerField(default=0, verbose_name='Количество запросов')
     modified_date = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
 
+    is_displayed.boolean = True
+
     def __str__(self):
         return self.text
 
